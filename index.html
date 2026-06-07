@@ -1,0 +1,2915 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Civix.ID — Platform Digital Identitas Profesional Guru PPKn Indonesia</title>
+<meta name="description" content="Civix.ID memetakan kompetensi profesional guru Pendidikan Pancasila dan Kewarganegaraan melalui kerangka ilmiah RIPP-PPKn — 10 dimensi multidimensional yang mengintegrasikan civic education, pedagogik digital, dan nilai Pancasila.">
+<meta name="theme-color" content="#03070F">
+
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,800;0,900;1,700&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+
+<!-- Chart.js -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+
+<style>
+/* ══════════════════════════════════════════════════════════════
+   CIVIX.ID v4.0 — IMMERSIVE DARK LUXURY DESIGN SYSTEM
+   Obsidian · Champagne · Crimson · Electric Cyan · Royal Violet
+══════════════════════════════════════════════════════════════ */
+:root {
+  /* Foundation */
+  --void:       #03070F;
+  --obsidian:   #060C18;
+  --abyss:      #080F1E;
+  --deep:       #0C1526;
+  --panel:      #101C30;
+  --surface:    #152034;
+  --lift:       #1C2A42;
+  --border:     rgba(255,255,255,0.06);
+  --border-g:   rgba(210,165,60,0.3);
+  --border-c:   rgba(0,210,180,0.25);
+
+  /* Brand palette */
+  --crimson:    #C41B46;
+  --crimson-l:  #E02358;
+  --crimson-dim:rgba(196,27,70,0.12);
+  --gold:       #D2A53C;
+  --gold-l:     #EBB94A;
+  --gold-dim:   rgba(210,165,60,0.1);
+  --cyan:       #00D4B4;
+  --cyan-dim:   rgba(0,212,180,0.08);
+  --violet:     #7C6EF5;
+  --violet-dim: rgba(124,110,245,0.1);
+  --emerald:    #10B981;
+
+  /* Text */
+  --t0: rgba(255,255,255,0.95);
+  --t1: rgba(255,255,255,0.68);
+  --t2: rgba(255,255,255,0.38);
+  --t3: rgba(255,255,255,0.16);
+
+  /* Motion */
+  --ease:   cubic-bezier(0.4,0,0.2,1);
+  --spring: cubic-bezier(0.34,1.56,0.64,1);
+  --quart:  cubic-bezier(0.25,1,0.5,1);
+  --expo:   cubic-bezier(0.16,1,0.3,1);
+
+  /* Radius */
+  --r-sm:6px; --r-md:12px; --r-lg:18px; --r-xl:24px; --r-2xl:36px; --r-pill:999px;
+
+  /* Shadows */
+  --sh-sm:  0 2px 20px rgba(0,0,0,0.5);
+  --sh-md:  0 8px 48px rgba(0,0,0,0.65);
+  --sh-gold:0 0 60px rgba(210,165,60,0.08);
+  --sh-red: 0 0 40px rgba(196,27,70,0.25);
+}
+
+/* ── RESET ── */
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{font-size:16px;scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{
+  font-family:'DM Sans',system-ui,sans-serif;
+  background:var(--void);color:var(--t0);
+  overflow-x:hidden;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+}
+img{max-width:100%;height:auto;display:block}
+button{font-family:inherit;cursor:pointer}
+a{text-decoration:none;color:inherit}
+::selection{background:rgba(210,165,60,0.18);color:var(--gold-l)}
+::-webkit-scrollbar{width:3px}
+::-webkit-scrollbar-track{background:var(--abyss)}
+::-webkit-scrollbar-thumb{background:var(--surface);border-radius:2px}
+
+/* ── GRAIN TEXTURE ── */
+body::before{
+  content:'';position:fixed;inset:0;z-index:0;pointer-events:none;opacity:0.02;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size:200px 200px;
+}
+
+/* ── SCROLL PROGRESS BAR ── */
+.scroll-progress{
+  position:fixed;top:0;left:0;height:2px;z-index:850;width:0%;
+  background:linear-gradient(90deg,var(--crimson),var(--gold),var(--cyan));
+  box-shadow:0 0 12px rgba(210,165,60,0.5);
+  transition:width 0.08s linear;
+}
+
+/* ── ANIMATED GRADIENT MESH BACKGROUND ── */
+.orb-bg{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden}
+.orb{position:absolute;border-radius:50%;filter:blur(110px);animation:orbFloat 20s ease-in-out infinite alternate}
+.orb-1{width:620px;height:620px;background:radial-gradient(circle,rgba(196,27,70,0.08),transparent 70%);top:-200px;right:-120px;animation-duration:18s}
+.orb-2{width:520px;height:520px;background:radial-gradient(circle,rgba(210,165,60,0.06),transparent 70%);bottom:-160px;left:-120px;animation-duration:22s;animation-delay:-8s}
+.orb-3{width:420px;height:420px;background:radial-gradient(circle,rgba(0,212,180,0.05),transparent 70%);top:38%;left:50%;transform:translateX(-50%);animation-duration:16s;animation-delay:-4s}
+.orb-4{width:360px;height:360px;background:radial-gradient(circle,rgba(124,110,245,0.05),transparent 70%);top:60%;right:10%;animation-duration:24s;animation-delay:-12s}
+@keyframes orbFloat{0%{transform:translate(0,0) scale(1)}100%{transform:translate(46px,-46px) scale(1.12)}}
+
+/* Cursor-reactive aurora */
+.aurora{
+  position:fixed;width:760px;height:760px;border-radius:50%;z-index:0;pointer-events:none;
+  background:radial-gradient(circle,rgba(210,165,60,0.05),rgba(196,27,70,0.03) 40%,transparent 65%);
+  filter:blur(60px);transform:translate(-50%,-50%);transition:opacity 0.6s;opacity:0;
+  left:50%;top:30%;
+}
+
+/* ── CUSTOM CURSOR ── */
+@media(hover:hover) and (pointer:fine){
+  body{cursor:none}
+  #cur-dot{
+    width:6px;height:6px;background:var(--gold);border-radius:50%;
+    position:fixed;pointer-events:none;z-index:9999;
+    transform:translate(-50%,-50%);
+    transition:width .12s,height .12s,opacity .12s;
+  }
+  #cur-ring{
+    width:30px;height:30px;border:1px solid rgba(210,165,60,0.3);border-radius:50%;
+    position:fixed;pointer-events:none;z-index:9998;
+    transform:translate(-50%,-50%);transition:width .14s,height .14s,border-color .14s,background .14s;
+  }
+  #cur-ring.hov{width:46px;height:46px;border-color:var(--gold);background:rgba(210,165,60,0.04)}
+  #cur-ring.click{width:22px;height:22px;border-color:var(--crimson-l)}
+}
+
+/* ══════════════════════════════════════════
+   NAVIGATION
+══════════════════════════════════════════ */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:800;
+  height:64px;padding:0 clamp(20px,5%,80px);
+  display:flex;align-items:center;justify-content:space-between;
+  background:rgba(3,7,15,0.6);
+  backdrop-filter:blur(32px) saturate(1.6);
+  -webkit-backdrop-filter:blur(32px) saturate(1.6);
+  border-bottom:1px solid var(--border);
+  transition:all 0.3s var(--ease);
+}
+nav.scrolled{
+  background:rgba(3,7,15,0.92);
+  border-bottom-color:rgba(210,165,60,0.1);
+  box-shadow:0 4px 60px rgba(0,0,0,0.8);
+}
+.nav-logo{
+  font-family:'Playfair Display',serif;
+  font-size:20px;font-weight:900;letter-spacing:-0.5px;
+  display:flex;align-items:center;gap:8px;cursor:pointer;
+  color:var(--t0);transition:all 0.3s;
+}
+.nav-logo .ix{color:var(--gold)}
+.nav-logo .live-pill{
+  font-family:'Space Mono',monospace;
+  font-size:8px;font-weight:700;letter-spacing:2px;
+  color:var(--cyan);background:rgba(0,212,180,0.08);
+  border:1px solid rgba(0,212,180,0.2);
+  padding:3px 8px;border-radius:var(--r-pill);
+  animation:pulse 2.5s ease-in-out infinite;
+}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:0.5}}
+
+.nav-links{display:flex;gap:2px;list-style:none;align-items:center}
+.nav-link{
+  color:var(--t1);font-size:13px;font-weight:500;
+  padding:7px 13px;border-radius:var(--r-pill);
+  transition:all 0.2s;cursor:pointer;border:1px solid transparent;
+  letter-spacing:0.01em;white-space:nowrap;
+}
+.nav-link:hover{color:var(--t0);background:rgba(255,255,255,0.04)}
+.nav-link.active{color:var(--gold);border-color:var(--border-g);background:var(--gold-dim)}
+
+.nav-cta{
+  background:linear-gradient(135deg,var(--crimson),var(--crimson-l));
+  color:#fff;padding:8px 18px;border-radius:var(--r-pill);
+  font-size:12.5px;font-weight:600;border:none;
+  transition:all 0.25s;letter-spacing:0.03em;
+  box-shadow:0 4px 20px rgba(196,27,70,0.3);
+  position:relative;overflow:hidden;white-space:nowrap;
+}
+.nav-cta::after{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(255,255,255,0.12),transparent);opacity:0;transition:opacity 0.25s}
+.nav-cta:hover::after{opacity:1}
+.nav-cta:hover{transform:translateY(-1px);box-shadow:0 8px 32px rgba(196,27,70,0.5)}
+
+.nav-burger{display:none;flex-direction:column;gap:4px;padding:8px;background:none;border:none}
+.nav-burger span{display:block;width:18px;height:1.5px;background:var(--t1);border-radius:2px;transition:all 0.25s}
+.nav-burger.open span:nth-child(1){transform:rotate(45deg) translate(4px,4px)}
+.nav-burger.open span:nth-child(2){opacity:0;transform:scaleX(0)}
+.nav-burger.open span:nth-child(3){transform:rotate(-45deg) translate(4px,-4px)}
+
+.nav-mob{
+  display:none;position:fixed;top:64px;left:0;right:0;z-index:799;
+  background:rgba(3,7,15,0.97);backdrop-filter:blur(32px);
+  border-bottom:1px solid var(--border);
+  padding:12px clamp(20px,5%,80px);
+  flex-direction:column;gap:3px;max-height:calc(100vh - 64px);overflow-y:auto;
+}
+.nav-mob.open{display:flex;animation:slideDown 0.22s var(--ease)}
+@keyframes slideDown{from{opacity:0;transform:translateY(-8px)}to{opacity:1;transform:translateY(0)}}
+.nav-mob .nav-link{padding:12px 16px;font-size:13.5px;border-radius:var(--r-lg)}
+
+/* ══════════════════════════════════════════
+   PAGE SYSTEM
+══════════════════════════════════════════ */
+.page{display:none;min-height:100vh;position:relative;z-index:1}
+.page.active{display:block;animation:pageIn 0.5s var(--expo) both}
+@keyframes pageIn{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
+.pt-nav{height:64px}
+
+/* ══════════════════════════════════════════
+   LAYOUT
+══════════════════════════════════════════ */
+.container{max-width:1180px;margin:0 auto;padding:0 clamp(20px,5%,80px)}
+section{padding:clamp(60px,8vw,110px) 0}
+
+.sec-eyebrow{
+  font-family:'Space Mono',monospace;
+  font-size:10px;font-weight:700;letter-spacing:3px;
+  color:var(--gold);text-transform:uppercase;
+  display:flex;align-items:center;gap:10px;margin-bottom:16px;
+}
+.sec-eyebrow::before{content:'';width:28px;height:1px;background:linear-gradient(90deg,transparent,var(--gold))}
+
+.sec-title{
+  font-family:'Playfair Display',serif;
+  font-size:clamp(30px,4.5vw,56px);
+  font-weight:700;line-height:1.15;letter-spacing:-1px;
+  color:var(--t0);margin-bottom:18px;
+}
+.sec-title em{font-style:italic;color:var(--gold)}
+.sec-body{font-size:15px;line-height:1.8;color:var(--t1);max-width:620px}
+
+/* ── REVEAL ANIMATIONS ── */
+.reveal{opacity:0;transform:translateY(28px);transition:opacity 0.7s var(--expo),transform 0.7s var(--expo)}
+.reveal.in{opacity:1;transform:translateY(0)}
+.rd1{transition-delay:0.08s}
+.rd2{transition-delay:0.16s}
+.rd3{transition-delay:0.24s}
+.rd4{transition-delay:0.32s}
+.rd5{transition-delay:0.4s}
+
+/* ── BUTTONS ── */
+.btn-primary{
+  display:inline-flex;align-items:center;gap:8px;
+  background:linear-gradient(135deg,var(--crimson),var(--crimson-l));
+  color:#fff;padding:15px 36px;border-radius:var(--r-pill);
+  font-size:14px;font-weight:600;border:none;
+  transition:transform 0.25s var(--spring),box-shadow 0.25s;letter-spacing:0.02em;
+  box-shadow:0 4px 24px rgba(196,27,70,0.3);
+  position:relative;overflow:hidden;
+}
+.btn-primary::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(255,255,255,0.15),transparent);opacity:0;transition:opacity 0.25s}
+.btn-primary:hover::before{opacity:1}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 10px 40px rgba(196,27,70,0.5)}
+
+.btn-outline{
+  display:inline-flex;align-items:center;gap:8px;
+  background:transparent;color:var(--t1);
+  padding:14px 28px;border-radius:var(--r-pill);
+  font-size:14px;font-weight:500;border:1px solid var(--border);
+  transition:all 0.25s;
+}
+.btn-outline:hover{border-color:var(--border-g);color:var(--t0);background:var(--gold-dim)}
+
+/* ══════════════════════════════════════════
+   HERO PAGE
+══════════════════════════════════════════ */
+.hero-section{min-height:100vh;display:flex;align-items:center;padding-top:120px;padding-bottom:80px;position:relative;overflow:hidden}
+.hero-grid{
+  position:absolute;inset:0;pointer-events:none;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.015) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(255,255,255,0.015) 1px,transparent 1px);
+  background-size:60px 60px;
+  mask-image:radial-gradient(ellipse 80% 60% at 50% 50%,black 30%,transparent 100%);
+  -webkit-mask-image:radial-gradient(ellipse 80% 60% at 50% 50%,black 30%,transparent 100%);
+  animation:gridShift 8s ease-in-out infinite alternate;
+}
+@keyframes gridShift{0%{background-position:0 0}100%{background-position:30px 30px}}
+.hero-scan{position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--cyan),transparent);animation:scanLine 4s ease-in-out infinite;opacity:0.4}
+@keyframes scanLine{0%,100%{top:20%;opacity:0}50%{top:80%;opacity:0.6}}
+
+.hero-inner{display:grid;grid-template-columns:1fr 460px;gap:60px;align-items:center;width:100%}
+
+.hero-badge{
+  display:inline-flex;align-items:center;gap:8px;
+  background:var(--crimson-dim);border:1px solid rgba(196,27,70,0.2);
+  border-radius:var(--r-pill);padding:8px 18px;margin-bottom:28px;
+  animation:fadeUp 0.8s var(--expo) both;
+}
+.hero-badge-dot{width:7px;height:7px;border-radius:50%;background:var(--crimson-l);animation:pulse 1.8s ease-in-out infinite}
+.hero-badge-text{font-family:'Space Mono',monospace;font-size:10px;font-weight:700;letter-spacing:2px;color:var(--crimson-l);text-transform:uppercase}
+
+.hero-title{
+  font-family:'Playfair Display',serif;
+  font-size:clamp(38px,5.5vw,70px);
+  font-weight:900;line-height:1.08;letter-spacing:-2px;
+  color:var(--t0);margin-bottom:18px;
+  animation:fadeUp 0.8s 0.1s var(--expo) both;
+}
+.hero-title .accent{color:var(--gold);position:relative;display:inline-block}
+.hero-title .accent::after{content:'';position:absolute;left:0;bottom:-4px;right:0;height:2px;background:linear-gradient(90deg,var(--gold),transparent);transform:scaleX(0);transform-origin:left;animation:lineGrow 1s 0.9s var(--expo) forwards}
+@keyframes lineGrow{to{transform:scaleX(1)}}
+
+.hero-type{font-family:'Space Mono',monospace;font-size:13px;color:var(--cyan);margin-bottom:22px;min-height:20px;letter-spacing:0.02em;animation:fadeUp 0.8s 0.15s var(--expo) both}
+.hero-type .cursor{display:inline-block;width:7px;background:var(--cyan);margin-left:2px;animation:blink 1s steps(2) infinite}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:0}}
+
+.hero-body{font-size:16px;line-height:1.85;color:var(--t1);max-width:500px;margin-bottom:36px;animation:fadeUp 0.8s 0.2s var(--expo) both}
+.hero-actions{display:flex;gap:12px;flex-wrap:wrap;animation:fadeUp 0.8s 0.3s var(--expo) both}
+.hero-stats{display:flex;gap:32px;margin-top:52px;padding-top:36px;border-top:1px solid var(--border);animation:fadeUp 0.8s 0.4s var(--expo) both;flex-wrap:wrap}
+.stat-val{font-family:'Playfair Display',serif;font-size:28px;font-weight:900;letter-spacing:-1px;color:var(--t0)}
+.stat-val span{color:var(--gold);font-size:18px}
+.stat-label{font-size:11.5px;color:var(--t2);margin-top:2px;font-weight:500}
+@keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+
+.hero-visual{animation:fadeIn 1s 0.3s var(--expo) both;position:relative;will-change:transform}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+
+.viz-panel{
+  background:var(--panel);border:1px solid var(--border);
+  border-radius:var(--r-2xl);padding:28px;
+  box-shadow:var(--sh-md),var(--sh-gold);position:relative;overflow:hidden;
+}
+.viz-panel::before{content:'';position:absolute;top:-1px;left:20%;right:20%;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent)}
+.viz-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:22px}
+.viz-title-label{font-family:'Space Mono',monospace;font-size:9px;color:var(--gold);letter-spacing:2.5px;text-transform:uppercase}
+.viz-live{display:flex;align-items:center;gap:5px;font-family:'Space Mono',monospace;font-size:8.5px;color:var(--cyan);letter-spacing:1px}
+.viz-live-dot{width:5px;height:5px;border-radius:50%;background:var(--cyan);animation:pulse 1.5s infinite}
+
+.bar-chart{display:flex;flex-direction:column;gap:10px}
+.bar-row{display:flex;align-items:center;gap:10px}
+.bar-label{font-size:10px;color:var(--t2);width:110px;flex-shrink:0;font-weight:500}
+.bar-track{flex:1;height:6px;background:var(--surface);border-radius:3px;overflow:hidden}
+.bar-fill{height:100%;border-radius:3px;background:linear-gradient(90deg,var(--crimson),var(--gold));transform-origin:left;animation:barGrow 1.5s var(--expo) both}
+@keyframes barGrow{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+.bar-val{font-family:'Space Mono',monospace;font-size:10px;color:var(--gold);width:30px;text-align:right}
+.viz-divider{height:1px;background:var(--border);margin:18px 0}
+.mini-radar-wrap{position:relative;height:160px;margin:0 auto;width:160px}
+.viz-footer{display:flex;align-items:center;justify-content:space-between;margin-top:18px}
+.viz-dim-pills{display:flex;gap:5px;flex-wrap:wrap}
+.viz-pill{font-size:9px;padding:3px 9px;border-radius:var(--r-pill);background:var(--surface);border:1px solid var(--border);color:var(--t2);font-weight:500}
+.viz-pill.hi{background:var(--gold-dim);border-color:var(--border-g);color:var(--gold)}
+.viz-pill.mid{background:var(--cyan-dim);border-color:var(--border-c);color:var(--cyan)}
+
+.hero-float-1{position:absolute;top:-20px;right:-20px;background:var(--panel);border:1px solid var(--border-g);border-radius:var(--r-lg);padding:12px 16px;font-size:11px;color:var(--t1);box-shadow:var(--sh-sm);animation:floatA 4s ease-in-out infinite;white-space:nowrap}
+.hero-float-2{position:absolute;bottom:-16px;left:-24px;background:var(--panel);border:1px solid rgba(0,212,180,0.2);border-radius:var(--r-lg);padding:12px 16px;box-shadow:var(--sh-sm);animation:floatB 4s 2s ease-in-out infinite}
+@keyframes floatA{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+@keyframes floatB{0%,100%{transform:translateY(0)}50%{transform:translateY(6px)}}
+.float-metric{font-family:'Playfair Display',serif;font-size:22px;font-weight:700;color:var(--cyan)}
+.float-sub{font-size:10px;color:var(--t2);margin-top:2px}
+
+/* ── LIVE ACTIVITY TICKER ── */
+.ticker-wrap{
+  position:relative;z-index:1;background:var(--obsidian);
+  border-top:1px solid var(--border);border-bottom:1px solid var(--border);
+  overflow:hidden;padding:11px 0;
+}
+.ticker-label{
+  position:absolute;left:0;top:0;bottom:0;z-index:2;display:flex;align-items:center;gap:7px;
+  padding:0 18px 0 clamp(20px,5%,80px);background:var(--obsidian);
+  font-family:'Space Mono',monospace;font-size:9.5px;font-weight:700;letter-spacing:1.5px;color:var(--cyan);
+  text-transform:uppercase;border-right:1px solid var(--border);
+}
+.ticker-label::after{content:'';position:absolute;right:-22px;top:0;bottom:0;width:22px;background:linear-gradient(90deg,var(--obsidian),transparent)}
+.ticker-dot{width:6px;height:6px;border-radius:50%;background:var(--cyan);animation:pulse 1.4s infinite}
+.ticker-track{display:flex;gap:40px;width:max-content;animation:tickerScroll 38s linear infinite;padding-left:160px}
+.ticker-wrap:hover .ticker-track{animation-play-state:paused}
+@keyframes tickerScroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+.ticker-item{display:flex;align-items:center;gap:8px;font-size:12px;color:var(--t1);white-space:nowrap}
+.ticker-item b{color:var(--gold);font-weight:600}
+.ticker-emoji{font-size:13px}
+
+/* ══════════════════════════════════════════
+   FEATURES GRID
+══════════════════════════════════════════ */
+.feat-section{background:var(--abyss)}
+.feat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:56px}
+.feat-card{
+  background:var(--panel);border:1px solid var(--border);
+  border-radius:var(--r-2xl);padding:30px;cursor:pointer;
+  transition:transform 0.35s var(--expo),border-color 0.35s,box-shadow 0.35s;
+  position:relative;overflow:hidden;
+}
+.feat-card::before{content:'';position:absolute;inset:0;border-radius:var(--r-2xl);background:radial-gradient(420px circle at var(--mx,50%) var(--my,50%),rgba(210,165,60,0.08),transparent 45%);opacity:0;transition:opacity 0.35s}
+.feat-card:hover::before{opacity:1}
+.feat-card:hover{transform:translateY(-5px);border-color:var(--border-g);box-shadow:var(--sh-md),var(--sh-gold)}
+.feat-accent{height:2px;border-radius:2px;margin-bottom:24px;width:40px}
+.feat-icon{font-size:28px;margin-bottom:14px}
+.feat-name{font-family:'Playfair Display',serif;font-size:20px;font-weight:700;color:var(--t0);margin-bottom:10px;letter-spacing:-0.3px}
+.feat-desc{font-size:13px;line-height:1.75;color:var(--t2);margin-bottom:20px}
+.feat-link{font-family:'Space Mono',monospace;font-size:10px;font-weight:700;letter-spacing:1.5px;color:var(--gold);text-transform:uppercase;display:flex;align-items:center;gap:6px}
+.feat-link::after{content:'→';transition:transform 0.2s}
+.feat-card:hover .feat-link::after{transform:translateX(4px)}
+
+/* ══════════════════════════════════════════
+   REAL-TIME DATA VISUALISATION
+══════════════════════════════════════════ */
+.data-section{background:var(--deep);position:relative;overflow:hidden}
+.data-section::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--gold-dim),transparent)}
+.data-layout{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:28px}
+.data-card{background:var(--panel);border:1px solid var(--border);border-radius:var(--r-2xl);padding:28px;position:relative;overflow:hidden}
+.data-card-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:22px}
+.data-card-title{font-family:'Space Mono',monospace;font-size:9.5px;color:var(--gold);letter-spacing:2px;text-transform:uppercase}
+.data-badge{font-family:'Space Mono',monospace;font-size:8px;color:var(--cyan);background:var(--cyan-dim);border:1px solid rgba(0,212,180,0.15);padding:3px 9px;border-radius:var(--r-pill);letter-spacing:1px;display:flex;align-items:center;gap:4px}
+.data-badge-dot{width:4px;height:4px;border-radius:50%;background:var(--cyan);animation:pulse 1.5s infinite}
+.data-card.wide{grid-column:1/-1}
+
+.dim-bars{display:flex;flex-direction:column;gap:12px}
+.dim-bar-row{display:flex;align-items:center;gap:12px}
+.dim-name{font-size:11.5px;color:var(--t1);width:170px;flex-shrink:0;font-weight:500}
+.dim-track{flex:1;height:8px;background:var(--surface);border-radius:4px;overflow:hidden;cursor:pointer}
+.dim-fill{height:100%;border-radius:4px;transition:width 1.2s var(--expo)}
+.dim-pct{font-family:'Space Mono',monospace;font-size:10px;color:var(--gold);width:36px;text-align:right}
+
+.nationwide-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:48px}
+.nw-card{background:var(--panel);border:1px solid var(--border);border-radius:var(--r-xl);padding:22px;text-align:center;transition:all 0.3s;position:relative;overflow:hidden}
+.nw-card:hover{border-color:var(--border-g);transform:translateY(-3px)}
+.nw-card .live-tick{position:absolute;top:12px;right:12px;width:5px;height:5px;border-radius:50%;background:var(--cyan);opacity:0;transition:opacity 0.3s}
+.nw-card.ticked .live-tick{opacity:1;animation:tickFlash 0.6s var(--quart)}
+@keyframes tickFlash{0%{transform:scale(0.5);box-shadow:0 0 0 0 rgba(0,212,180,0.5)}100%{transform:scale(1);box-shadow:0 0 0 8px rgba(0,212,180,0)}}
+.nw-val{font-family:'Playfair Display',serif;font-size:34px;font-weight:900;letter-spacing:-1px;color:var(--t0)}
+.nw-val .unit{font-size:20px;color:var(--gold)}
+.nw-label{font-size:11px;color:var(--t2);margin-top:4px;font-weight:500}
+.nw-trend{font-size:10px;margin-top:8px;padding:3px 10px;border-radius:var(--r-pill);display:inline-block}
+.nw-trend.up{color:var(--cyan);background:var(--cyan-dim)}
+.nw-trend.warm{color:var(--gold);background:var(--gold-dim)}
+
+/* ══════════════════════════════════════════
+   HOW IT WORKS
+══════════════════════════════════════════ */
+.how-section{background:var(--obsidian)}
+.how-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:56px;position:relative}
+.how-grid::before{content:'';position:absolute;top:40px;left:12.5%;right:12.5%;height:1px;background:linear-gradient(90deg,transparent,var(--border),var(--gold-dim),var(--border),transparent)}
+.step-card{background:var(--panel);border:1px solid var(--border);border-radius:var(--r-2xl);padding:28px 22px;text-align:center;transition:all 0.3s;position:relative}
+.step-card:hover{border-color:var(--border-g);transform:translateY(-5px);box-shadow:var(--sh-gold)}
+.step-num{width:52px;height:52px;border-radius:50%;background:var(--surface);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-size:22px;font-weight:900;color:var(--gold);margin:0 auto 18px;transition:all 0.3s;position:relative;z-index:1}
+.step-card:hover .step-num{background:var(--gold-dim);border-color:var(--border-g);box-shadow:0 0 20px rgba(210,165,60,0.2)}
+.step-name{font-size:14px;font-weight:600;color:var(--t0);margin-bottom:8px}
+.step-body{font-size:12.5px;color:var(--t2);line-height:1.7}
+
+/* ══════════════════════════════════════════
+   TESTIMONIALS
+══════════════════════════════════════════ */
+.testi-section{background:var(--void)}
+.testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:56px}
+.testi-card{background:var(--panel);border:1px solid var(--border);border-radius:var(--r-2xl);padding:28px;transition:all 0.3s;position:relative;overflow:hidden}
+.testi-card::after{content:'"';position:absolute;bottom:14px;right:20px;font-family:'Playfair Display',serif;font-size:80px;line-height:1;color:rgba(210,165,60,0.06);font-weight:900;pointer-events:none}
+.testi-card:hover{border-color:var(--border-g);transform:translateY(-4px)}
+.testi-stars{color:var(--gold);font-size:12.5px;letter-spacing:2px;margin-bottom:14px}
+.testi-text{font-size:13.5px;line-height:1.8;color:var(--t1);margin-bottom:20px;font-style:italic}
+.testi-author{display:flex;align-items:center;gap:12px}
+.testi-avatar{width:42px;height:42px;border-radius:50%;background:linear-gradient(135deg,var(--crimson),var(--gold));display:flex;align-items:center;justify-content:center;font-size:17px;font-weight:700;color:#fff;flex-shrink:0}
+.testi-name{font-size:13.5px;font-weight:600;color:var(--t0)}
+.testi-role{font-size:11px;color:var(--t2);margin-top:2px}
+
+/* ══════════════════════════════════════════
+   CTA BANNER
+══════════════════════════════════════════ */
+.cta-section{background:linear-gradient(135deg,var(--abyss),var(--deep));border-top:1px solid var(--border);border-bottom:1px solid var(--border);position:relative;overflow:hidden}
+.cta-section::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 80% at 50% 50%,rgba(196,27,70,0.06),transparent)}
+.cta-inner{max-width:700px;margin:0 auto;text-align:center;position:relative}
+.cta-badges{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-top:32px}
+.cta-badge{font-family:'Space Mono',monospace;font-size:9px;letter-spacing:1.5px;color:var(--t2);background:var(--surface);border:1px solid var(--border);padding:5px 14px;border-radius:var(--r-pill)}
+
+/* ══════════════════════════════════════════
+   INSIGHT PAGE
+══════════════════════════════════════════ */
+.insight-section{background:var(--abyss)}
+.insight-layout{display:grid;grid-template-columns:1fr 360px;gap:48px;margin-top:56px;align-items:start}
+.tabs{display:flex;gap:3px;background:var(--panel);border:1px solid var(--border);border-radius:var(--r-pill);padding:3px;width:fit-content;margin-bottom:28px;flex-wrap:wrap}
+.tab-btn{padding:8px 18px;border-radius:var(--r-pill);border:none;font-size:12px;font-weight:500;color:var(--t2);background:transparent;transition:all 0.2s;letter-spacing:0.01em;cursor:pointer}
+.tab-btn.active{background:var(--surface);color:var(--t0);border:1px solid var(--border-g)}
+.tab-panel{display:none}
+.tab-panel.active{display:block;animation:fadeUp 0.3s var(--expo)}
+.insight-points{display:flex;flex-direction:column;gap:10px}
+.insight-pt{background:var(--panel);border:1px solid var(--border);border-radius:var(--r-lg);padding:16px;display:flex;gap:12px;align-items:flex-start;transition:all 0.25s;cursor:default}
+.insight-pt:hover{border-color:var(--border-g);transform:translateX(5px)}
+.ip-icon{font-size:17px;flex-shrink:0;margin-top:2px}
+.ip-title{font-size:13.5px;font-weight:600;color:var(--t0);margin-bottom:4px}
+.ip-desc{font-size:12px;color:var(--t2);line-height:1.65}
+.fw-card{background:var(--panel);border:1px solid var(--border);border-radius:var(--r-2xl);padding:24px;position:sticky;top:88px}
+.fw-label{font-family:'Space Mono',monospace;font-size:9.5px;color:var(--gold);letter-spacing:2px;text-transform:uppercase;margin-bottom:18px}
+.fw-dim{display:flex;align-items:center;gap:10px;padding:10px 12px;border-radius:var(--r-md);background:var(--surface);border:1px solid var(--border);margin-bottom:9px;transition:all 0.2s}
+.fw-dim:hover{border-color:var(--border-g);background:var(--lift)}
+.fw-dot{width:7px;height:7px;border-radius:50%;flex-shrink:0}
+.fw-name{font-size:11.5px;font-weight:500;color:var(--t0);flex:1}
+.fw-score{font-family:'Space Mono',monospace;font-size:10px;color:var(--gold)}
+
+/* ══════════════════════════════════════════
+   LEVEL TEST PAGE
+══════════════════════════════════════════ */
+.test-section{background:var(--deep)}
+.test-layout{display:grid;grid-template-columns:280px 1fr;gap:24px;margin-top:52px}
+.test-sidebar{background:var(--panel);border:1px solid var(--border);border-radius:var(--r-2xl);padding:22px;position:sticky;top:88px;align-self:start}
+.sidebar-label{font-family:'Space Mono',monospace;font-size:9.5px;color:var(--gold);letter-spacing:2px;text-transform:uppercase;margin-bottom:16px}
+.radar-wrap{position:relative;margin-bottom:18px}
+.chips-label{font-size:9.5px;color:var(--t3);text-transform:uppercase;letter-spacing:2px;margin-bottom:8px}
+.chips{display:flex;flex-wrap:wrap;gap:4px}
+.chip{font-size:9.5px;padding:3px 9px;border-radius:var(--r-pill);border:1px solid var(--border);color:var(--t2);background:var(--surface);transition:all 0.2s}
+.chip.answered{border-color:rgba(0,212,180,0.3);color:var(--cyan);background:var(--cyan-dim)}
+.test-main{background:var(--panel);border:1px solid var(--border);border-radius:var(--r-2xl);padding:36px;display:flex;flex-direction:column}
+.test-header{margin-bottom:20px}
+.progress-wrap{background:var(--surface);border-radius:var(--r-pill);height:3px;overflow:hidden;margin-bottom:12px}
+.progress-fill{height:100%;border-radius:var(--r-pill);background:linear-gradient(90deg,var(--crimson),var(--gold));transition:width 0.4s var(--expo)}
+.progress-text{font-family:'Space Mono',monospace;font-size:9.5px;color:var(--t3);letter-spacing:1.5px;text-transform:uppercase;margin-bottom:24px}
+.q-dim{font-family:'Space Mono',monospace;font-size:9.5px;color:var(--crimson-l);letter-spacing:2px;text-transform:uppercase;margin-bottom:10px;display:flex;align-items:center;gap:8px}
+.q-dim::before{content:'';width:14px;height:1px;background:var(--crimson)}
+.q-text{font-family:'Playfair Display',serif;font-size:clamp(18px,2vw,24px);font-weight:700;color:var(--t0);line-height:1.45;margin-bottom:26px;letter-spacing:-0.3px}
+.q-opts{display:flex;flex-direction:column;gap:8px}
+.q-opt{display:flex;align-items:center;gap:12px;background:var(--surface);border:1px solid var(--border);border-radius:var(--r-lg);padding:15px 18px;cursor:pointer;transition:all 0.2s;user-select:none}
+.q-opt:hover{border-color:rgba(210,165,60,0.2);background:var(--lift)}
+.q-opt.sel{border-color:var(--gold);background:var(--gold-dim)}
+.q-radio{width:17px;height:17px;border-radius:50%;border:1.5px solid var(--border);display:flex;align-items:center;justify-content:center;transition:all 0.2s;flex-shrink:0}
+.q-opt.sel .q-radio{border-color:var(--gold)}
+.q-radio-dot{width:7px;height:7px;border-radius:50%;background:transparent;transform:scale(0);transition:all 0.2s}
+.q-opt.sel .q-radio-dot{background:var(--gold);transform:scale(1)}
+.q-opt-label{flex:1;font-size:13.5px;color:var(--t1);transition:all 0.2s}
+.q-opt.sel .q-opt-label{color:var(--t0);font-weight:500}
+.q-opt-val{font-family:'Space Mono',monospace;font-size:10px;color:var(--t3)}
+.q-opt.sel .q-opt-val{color:var(--gold)}
+.q-warn{display:none;align-items:center;gap:8px;background:var(--crimson-dim);border:1px solid rgba(196,27,70,0.2);border-radius:var(--r-md);padding:10px 15px;margin-top:12px;font-size:12.5px;color:var(--crimson-l)}
+.q-warn.show{display:flex;animation:fadeUp 0.3s var(--expo)}
+.test-footer{display:flex;align-items:center;justify-content:space-between;margin-top:28px;padding-top:24px;border-top:1px solid var(--border)}
+.step-dots{display:flex;gap:5px}
+.step-dot{width:6px;height:6px;border-radius:50%;background:var(--border);transition:all 0.2s}
+.step-dot.done{background:var(--cyan)}
+.step-dot.cur{background:var(--gold);width:20px;border-radius:var(--r-pill)}
+.btn-prev,.btn-next{padding:10px 22px;border-radius:var(--r-pill);font-size:13px;font-weight:600;transition:all 0.25s;border:1px solid var(--border);cursor:pointer}
+.btn-prev{background:var(--surface);color:var(--t1)}
+.btn-prev:hover:not(:disabled){border-color:var(--border-g);color:var(--t0)}
+.btn-prev:disabled{opacity:0.3;cursor:not-allowed}
+.btn-next{background:linear-gradient(135deg,var(--crimson),var(--crimson-l));color:#fff;border-color:transparent;box-shadow:0 4px 20px rgba(196,27,70,0.3)}
+.btn-next:hover{transform:translateY(-1px);box-shadow:0 8px 32px rgba(196,27,70,0.5)}
+
+/* Result Panel */
+.result-panel{text-align:center;padding:12px 0}
+.result-emoji{font-size:52px;margin-bottom:16px;animation:bounceIn 0.6s var(--spring)}
+@keyframes bounceIn{from{transform:scale(0)}to{transform:scale(1)}}
+.result-title{font-family:'Playfair Display',serif;font-size:28px;font-weight:900;color:var(--t0);margin-bottom:6px;letter-spacing:-0.5px}
+.result-level-card{background:linear-gradient(135deg,rgba(196,27,70,0.08),var(--deep));border:1px solid rgba(196,27,70,0.3);border-radius:var(--r-xl);padding:22px;margin:18px 0;position:relative;overflow:hidden}
+.result-level-card::before{content:'';position:absolute;top:-1px;left:25%;right:25%;height:1px;background:linear-gradient(90deg,transparent,var(--crimson),transparent)}
+.rl-label{font-family:'Space Mono',monospace;font-size:9px;color:var(--t2);text-transform:uppercase;letter-spacing:2px;margin-bottom:5px}
+.rl-level{font-family:'Playfair Display',serif;font-size:22px;font-weight:900;color:var(--t0);margin-bottom:4px}
+.rl-sub{font-size:12px;color:var(--t2)}
+.result-desc{font-size:13px;color:var(--t2);line-height:1.75;margin-bottom:20px}
+.result-train-section{background:var(--surface);border:1px solid var(--border);border-radius:var(--r-xl);padding:20px;margin:18px 0;text-align:left}
+.result-train-title{font-family:'Space Mono',monospace;font-size:9px;color:var(--cyan);letter-spacing:2px;text-transform:uppercase;margin-bottom:14px}
+.result-train-list{display:flex;flex-direction:column;gap:10px}
+.result-train-item{display:flex;gap:10px;align-items:flex-start;padding:10px 12px;background:var(--panel);border-radius:var(--r-md);border:1px solid var(--border)}
+.result-train-icon{font-size:14px;flex-shrink:0}
+.result-train-name{font-size:12px;font-weight:600;color:var(--t0);margin-bottom:2px}
+.result-train-meta{font-size:10.5px;color:var(--t2)}
+.result-score-ring{width:88px;height:88px;border-radius:50%;margin:0 auto 18px;background:conic-gradient(var(--gold) 0%,var(--crimson) var(--pct,0%),var(--surface) var(--pct,0%));display:flex;align-items:center;justify-content:center;position:relative}
+.result-score-ring::before{content:'';position:absolute;inset:8px;background:var(--panel);border-radius:50%}
+.result-score-inner{position:relative;z-index:1;font-family:'Playfair Display',serif;font-size:22px;font-weight:900;color:var(--gold)}
+
+/* ══════════════════════════════════════════
+   GROWTH PAGE
+══════════════════════════════════════════ */
+.growth-section{background:var(--abyss)}
+.growth-layout{display:grid;grid-template-columns:1fr 340px;gap:40px;margin-top:52px}
+.kirk-cards{display:flex;flex-direction:column;gap:14px}
+.kirk-card{background:var(--panel);border:1px solid var(--border);border-radius:var(--r-2xl);padding:24px;display:flex;gap:16px;transition:all 0.3s;position:relative;overflow:hidden}
+.kirk-card:hover{transform:translateX(5px)}
+.kirk-card.k1:hover{border-color:rgba(0,212,180,0.3)}
+.kirk-card.k2:hover{border-color:rgba(210,165,60,0.3)}
+.kirk-card.k3:hover{border-color:rgba(196,27,70,0.3)}
+.kirk-card.k4:hover{border-color:rgba(124,110,245,0.3)}
+.kirk-num{width:44px;height:44px;border-radius:var(--r-md);display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-size:20px;font-weight:900;flex-shrink:0}
+.k1 .kirk-num{background:var(--cyan-dim);color:var(--cyan);border:1px solid rgba(0,212,180,0.2)}
+.k2 .kirk-num{background:var(--gold-dim);color:var(--gold);border:1px solid rgba(210,165,60,0.2)}
+.k3 .kirk-num{background:var(--crimson-dim);color:var(--crimson-l);border:1px solid rgba(196,27,70,0.2)}
+.k4 .kirk-num{background:var(--violet-dim);color:var(--violet);border:1px solid rgba(124,110,245,0.2)}
+.kirk-level{font-size:10px;color:var(--t2);text-transform:uppercase;letter-spacing:1px;margin-bottom:3px}
+.kirk-title{font-size:16px;font-weight:600;color:var(--t0);margin-bottom:7px;display:flex;align-items:center;gap:8px}
+.kirk-desc{font-size:13px;color:var(--t2);line-height:1.7;margin-bottom:12px}
+.kirk-tags{display:flex;flex-wrap:wrap;gap:5px}
+.kirk-tag{font-size:10px;background:var(--surface);border:1px solid var(--border);color:var(--t2);padding:3px 9px;border-radius:var(--r-pill)}
+.mvp-badge{font-size:9px;background:var(--cyan-dim);color:var(--cyan);border:1px solid rgba(0,212,180,0.2);padding:2px 8px;border-radius:var(--r-pill);font-weight:700}
+.growth-sidebar{display:flex;flex-direction:column;gap:16px}
+.sidebar-card{background:var(--panel);border:1px solid var(--border);border-radius:var(--r-2xl);padding:24px}
+.sc-label{font-family:'Space Mono',monospace;font-size:9.5px;color:var(--gold);letter-spacing:2px;text-transform:uppercase;margin-bottom:16px}
+.roadmap{display:flex;flex-direction:column;gap:0}
+.rm-item{display:flex;gap:14px;padding-bottom:20px;position:relative}
+.rm-item:not(:last-child)::before{content:'';position:absolute;left:15px;top:32px;bottom:0;width:1px;background:var(--border)}
+.rm-dot{width:30px;height:30px;border-radius:50%;flex-shrink:0;background:var(--surface);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;color:var(--t2);font-family:'Space Mono',monospace;transition:all 0.3s;position:relative;z-index:1}
+.rm-item.active .rm-dot{background:var(--gold-dim);border-color:var(--gold);color:var(--gold)}
+.rm-phase{font-size:9.5px;color:var(--t2);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:2px}
+.rm-name{font-size:13px;font-weight:600;color:var(--t0);margin-bottom:2px}
+.rm-body{font-size:11.5px;color:var(--t2);line-height:1.6}
+
+/* ══════════════════════════════════════════
+   NETWORK PAGE
+══════════════════════════════════════════ */
+.network-section{background:var(--deep)}
+.network-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-top:52px}
+.nf-card{background:var(--panel);border:1px solid var(--border);border-radius:var(--r-2xl);padding:28px;transition:all 0.3s}
+.nf-card:hover{border-color:var(--border-g);transform:translateY(-4px);box-shadow:var(--sh-gold)}
+.nf-icon{width:46px;height:46px;border-radius:var(--r-md);background:var(--surface);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-size:20px;margin-bottom:16px}
+.nf-title{font-size:16px;font-weight:600;color:var(--t0);margin-bottom:8px}
+.nf-desc{font-size:13px;color:var(--t2);line-height:1.7;margin-bottom:14px}
+.nf-soon{font-family:'Space Mono',monospace;font-size:9px;color:var(--violet);background:var(--violet-dim);border:1px solid rgba(124,110,245,0.2);padding:4px 12px;border-radius:var(--r-pill);letter-spacing:1px;display:inline-block}
+.nf-active{font-family:'Space Mono',monospace;font-size:9px;color:var(--cyan);background:var(--cyan-dim);border:1px solid rgba(0,212,180,0.2);padding:4px 12px;border-radius:var(--r-pill);letter-spacing:1px;display:inline-block}
+
+/* ══════════════════════════════════════════
+   FAQ PAGE
+══════════════════════════════════════════ */
+.faq-section{background:var(--abyss)}
+.faq-list{max-width:760px;margin:52px auto 0}
+.faq-item{background:var(--panel);border:1px solid var(--border);border-radius:var(--r-lg);margin-bottom:10px;overflow:hidden;transition:border-color 0.2s}
+.faq-item.open{border-color:var(--border-g)}
+.faq-q{padding:20px 24px;cursor:pointer;display:flex;align-items:center;justify-content:space-between;font-size:14px;font-weight:600;color:var(--t0);transition:color 0.2s;user-select:none;gap:16px}
+.faq-q:hover{color:var(--gold)}
+.faq-arrow{font-size:12px;color:var(--t2);transition:transform 0.3s;flex-shrink:0}
+.faq-item.open .faq-arrow{transform:rotate(180deg);color:var(--gold)}
+.faq-a{max-height:0;overflow:hidden;transition:max-height 0.4s var(--expo)}
+.faq-item.open .faq-a{max-height:360px}
+.faq-a-inner{padding:0 24px 22px;font-size:13.5px;color:var(--t2);line-height:1.75}
+
+/* ══════════════════════════════════════════
+   CONTACT PAGE
+══════════════════════════════════════════ */
+.contact-section{background:var(--deep)}
+.contact-layout{display:grid;grid-template-columns:1fr 1fr;gap:48px;margin-top:52px;align-items:start}
+.contact-form{background:var(--panel);border:1px solid var(--border);border-radius:var(--r-2xl);padding:36px}
+.form-group{margin-bottom:18px}
+.form-label{font-size:12px;font-weight:600;color:var(--t1);margin-bottom:8px;display:block;letter-spacing:0.01em}
+.form-input,.form-textarea{width:100%;background:var(--surface);border:1px solid var(--border);border-radius:var(--r-md);padding:13px 16px;font-size:13.5px;color:var(--t0);font-family:inherit;transition:border-color 0.2s;outline:none;resize:vertical}
+.form-input:focus,.form-textarea:focus{border-color:var(--border-g)}
+.form-textarea{min-height:120px}
+.form-submit{width:100%;padding:14px;border-radius:var(--r-lg);background:linear-gradient(135deg,var(--crimson),var(--crimson-l));color:#fff;font-size:14px;font-weight:600;border:none;transition:all 0.25s}
+.form-submit:hover{transform:translateY(-1px);box-shadow:var(--sh-red)}
+.contact-info{display:flex;flex-direction:column;gap:16px}
+.contact-info-card{background:var(--panel);border:1px solid var(--border);border-radius:var(--r-xl);padding:22px;display:flex;gap:14px;align-items:flex-start;transition:all 0.25s}
+.contact-info-card:hover{border-color:var(--border-g)}
+.ci-icon{font-size:22px;flex-shrink:0}
+.ci-title{font-size:13px;font-weight:600;color:var(--t0);margin-bottom:3px}
+.ci-body{font-size:12.5px;color:var(--t2);line-height:1.6}
+
+/* ══════════════════════════════════════════
+   FOOTER
+══════════════════════════════════════════ */
+footer{background:var(--obsidian);border-top:1px solid var(--border);padding:60px clamp(20px,5%,80px) 36px}
+.footer-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:40px;margin-bottom:40px}
+.footer-logo{font-family:'Playfair Display',serif;font-size:22px;font-weight:900;letter-spacing:-0.5px;color:var(--t0);margin-bottom:12px;cursor:pointer}
+.footer-logo .ix{color:var(--gold)}
+.footer-about{font-size:12.5px;color:var(--t2);line-height:1.75;margin-bottom:18px}
+.footer-socials{display:flex;gap:8px}
+.footer-social{width:34px;height:34px;border-radius:50%;background:var(--surface);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-size:14px;cursor:pointer;transition:all 0.2s}
+.footer-social:hover{border-color:var(--border-g);background:var(--gold-dim)}
+.footer-col-title{font-family:'Space Mono',monospace;font-size:9.5px;color:var(--gold);letter-spacing:2px;text-transform:uppercase;margin-bottom:18px}
+.footer-links{display:flex;flex-direction:column;gap:8px}
+.footer-link{font-size:13px;color:var(--t2);cursor:pointer;transition:color 0.2s;padding:2px 0}
+.footer-link:hover{color:var(--t0)}
+.footer-bottom{border-top:1px solid var(--border);padding-top:28px;display:flex;align-items:center;justify-content:space-between;font-size:11.5px;color:var(--t3);flex-wrap:wrap;gap:8px}
+
+/* ── TOAST ── */
+.toast{position:fixed;bottom:90px;left:50%;transform:translateX(-50%) translateY(20px);z-index:990;background:var(--lift);border:1px solid var(--border-g);border-radius:var(--r-pill);padding:12px 24px;font-size:13px;color:var(--t0);opacity:0;transition:all 0.35s var(--spring);pointer-events:none;white-space:nowrap;box-shadow:var(--sh-md);max-width:90vw;overflow:hidden;text-overflow:ellipsis}
+.toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+
+/* ── CONFETTI CANVAS ── */
+#confetti-canvas{position:fixed;inset:0;z-index:980;pointer-events:none;display:none}
+#confetti-canvas.active{display:block}
+
+/* ══════════════════════════════════════════
+   AI ASSISTANT — CLAUDE POWERED
+══════════════════════════════════════════ */
+.ai-fab{position:fixed;bottom:28px;right:28px;z-index:700;background:linear-gradient(135deg,var(--crimson),var(--crimson-l));border:none;border-radius:var(--r-pill);padding:14px 20px;display:flex;align-items:center;gap:9px;box-shadow:0 8px 40px rgba(196,27,70,0.45),0 0 0 1px rgba(255,255,255,0.06);cursor:pointer;transition:transform 0.3s var(--spring),box-shadow 0.3s;color:#fff}
+.ai-fab:hover{transform:translateY(-3px) scale(1.03);box-shadow:0 14px 50px rgba(196,27,70,0.55)}
+.ai-fab-icon{font-size:18px;animation:sparkle 3s ease-in-out infinite}
+@keyframes sparkle{0%,100%{transform:rotate(0) scale(1)}50%{transform:rotate(20deg) scale(1.15)}}
+.ai-fab-text{font-size:12px;font-weight:600;letter-spacing:0.02em}
+.ai-fab-badge{position:absolute;top:-3px;right:-3px;width:10px;height:10px;border-radius:50%;background:var(--cyan);border:2px solid var(--void);animation:pulse 2s infinite}
+.ai-overlay{position:fixed;inset:0;z-index:900;background:rgba(0,0,0,0.65);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);opacity:0;pointer-events:none;transition:opacity 0.3s}
+.ai-overlay.open{opacity:1;pointer-events:all}
+.ai-drawer{position:fixed;bottom:0;right:0;z-index:910;width:440px;max-width:100vw;height:640px;max-height:92vh;background:var(--panel);border:1px solid var(--border);border-radius:var(--r-2xl) var(--r-2xl) 0 0;display:flex;flex-direction:column;transform:translateY(100%);transition:transform 0.45s var(--expo);box-shadow:var(--sh-md),0 0 0 1px rgba(210,165,60,0.08)}
+.ai-overlay.open .ai-drawer{transform:translateY(0)}
+.ai-drawer-header{padding:18px 22px;border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;flex-shrink:0}
+.ai-drawer-title{display:flex;align-items:center;gap:10px}
+.ai-drawer-avatar{width:34px;height:34px;border-radius:50%;background:linear-gradient(135deg,var(--crimson),var(--gold));display:flex;align-items:center;justify-content:center;font-size:16px}
+.ai-drawer-name{font-size:14px;font-weight:700;color:var(--t0)}
+.ai-drawer-sub{font-size:10.5px;color:var(--t2);display:flex;align-items:center;gap:5px}
+.ai-drawer-sub-dot{width:5px;height:5px;border-radius:50%;background:var(--cyan);animation:pulse 2s infinite}
+.ai-close{background:var(--surface);border:1px solid var(--border);border-radius:50%;width:30px;height:30px;display:flex;align-items:center;justify-content:center;font-size:12px;color:var(--t1);cursor:pointer;transition:all 0.2s}
+.ai-close:hover{border-color:var(--border-g);color:var(--t0)}
+.ai-messages{flex:1;overflow-y:auto;padding:18px 22px;display:flex;flex-direction:column;gap:12px;scrollbar-width:thin}
+.ai-messages::-webkit-scrollbar{width:3px}
+.ai-msg{max-width:88%;padding:12px 16px;border-radius:var(--r-xl);font-size:13px;line-height:1.65;animation:msgIn 0.3s var(--expo)}
+@keyframes msgIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+.ai-msg.user{background:linear-gradient(135deg,var(--crimson),var(--crimson-l));color:#fff;align-self:flex-end;border-radius:var(--r-xl) var(--r-xl) 4px var(--r-xl)}
+.ai-msg.bot{background:var(--surface);border:1px solid var(--border);color:var(--t1);align-self:flex-start;border-radius:4px var(--r-xl) var(--r-xl) var(--r-xl)}
+.ai-msg.loading{background:var(--surface);border:1px solid var(--border);align-self:flex-start}
+/* markdown styling inside bot messages */
+.ai-msg.bot strong{color:var(--t0);font-weight:700}
+.ai-msg.bot em{color:var(--gold-l);font-style:italic}
+.ai-msg.bot code{font-family:'Space Mono',monospace;font-size:11.5px;background:var(--void);border:1px solid var(--border);border-radius:4px;padding:1px 6px;color:var(--cyan)}
+.ai-msg.bot h4{font-family:'Playfair Display',serif;font-size:14px;color:var(--gold);margin:8px 0 4px}
+.ai-msg.bot ul{margin:6px 0 6px 2px;list-style:none;display:flex;flex-direction:column;gap:5px}
+.ai-msg.bot ul li{padding-left:16px;position:relative}
+.ai-msg.bot ul li::before{content:'▸';position:absolute;left:0;color:var(--gold)}
+.ai-msg.bot ol{margin:6px 0 6px 18px;display:flex;flex-direction:column;gap:5px}
+.ai-msg.bot p{margin:6px 0}
+.ai-msg.bot p:first-child{margin-top:0}
+.ai-msg.bot p:last-child{margin-bottom:0}
+.ai-ctx-pill{align-self:flex-start;font-family:'Space Mono',monospace;font-size:9px;letter-spacing:1px;text-transform:uppercase;color:var(--cyan);background:var(--cyan-dim);border:1px solid rgba(0,212,180,0.2);padding:4px 11px;border-radius:var(--r-pill);display:flex;align-items:center;gap:5px}
+.dot-typing{display:flex;gap:4px;align-items:center;padding:2px 4px}
+.dot-typing span{width:6px;height:6px;border-radius:50%;background:var(--t2);animation:dotBounce 1.2s ease-in-out infinite}
+.dot-typing span:nth-child(2){animation-delay:0.2s}
+.dot-typing span:nth-child(3){animation-delay:0.4s}
+@keyframes dotBounce{0%,60%,100%{transform:translateY(0)}30%{transform:translateY(-6px)}}
+.ai-followups{padding:0 22px 6px;display:flex;gap:6px;flex-wrap:wrap;flex-shrink:0}
+.ai-followup{font-size:10.5px;padding:6px 12px;border-radius:var(--r-pill);background:transparent;border:1px dashed var(--border-g);color:var(--gold);cursor:pointer;transition:all 0.2s}
+.ai-followup:hover{background:var(--gold-dim);border-style:solid}
+.ai-quick-btns{padding:10px 22px;display:flex;gap:6px;flex-wrap:wrap;border-top:1px solid var(--border);flex-shrink:0}
+.ai-quick{font-size:11px;padding:6px 13px;border-radius:var(--r-pill);background:var(--surface);border:1px solid var(--border);color:var(--t1);cursor:pointer;transition:all 0.2s}
+.ai-quick:hover{border-color:var(--border-g);color:var(--gold);background:var(--gold-dim)}
+.ai-input-row{padding:14px 22px;border-top:1px solid var(--border);display:flex;gap:10px;align-items:center;flex-shrink:0}
+.ai-input{flex:1;background:var(--surface);border:1px solid var(--border);border-radius:var(--r-pill);padding:11px 18px;font-size:13px;color:var(--t0);font-family:inherit;outline:none;transition:border-color 0.2s}
+.ai-input:focus{border-color:var(--border-g)}
+.ai-input::placeholder{color:var(--t3)}
+.ai-send{width:38px;height:38px;border-radius:50%;background:linear-gradient(135deg,var(--crimson),var(--crimson-l));border:none;display:flex;align-items:center;justify-content:center;color:#fff;font-size:14px;cursor:pointer;transition:transform 0.2s;flex-shrink:0}
+.ai-send:hover{transform:scale(1.08)}
+.ai-send:disabled{opacity:0.5;cursor:wait}
+
+/* ══════════════════════════════════════════
+   PROFILE BANNER (cross-page personalization)
+══════════════════════════════════════════ */
+.profile-banner{background:linear-gradient(135deg,rgba(210,165,60,0.1),rgba(196,27,70,0.06));border:1px solid var(--border-g);border-radius:var(--r-xl);padding:18px 22px;display:flex;align-items:center;gap:18px;margin-bottom:32px;flex-wrap:wrap;animation:fadeUp 0.5s var(--expo)}
+.pb-emoji{font-size:34px;flex-shrink:0}
+.pb-text{flex:1;min-width:200px}
+.pb-level{font-family:'Playfair Display',serif;font-size:18px;font-weight:800;color:var(--t0)}
+.pb-level span{color:var(--gold)}
+.pb-sub{font-size:12px;color:var(--t1);margin-top:2px}
+.pb-score{text-align:center;flex-shrink:0}
+.pb-score-val{font-family:'Playfair Display',serif;font-size:30px;font-weight:900;color:var(--gold);line-height:1}
+.pb-score-label{font-size:9px;color:var(--t2);text-transform:uppercase;letter-spacing:1.5px;margin-top:3px}
+
+/* ══════════════════════════════════════════
+   LEARNING JOURNEY (training page)
+══════════════════════════════════════════ */
+.journey-dash{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin:32px 0}
+.jd-card{background:var(--panel);border:1px solid var(--border);border-radius:var(--r-xl);padding:20px;position:relative;overflow:hidden;transition:all 0.3s}
+.jd-card:hover{border-color:var(--border-g)}
+.jd-card::after{content:'';position:absolute;top:0;left:0;right:0;height:2px;opacity:0.6}
+.jd-card.c-xp::after{background:linear-gradient(90deg,var(--gold),transparent)}
+.jd-card.c-done::after{background:linear-gradient(90deg,var(--cyan),transparent)}
+.jd-card.c-level::after{background:linear-gradient(90deg,var(--crimson),transparent)}
+.jd-card.c-streak::after{background:linear-gradient(90deg,var(--violet),transparent)}
+.jd-icon{font-size:20px;margin-bottom:8px}
+.jd-val{font-family:'Playfair Display',serif;font-size:28px;font-weight:900;color:var(--t0);line-height:1;letter-spacing:-0.5px}
+.jd-val small{font-size:14px;color:var(--t2);font-weight:400}
+.jd-label{font-size:10.5px;color:var(--t2);margin-top:6px;font-weight:500}
+.jd-xpbar{height:4px;background:var(--surface);border-radius:2px;overflow:hidden;margin-top:10px}
+.jd-xpfill{height:100%;border-radius:2px;background:linear-gradient(90deg,var(--gold),var(--gold-l));transition:width 0.8s var(--expo)}
+
+.journey-section-title{font-family:'Playfair Display',serif;font-size:22px;font-weight:700;color:var(--t0);margin:8px 0 4px;letter-spacing:-0.4px;display:flex;align-items:center;gap:10px}
+.journey-section-sub{font-size:13px;color:var(--t2);margin-bottom:24px;line-height:1.6}
+
+/* Learning path stepper */
+.path-list{display:flex;flex-direction:column;gap:0;position:relative;margin-bottom:8px}
+.path-item{display:flex;gap:18px;position:relative;padding-bottom:16px}
+.path-item:not(:last-child)::before{content:'';position:absolute;left:21px;top:46px;bottom:-2px;width:2px;background:var(--border)}
+.path-item.done:not(:last-child)::before{background:linear-gradient(180deg,var(--cyan),var(--border))}
+.path-node{width:44px;height:44px;border-radius:50%;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-size:17px;font-weight:800;border:1px solid var(--border);background:var(--surface);color:var(--t2);transition:all 0.3s;position:relative;z-index:1}
+.path-item.active .path-node{background:var(--gold-dim);border-color:var(--gold);color:var(--gold);box-shadow:0 0 20px rgba(210,165,60,0.25)}
+.path-item.done .path-node{background:var(--cyan-dim);border-color:var(--cyan);color:var(--cyan)}
+.path-body{flex:1;background:var(--panel);border:1px solid var(--border);border-radius:var(--r-xl);padding:18px 20px;transition:all 0.3s;cursor:pointer}
+.path-item.active .path-body{border-color:var(--border-g);box-shadow:var(--sh-gold)}
+.path-body:hover{transform:translateX(4px);border-color:var(--border-g)}
+.path-top{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;margin-bottom:6px}
+.path-title{font-size:14.5px;font-weight:600;color:var(--t0);display:flex;align-items:center;gap:8px}
+.path-title .pt-emoji{font-size:17px}
+.path-why{font-family:'Space Mono',monospace;font-size:9px;letter-spacing:0.5px;text-transform:uppercase;color:var(--crimson-l);background:var(--crimson-dim);border:1px solid rgba(196,27,70,0.2);padding:3px 9px;border-radius:var(--r-pill);white-space:nowrap;flex-shrink:0}
+.path-desc{font-size:12px;color:var(--t2);line-height:1.6;margin-bottom:12px}
+.path-prog-wrap{display:flex;align-items:center;gap:10px}
+.path-prog-track{flex:1;height:6px;background:var(--surface);border-radius:3px;overflow:hidden}
+.path-prog-fill{height:100%;border-radius:3px;background:linear-gradient(90deg,var(--crimson),var(--gold));transition:width 0.6s var(--expo)}
+.path-prog-pct{font-family:'Space Mono',monospace;font-size:10px;color:var(--gold);width:34px;text-align:right}
+.path-cta{margin-top:12px;display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.btn-enroll{font-size:12px;font-weight:600;padding:9px 18px;border-radius:var(--r-pill);border:none;background:linear-gradient(135deg,var(--crimson),var(--crimson-l));color:#fff;transition:all 0.25s;box-shadow:0 4px 16px rgba(196,27,70,0.25)}
+.btn-enroll:hover{transform:translateY(-1px);box-shadow:0 8px 24px rgba(196,27,70,0.4)}
+.btn-continue{font-size:12px;font-weight:600;padding:9px 18px;border-radius:var(--r-pill);border:1px solid var(--border-g);background:var(--gold-dim);color:var(--gold);transition:all 0.25s}
+.btn-continue:hover{background:rgba(210,165,60,0.16)}
+.btn-done-state{font-size:11.5px;font-weight:600;padding:9px 16px;border-radius:var(--r-pill);border:1px solid rgba(0,212,180,0.3);background:var(--cyan-dim);color:var(--cyan);display:inline-flex;align-items:center;gap:6px}
+
+/* Empty / pre-test state */
+.path-empty{background:var(--panel);border:1px dashed var(--border-g);border-radius:var(--r-2xl);padding:40px 32px;text-align:center}
+.path-empty-emoji{font-size:44px;margin-bottom:14px}
+.path-empty-title{font-family:'Playfair Display',serif;font-size:22px;font-weight:700;color:var(--t0);margin-bottom:8px}
+.path-empty-sub{font-size:13.5px;color:var(--t2);line-height:1.7;max-width:440px;margin:0 auto 22px}
+
+/* Badges */
+.badge-strip{display:flex;gap:12px;flex-wrap:wrap;margin-top:14px}
+.badge-chip{display:flex;flex-direction:column;align-items:center;gap:6px;width:84px;text-align:center;opacity:0.35;filter:grayscale(0.8);transition:all 0.4s var(--spring)}
+.badge-chip.earned{opacity:1;filter:none}
+.badge-ring{width:54px;height:54px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:24px;background:var(--surface);border:1px solid var(--border);transition:all 0.3s}
+.badge-chip.earned .badge-ring{border-color:var(--border-g);background:var(--gold-dim);box-shadow:0 0 18px rgba(210,165,60,0.2)}
+.badge-name{font-size:9.5px;color:var(--t2);line-height:1.3}
+.badge-chip.earned .badge-name{color:var(--t1)}
+
+/* Training browse grid */
+.train-filter{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:24px}
+.train-filter-btn{font-family:'Space Mono',monospace;font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;padding:8px 16px;border-radius:var(--r-pill);border:1px solid var(--border);background:var(--panel);color:var(--t2);transition:all 0.2s;cursor:pointer}
+.train-filter-btn:hover,.train-filter-btn.active{border-color:var(--border-g);color:var(--gold);background:var(--gold-dim)}
+.train-browse-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.tb-card{background:var(--panel);border:1px solid var(--border);border-radius:var(--r-xl);padding:20px;transition:all 0.3s;cursor:pointer;position:relative;overflow:hidden;display:flex;flex-direction:column}
+.tb-card::before{content:'';position:absolute;left:0;top:0;bottom:0;width:3px;border-radius:3px 0 0 3px}
+.tb-card.level-1::before{background:var(--cyan)}
+.tb-card.level-2::before{background:var(--gold)}
+.tb-card.level-3::before{background:var(--crimson)}
+.tb-card:hover{border-color:var(--border-g);transform:translateY(-3px);box-shadow:var(--sh-gold)}
+.tb-head{display:flex;gap:12px;align-items:flex-start;margin-bottom:12px}
+.tb-icon{width:42px;height:42px;border-radius:var(--r-md);display:flex;align-items:center;justify-content:center;font-size:19px;flex-shrink:0;border:1px solid var(--border);background:var(--surface)}
+.tb-badges{display:flex;gap:5px;flex-wrap:wrap;margin-bottom:7px}
+.tb-badge{font-family:'Space Mono',monospace;font-size:8px;padding:3px 8px;border-radius:var(--r-pill);border:1px solid var(--border);font-weight:700;letter-spacing:0.5px}
+.tb-badge.b-novice{color:var(--cyan);border-color:rgba(0,212,180,0.2);background:var(--cyan-dim)}
+.tb-badge.b-dev{color:var(--gold);border-color:rgba(210,165,60,0.2);background:var(--gold-dim)}
+.tb-badge.b-adv{color:var(--crimson-l);border-color:rgba(196,27,70,0.2);background:var(--crimson-dim)}
+.tb-badge.b-free{color:var(--t2);border-color:var(--border)}
+.tb-badge.b-cert{color:var(--violet);border-color:rgba(124,110,245,0.2);background:var(--violet-dim)}
+.tb-badge.b-rec{color:var(--gold);border-color:var(--gold);background:var(--gold-dim)}
+.tb-title{font-size:14px;font-weight:600;color:var(--t0);margin-bottom:4px;line-height:1.35}
+.tb-desc{font-size:12px;color:var(--t2);line-height:1.6;margin-bottom:12px;flex:1}
+.tb-dims{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:14px}
+.tb-dim{font-size:9.5px;color:var(--t1);background:var(--surface);border:1px solid var(--border);padding:2px 8px;border-radius:var(--r-pill)}
+.tb-foot{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:auto;padding-top:12px;border-top:1px solid var(--border)}
+.tb-duration{font-family:'Space Mono',monospace;font-size:10px;color:var(--t2)}
+.tb-status-mini{font-size:10px;font-weight:600;display:flex;align-items:center;gap:4px}
+.tb-status-mini.s-enrolled{color:var(--gold)}
+.tb-status-mini.s-done{color:var(--cyan)}
+
+/* ══════════════════════════════════════════
+   MODAL (training detail / module checklist)
+══════════════════════════════════════════ */
+.modal-overlay{position:fixed;inset:0;z-index:950;background:rgba(0,0,0,0.72);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);opacity:0;pointer-events:none;transition:opacity 0.3s;display:flex;align-items:center;justify-content:center;padding:20px}
+.modal-overlay.open{opacity:1;pointer-events:all}
+.modal-box{width:560px;max-width:100%;max-height:88vh;overflow-y:auto;background:var(--panel);border:1px solid var(--border-g);border-radius:var(--r-2xl);transform:scale(0.94) translateY(14px);transition:transform 0.4s var(--expo);box-shadow:var(--sh-md);scrollbar-width:thin}
+.modal-overlay.open .modal-box{transform:scale(1) translateY(0)}
+.modal-box::-webkit-scrollbar{width:4px}
+.modal-hero{padding:26px 28px 20px;border-bottom:1px solid var(--border);position:relative;overflow:hidden}
+.modal-hero::before{content:'';position:absolute;top:-1px;left:20%;right:20%;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent)}
+.modal-close{position:absolute;top:18px;right:18px;width:30px;height:30px;border-radius:50%;background:var(--surface);border:1px solid var(--border);color:var(--t1);font-size:13px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all 0.2s}
+.modal-close:hover{border-color:var(--border-g);color:var(--t0)}
+.modal-icon{width:52px;height:52px;border-radius:var(--r-lg);display:flex;align-items:center;justify-content:center;font-size:24px;border:1px solid var(--border);background:var(--surface);margin-bottom:14px}
+.modal-badges{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:10px}
+.modal-title{font-family:'Playfair Display',serif;font-size:23px;font-weight:800;color:var(--t0);line-height:1.25;letter-spacing:-0.4px;margin-bottom:8px;padding-right:30px}
+.modal-desc{font-size:13px;color:var(--t1);line-height:1.7}
+.modal-body{padding:24px 28px}
+.modal-meta-row{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:22px}
+.modal-meta{background:var(--surface);border:1px solid var(--border);border-radius:var(--r-md);padding:10px 14px;flex:1;min-width:120px}
+.modal-meta-label{font-size:9px;color:var(--t2);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:4px}
+.modal-meta-val{font-size:13px;color:var(--t0);font-weight:600}
+.modal-prog-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--r-lg);padding:16px;margin-bottom:22px}
+.modal-prog-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px}
+.modal-prog-label{font-size:12px;font-weight:600;color:var(--t0)}
+.modal-prog-pct{font-family:'Playfair Display',serif;font-size:18px;font-weight:900;color:var(--gold)}
+.modal-prog-track{height:7px;background:var(--void);border-radius:4px;overflow:hidden}
+.modal-prog-fill{height:100%;border-radius:4px;background:linear-gradient(90deg,var(--crimson),var(--gold));transition:width 0.5s var(--expo)}
+.modules-label{font-family:'Space Mono',monospace;font-size:9.5px;color:var(--gold);letter-spacing:2px;text-transform:uppercase;margin-bottom:12px}
+.module-item{display:flex;align-items:center;gap:13px;background:var(--surface);border:1px solid var(--border);border-radius:var(--r-md);padding:13px 15px;margin-bottom:8px;cursor:pointer;transition:all 0.2s;user-select:none}
+.module-item:hover{border-color:var(--border-g)}
+.module-item.done{background:var(--cyan-dim);border-color:rgba(0,212,180,0.2)}
+.module-check{width:22px;height:22px;border-radius:50%;border:1.5px solid var(--border);display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:all 0.25s;font-size:11px;color:transparent}
+.module-item.done .module-check{background:var(--cyan);border-color:var(--cyan);color:var(--void)}
+.module-text{flex:1;font-size:13px;color:var(--t1);transition:all 0.2s}
+.module-item.done .module-text{color:var(--t2);text-decoration:line-through;text-decoration-color:var(--cyan)}
+.module-time{font-family:'Space Mono',monospace;font-size:10px;color:var(--t3)}
+.modal-actions{display:flex;gap:10px;margin-top:6px;flex-wrap:wrap}
+.modal-actions .btn-primary,.modal-actions .btn-outline{flex:1;justify-content:center;padding:13px 20px;font-size:13px}
+
+/* ══════════════════════════════════════════
+   RESPONSIVE
+══════════════════════════════════════════ */
+@media(max-width:980px){
+  .nav-links,.nav-cta{display:none}
+  .nav-burger{display:flex}
+  .hero-inner{grid-template-columns:1fr;gap:40px}
+  .hero-visual{display:none}
+  .feat-grid{grid-template-columns:1fr 1fr}
+  .data-layout{grid-template-columns:1fr}
+  .how-grid{grid-template-columns:1fr 1fr}
+  .nationwide-grid{grid-template-columns:1fr 1fr}
+  .journey-dash{grid-template-columns:1fr 1fr}
+  .train-browse-grid{grid-template-columns:1fr}
+  .insight-layout{grid-template-columns:1fr}
+  .fw-card{position:static}
+  .test-layout{grid-template-columns:1fr}
+  .test-sidebar{position:static}
+  .growth-layout{grid-template-columns:1fr}
+  .testi-grid{grid-template-columns:1fr}
+  .contact-layout{grid-template-columns:1fr}
+  .footer-grid{grid-template-columns:1fr 1fr}
+  .ai-drawer{width:100vw;border-radius:var(--r-2xl) var(--r-2xl) 0 0}
+}
+@media(max-width:600px){
+  .feat-grid{grid-template-columns:1fr}
+  .how-grid{grid-template-columns:1fr}
+  .nationwide-grid{grid-template-columns:1fr 1fr}
+  .network-grid{grid-template-columns:1fr}
+  .footer-grid{grid-template-columns:1fr}
+  .hero-stats{flex-direction:row;gap:20px}
+  .journey-dash{grid-template-columns:1fr 1fr}
+  .test-main{padding:24px}
+  .ai-fab-text{display:none}
+  .ai-fab{padding:14px}
+}
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:0.01ms!important;animation-iteration-count:1!important;transition-duration:0.01ms!important}
+}
+</style>
+</head>
+<body>
+
+<!-- Scroll progress -->
+<div class="scroll-progress" id="scroll-progress"></div>
+
+<!-- Ambient orbs + aurora -->
+<div class="orb-bg">
+  <div class="orb orb-1"></div>
+  <div class="orb orb-2"></div>
+  <div class="orb orb-3"></div>
+  <div class="orb orb-4"></div>
+</div>
+<div class="aurora" id="aurora"></div>
+
+<!-- Custom cursor -->
+<div id="cur-dot"></div>
+<div id="cur-ring"></div>
+
+<!-- ══════════════════════════ NAVIGATION ══════════════════════════ -->
+<nav id="main-nav" role="navigation" aria-label="Navigasi utama">
+  <div class="nav-logo" onclick="navigate('home')" role="button" aria-label="Kembali ke beranda">
+    Civ<span class="ix">ix</span>.ID
+    <div class="live-pill">v4.0</div>
+  </div>
+
+  <ul class="nav-links" role="list">
+    <li><span class="nav-link" onclick="navigate('home')" role="button">Beranda</span></li>
+    <li><span class="nav-link" onclick="navigate('insight')" role="button">Insight</span></li>
+    <li><span class="nav-link" onclick="navigate('level-test')" role="button">Level Test</span></li>
+    <li><span class="nav-link" onclick="navigate('growth')" role="button">Growth Path</span></li>
+    <li><span class="nav-link" onclick="navigate('train')" role="button">Learning Journey</span></li>
+    <li><span class="nav-link" onclick="navigate('network')" role="button">Network</span></li>
+    <li><span class="nav-link" onclick="navigate('faq')" role="button">FAQ</span></li>
+  </ul>
+
+  <button class="nav-cta" data-magnetic onclick="navigate('level-test')">🎯 Mulai Level Test</button>
+  <button class="nav-burger" id="nav-burger" aria-label="Menu" aria-expanded="false" onclick="toggleMob()">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<div class="nav-mob" id="nav-mob">
+  <span class="nav-link" onclick="navigate('home');closeMob()">Beranda</span>
+  <span class="nav-link" onclick="navigate('insight');closeMob()">Civix Insight</span>
+  <span class="nav-link" onclick="navigate('level-test');closeMob()">Level Test</span>
+  <span class="nav-link" onclick="navigate('growth');closeMob()">Growth Path</span>
+  <span class="nav-link" onclick="navigate('train');closeMob()">Learning Journey</span>
+  <span class="nav-link" onclick="navigate('network');closeMob()">Network</span>
+  <span class="nav-link" onclick="navigate('faq');closeMob()">FAQ</span>
+  <span class="nav-link" onclick="navigate('contact');closeMob()">Kontak</span>
+  <button class="btn-primary" onclick="navigate('level-test');closeMob()" style="margin-top:8px;width:100%;justify-content:center">🎯 Mulai Level Test</button>
+</div>
+
+<!-- ══════════════════════════════════════════════════════
+     PAGE: HOME
+══════════════════════════════════════════════════════ -->
+<div class="page" id="page-home" role="main">
+
+  <!-- HERO -->
+  <section class="hero-section" aria-labelledby="hero-heading">
+    <div class="hero-grid" aria-hidden="true"></div>
+    <div class="hero-scan" aria-hidden="true"></div>
+    <div class="container">
+      <div class="hero-inner">
+        <div class="hero-left">
+          <div class="hero-badge">
+            <div class="hero-badge-dot"></div>
+            <div class="hero-badge-text">Platform PPKn Berbasis Riset · RIPP-PPKn</div>
+          </div>
+
+          <h1 class="hero-title" id="hero-heading">
+            Kenali Identitas<br>Profesional Anda<br>sebagai <span class="accent">Guru PPKn</span>
+          </h1>
+
+          <div class="hero-type" id="hero-type" aria-hidden="true"><span id="hero-type-text"></span><span class="cursor">&nbsp;</span></div>
+
+          <p class="hero-body">
+            Civix.ID memetakan kompetensi profesional guru Pendidikan Pancasila dan Kewarganegaraan melalui kerangka ilmiah <strong>RIPP-PPKn</strong> — 10 dimensi multidimensional yang mengintegrasikan civic education, pedagogik digital, dan nilai-nilai Pancasila.
+          </p>
+
+          <div class="hero-actions">
+            <button class="btn-primary" data-magnetic onclick="navigate('level-test')">🎯 Mulai Level Test Gratis</button>
+            <button class="btn-outline" onclick="navigate('insight')">Pelajari RIPP-PPKn →</button>
+          </div>
+
+          <div class="hero-stats">
+            <div class="stat-item">
+              <div class="stat-val" id="counter-guru">0<span>+</span></div>
+              <div class="stat-label">Guru PPKn Bergabung</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-val"><span>10</span></div>
+              <div class="stat-label">Dimensi RIPP-PPKn</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-val" id="counter-prov">0<span></span></div>
+              <div class="stat-label">Provinsi Terjangkau</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-val"><span>5</span></div>
+              <div class="stat-label">Level Profesional</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Hero Visual Panel -->
+        <div class="hero-visual" id="hero-visual" aria-hidden="true">
+          <div style="position:relative">
+            <div class="viz-panel">
+              <div class="viz-header">
+                <div class="viz-title-label">Profil Kompetensi Rata-Rata</div>
+                <div class="viz-live"><div class="viz-live-dot"></div>LIVE DATA</div>
+              </div>
+              <div class="mini-radar-wrap"><canvas id="hero-radar"></canvas></div>
+              <div class="viz-divider"></div>
+              <div class="bar-chart" id="hero-bars">
+                <div class="bar-row"><div class="bar-label">Civic Competence</div><div class="bar-track"><div class="bar-fill" style="width:78%;animation-delay:0.1s"></div></div><div class="bar-val">78%</div></div>
+                <div class="bar-row"><div class="bar-label">Digital Citizenship</div><div class="bar-track"><div class="bar-fill" style="width:62%;animation-delay:0.2s"></div></div><div class="bar-val">62%</div></div>
+                <div class="bar-row"><div class="bar-label">Professional Agency</div><div class="bar-track"><div class="bar-fill" style="width:70%;animation-delay:0.3s"></div></div><div class="bar-val">70%</div></div>
+                <div class="bar-row"><div class="bar-label">Civic Disposition</div><div class="bar-track"><div class="bar-fill" style="width:85%;animation-delay:0.4s"></div></div><div class="bar-val">85%</div></div>
+              </div>
+              <div class="viz-footer">
+                <div class="viz-dim-pills">
+                  <span class="viz-pill hi">Proficient</span>
+                  <span class="viz-pill mid">Developing</span>
+                  <span class="viz-pill">Novice</span>
+                </div>
+              </div>
+            </div>
+            <div class="hero-float-1">⚡ <span id="float-tests">1.247</span> tes selesai minggu ini</div>
+            <div class="hero-float-2"><div class="float-metric">74%</div><div class="float-sub">Rerata skor nasional</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LIVE ACTIVITY TICKER -->
+  <div class="ticker-wrap" aria-hidden="true">
+    <div class="ticker-label"><span class="ticker-dot"></span>Aktivitas Langsung</div>
+    <div class="ticker-track" id="ticker-track"></div>
+  </div>
+
+  <!-- FEATURES -->
+  <section class="feat-section" aria-labelledby="feat-heading">
+    <div class="container">
+      <div class="sec-eyebrow">Platform Civix.ID</div>
+      <h2 class="sec-title" id="feat-heading">Ekosistem Pengembangan<br><em>Profesional Guru PPKn</em></h2>
+      <p class="sec-body">Enam modul terintegrasi yang dirancang khusus untuk mendukung perjalanan profesional guru PPKn dari Novice hingga Expert Civic Leader.</p>
+
+      <div class="feat-grid">
+        <article class="feat-card reveal" data-spotlight onclick="navigate('insight')">
+          <div class="feat-accent" style="background:linear-gradient(90deg,var(--gold),var(--gold-l))"></div>
+          <div class="feat-icon">💡</div>
+          <div class="feat-name">Civix Insight</div>
+          <p class="feat-desc">Jelajahi novelty RIPP-PPKn: kerangka identitas profesional guru yang mengintegrasikan civic education, digital pedagogy, dan nilai-nilai Pancasila.</p>
+          <div class="feat-link">Jelajahi</div>
+        </article>
+        <article class="feat-card reveal rd1" data-spotlight onclick="navigate('level-test')">
+          <div class="feat-accent" style="background:linear-gradient(90deg,var(--crimson),var(--crimson-l))"></div>
+          <div class="feat-icon">🎯</div>
+          <div class="feat-name">Civix Level Test</div>
+          <p class="feat-desc">Instrumen pemetaan kompetensi berbasis 10 dimensi RIPP-PPKn. Hasilkan profil profesional personal dan radar chart interaktif.</p>
+          <div class="feat-link">Mulai Tes</div>
+        </article>
+        <article class="feat-card reveal rd2" data-spotlight onclick="navigate('growth')">
+          <div class="feat-accent" style="background:linear-gradient(90deg,var(--cyan),#00E8CC)"></div>
+          <div class="feat-icon">🌱</div>
+          <div class="feat-name">Growth Path</div>
+          <p class="feat-desc">Rekomendasi pelatihan personal berbasis Kirkpatrick Four-Level Evaluation Model dengan roadmap pengembangan terstruktur.</p>
+          <div class="feat-link">Lihat Jalur</div>
+        </article>
+        <article class="feat-card reveal" data-spotlight onclick="navigate('train')">
+          <div class="feat-accent" style="background:linear-gradient(90deg,var(--violet),#9B8FF8)"></div>
+          <div class="feat-icon">📚</div>
+          <div class="feat-name">Learning Journey</div>
+          <p class="feat-desc">Jalur pembelajaran adaptif berbasis AI: pelatihan personal yang harus Anda ikuti sesuai profil kompetensi, lengkap dengan progress, XP, dan badge.</p>
+          <div class="feat-link">Mulai Perjalanan</div>
+        </article>
+        <article class="feat-card reveal rd1" data-spotlight onclick="navigate('network')">
+          <div class="feat-accent" style="background:linear-gradient(90deg,#EC4899,#F59E0B)"></div>
+          <div class="feat-icon">🔗</div>
+          <div class="feat-name">Civix Network</div>
+          <p class="feat-desc">Kolaborasi profesional antar guru PPKn seluruh Indonesia — forum MGMP digital, peer mentoring, dan riset kolaboratif.</p>
+          <div class="feat-link">Bergabung</div>
+        </article>
+        <article class="feat-card reveal rd2" data-spotlight onclick="openAIWith('Bagaimana cara mendapatkan badge dan menyusun portofolio profesional di Civix.ID?')">
+          <div class="feat-accent" style="background:linear-gradient(90deg,#F59E0B,var(--gold))"></div>
+          <div class="feat-icon">🏅</div>
+          <div class="feat-name">Badge & Portofolio</div>
+          <p class="feat-desc">Sistem penghargaan digital berbasis bukti kompetensi. Badge tervalidasi dan sertifikat digital untuk portofolio profesional Anda.</p>
+          <div class="feat-link">Tanya Civix AI</div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- REAL-TIME DATA VISUALISATION -->
+  <section class="data-section" aria-labelledby="data-heading">
+    <div class="container">
+      <div class="sec-eyebrow">Data Real-Time Nasional</div>
+      <h2 class="sec-title" id="data-heading">Peta Kompetensi Guru PPKn<br><em>Indonesia Saat Ini</em></h2>
+      <p class="sec-body">Data agregat dari seluruh pengguna Civix.ID yang diperbarui secara langsung — memberikan gambaran kompetensi nasional guru PPKn yang hidup dan terus bergerak.</p>
+
+      <div class="nationwide-grid">
+        <div class="nw-card reveal" id="nw-1"><div class="live-tick"></div><div class="nw-val"><span id="cnt-1">0</span><span class="unit">+</span></div><div class="nw-label">Guru Terregistrasi</div><div class="nw-trend up">↑ +12% bulan ini</div></div>
+        <div class="nw-card reveal rd1" id="nw-2"><div class="live-tick"></div><div class="nw-val"><span id="cnt-2">0</span><span class="unit"></span></div><div class="nw-label">Provinsi Aktif</div><div class="nw-trend warm">34 dari 38 provinsi</div></div>
+        <div class="nw-card reveal rd2" id="nw-3"><div class="live-tick"></div><div class="nw-val"><span id="cnt-3">0</span><span class="unit">%</span></div><div class="nw-label">Skor Rerata Nasional</div><div class="nw-trend up">↑ +3.2 poin</div></div>
+        <div class="nw-card reveal rd3" id="nw-4"><div class="live-tick"></div><div class="nw-val"><span id="cnt-4">0</span><span class="unit">+</span></div><div class="nw-label">Pelatihan Diselesaikan</div><div class="nw-trend up">↑ +28% semester ini</div></div>
+      </div>
+
+      <div class="data-layout" style="margin-top:24px">
+        <div class="data-card reveal">
+          <div class="data-card-header">
+            <div class="data-card-title">Distribusi Kompetensi per Dimensi</div>
+            <div class="data-badge"><div class="data-badge-dot"></div>LIVE</div>
+          </div>
+          <div class="dim-bars" id="dim-bars"></div>
+        </div>
+        <div class="data-card reveal rd1">
+          <div class="data-card-header">
+            <div class="data-card-title">Distribusi Level Nasional</div>
+            <div class="data-badge"><div class="data-badge-dot"></div>UPDATE</div>
+          </div>
+          <canvas id="level-donut" style="max-height:220px"></canvas>
+          <div style="display:flex;flex-wrap:wrap;gap:8px;margin-top:16px" id="donut-legend"></div>
+        </div>
+      </div>
+
+      <div class="data-layout" style="margin-top:24px;grid-template-columns:1fr">
+        <div class="data-card wide reveal">
+          <div class="data-card-header">
+            <div class="data-card-title">Tren Skor Rerata Nasional · 12 Minggu Terakhir</div>
+            <div class="data-badge"><div class="data-badge-dot"></div>STREAMING</div>
+          </div>
+          <canvas id="trend-chart" style="max-height:240px"></canvas>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section class="how-section" aria-labelledby="how-heading">
+    <div class="container">
+      <div class="sec-eyebrow">Cara Kerja</div>
+      <h2 class="sec-title" id="how-heading">4 Langkah Menuju<br><em>Profesionalisme Optimal</em></h2>
+      <div class="how-grid">
+        <div class="step-card reveal"><div class="step-num">1</div><div class="step-name">Daftar & Mulai</div><p class="step-body">Buat akun gratis dan akses seluruh fitur platform Civix.ID dalam hitungan detik.</p></div>
+        <div class="step-card reveal rd1"><div class="step-num">2</div><div class="step-name">Ambil Level Test</div><p class="step-body">Jawab instrumen RIPP-PPKn berbasis 10 dimensi yang divalidasi secara psikometrik.</p></div>
+        <div class="step-card reveal rd2"><div class="step-num">3</div><div class="step-name">Terima Profil Personal</div><p class="step-body">Dapatkan radar chart kompetensi, level profesional, dan laporan analitik berbasis bukti.</p></div>
+        <div class="step-card reveal rd3"><div class="step-num">4</div><div class="step-name">Ikuti Learning Journey</div><p class="step-body">Jalani jalur pelatihan yang direkomendasikan AI, kumpulkan XP & badge, dan terhubung dengan komunitas PPKn.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section class="testi-section" aria-labelledby="testi-heading">
+    <div class="container">
+      <div class="sec-eyebrow">Testimoni Pengguna</div>
+      <h2 class="sec-title" id="testi-heading">Apa Kata <em>Guru PPKn</em><br>yang Telah Bergabung</h2>
+      <div class="testi-grid">
+        <article class="testi-card reveal">
+          <div class="testi-stars">★★★★★</div>
+          <p class="testi-text">"Civix.ID membantu saya memahami kekuatan dan area pengembangan sebagai guru PPKn secara mendalam. Radar chart-nya sangat membantu untuk refleksi profesional."</p>
+          <div class="testi-author"><div class="testi-avatar">R</div><div><div class="testi-name">Dra. Ratna Sari, M.Pd.</div><div class="testi-role">Guru PPKn SMA — Yogyakarta</div></div></div>
+        </article>
+        <article class="testi-card reveal rd1">
+          <div class="testi-stars">★★★★★</div>
+          <p class="testi-text">"Framework RIPP-PPKn membuka wawasan baru saya tentang identitas profesional guru PPKn di era digital. Learning Journey-nya sangat relevan dengan kebutuhan saya."</p>
+          <div class="testi-author"><div class="testi-avatar">B</div><div><div class="testi-name">Budi Prasetyo, S.Pd.</div><div class="testi-role">Guru PPKn SMK — Surabaya</div></div></div>
+        </article>
+        <article class="testi-card reveal rd2">
+          <div class="testi-stars">★★★★★</div>
+          <p class="testi-text">"Sebagai dosen PPKn, saya sangat mengapresiasi kerangka ilmiah yang mendasari Civix.ID. Platform ini mengisi kekosongan besar dalam pengembangan profesional guru PPKn Indonesia."</p>
+          <div class="testi-author"><div class="testi-avatar">A</div><div><div class="testi-name">Prof. Dr. Ahmad Fauzi, M.Si.</div><div class="testi-role">Dosen PKn — Universitas Jakarta</div></div></div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-section" aria-labelledby="cta-heading">
+    <div class="container">
+      <div class="cta-inner">
+        <div class="sec-eyebrow" style="justify-content:center;">Mulai Sekarang · Gratis</div>
+        <h2 class="sec-title" id="cta-heading" style="text-align:center;">Kenali <em>Identitas Profesional</em><br>Anda sebagai Guru PPKn</h2>
+        <p class="sec-body" style="text-align:center;margin:0 auto 32px;">Ikuti Civix Level Test gratis dan dapatkan peta kompetensi personal berbasis 10 dimensi RIPP-PPKn dalam hitungan menit.</p>
+        <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap">
+          <button class="btn-primary" data-magnetic onclick="navigate('level-test')" style="font-size:15px;padding:17px 42px">🎯 Mulai Civix Level Test →</button>
+          <button class="btn-outline" onclick="navigate('contact')">Hubungi Kami</button>
+        </div>
+        <div class="cta-badges">
+          <span class="cta-badge">GRATIS SEPENUHNYA</span>
+          <span class="cta-badge">BERBASIS RISET</span>
+          <span class="cta-badge">TERVALIDASI PSIKOMETRIK</span>
+          <span class="cta-badge">AI-POWERED</span>
+          <span class="cta-badge">PRIBADI & AMAN</span>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ══════════════════════════════════════════════════════
+     PAGE: INSIGHT
+══════════════════════════════════════════════════════ -->
+<div class="page" id="page-insight" role="main">
+  <div class="pt-nav"></div>
+  <section class="insight-section" aria-labelledby="insight-heading">
+    <div class="container">
+      <div class="sec-eyebrow">Civix Insight</div>
+      <h1 class="sec-title" id="insight-heading">Novelty <em>RIPP-PPKn</em></h1>
+      <p class="sec-body">Reconceptualized Identity of Professional PPKn — kerangka identitas profesional guru PPKn yang mengintegrasikan civic education, digital pedagogy, dan nilai-nilai Pancasila dalam satu konstruk multidimensional.</p>
+
+      <div class="insight-layout">
+        <div>
+          <div class="tabs" role="tablist">
+            <button class="tab-btn active" onclick="switchTab(this,'tab-dim')">10 Dimensi</button>
+            <button class="tab-btn" onclick="switchTab(this,'tab-ethics')">Etika Digital</button>
+            <button class="tab-btn" onclick="switchTab(this,'tab-gap')">Research Gap</button>
+            <button class="tab-btn" onclick="switchTab(this,'tab-pancasila')">Pancasila</button>
+          </div>
+
+          <div class="tab-panel active" id="tab-dim">
+            <div class="insight-points">
+              <div class="insight-pt reveal"><div class="ip-icon">🏛️</div><div><div class="ip-title">1. Civic Competence</div><p class="ip-desc">Penguasaan mendalam atas nilai demokrasi, hak asasi manusia, dan kebinekaan sebagai inti kompetensi kewargaan guru PPKn. Mencakup literasi konstitusional dan pemahaman sistem pemerintahan.</p></div></div>
+              <div class="insight-pt reveal rd1"><div class="ip-icon">🎓</div><div><div class="ip-title">2. Identitas Pedagogik</div><p class="ip-desc">Pemahaman mendalam tentang identitas diri sebagai pendidik kewargaan — cara mengintegrasikan nilai-nilai kewarganegaraan dalam setiap aspek praktik pembelajaran.</p></div></div>
+              <div class="insight-pt reveal rd2"><div class="ip-icon">⚖️</div><div><div class="ip-title">3. Civic Disposition</div><p class="ip-desc">Sikap, karakter, dan disposisi kewargaan yang menjadi teladan bagi peserta didik. Mencakup integritas, toleransi, dan komitmen terhadap nilai-nilai demokratis.</p></div></div>
+              <div class="insight-pt reveal"><div class="ip-icon">🛠️</div><div><div class="ip-title">4. Civic Skills</div><p class="ip-desc">Keterampilan praktis kewarganegaraan: berpikir kritis, berpartisipasi demokratis, komunikasi persuasif berbasis nilai, dan pengambilan keputusan berdasarkan musyawarah.</p></div></div>
+              <div class="insight-pt reveal rd1"><div class="ip-icon">🗳️</div><div><div class="ip-title">5. Komitmen Demokratis</div><p class="ip-desc">Komitmen mendalam terhadap prinsip-prinsip demokrasi Pancasila, rule of law, dan keadilan sosial yang terinternalisasi dalam setiap keputusan profesional.</p></div></div>
+              <div class="insight-pt reveal rd2"><div class="ip-icon">🔍</div><div><div class="ip-title">6. Profesionalisme Reflektif</div><p class="ip-desc">Praktik refleksi pedagogis berbasis bukti untuk perbaikan pembelajaran PPKn secara berkelanjutan dan terukur.</p></div></div>
+              <div class="insight-pt reveal"><div class="ip-icon">💪</div><div><div class="ip-title">7. Professional Agency</div><p class="ip-desc">Kapasitas untuk bertindak proaktif, mengambil inisiatif, dan memimpin perubahan dalam konteks pendidikan kewarganegaraan.</p></div></div>
+              <div class="insight-pt reveal rd1"><div class="ip-icon">📱</div><div><div class="ip-title">8. Digital Citizenship Pedagogy</div><p class="ip-desc">Kemampuan mengajarkan kewargaan digital, literasi media kritis, dan navigasi ruang digital bertanggung jawab berbasis nilai Pancasila.</p></div></div>
+              <div class="insight-pt reveal rd2"><div class="ip-icon">🤝</div><div><div class="ip-title">9. Communities of Practice</div><p class="ip-desc">Keterlibatan aktif dalam komunitas profesional guru PPKn — MGMP, lesson study, riset kolaboratif, dan jejaring nasional.</p></div></div>
+              <div class="insight-pt reveal"><div class="ip-icon">📚</div><div><div class="ip-title">10. Penguasaan Materi</div><p class="ip-desc">Kedalaman penguasaan substansi PPKn: Pancasila, UUD 1945, NKRI, Bhinneka Tunggal Ika, dan isu kewarganegaraan kontemporer.</p></div></div>
+            </div>
+          </div>
+
+          <div class="tab-panel" id="tab-ethics">
+            <div class="insight-points">
+              <div class="insight-pt reveal"><div class="ip-icon">🛡️</div><div><div class="ip-title">Etika Digital Pancasila</div><p class="ip-desc">Mengintegrasikan nilai-nilai Pancasila sebagai landasan etis dalam navigasi ruang digital — dari Ketuhanan Yang Maha Esa hingga Keadilan Sosial sebagai filter moral konten digital.</p></div></div>
+              <div class="insight-pt reveal rd1"><div class="ip-icon">📰</div><div><div class="ip-title">Literasi Media & Anti-Hoaks</div><p class="ip-desc">Kompetensi mengajarkan verifikasi informasi, berpikir kritis terhadap konten media sosial, dan deteksi disinformasi sebagai benteng demokrasi digital.</p></div></div>
+              <div class="insight-pt reveal rd2"><div class="ip-icon">🌐</div><div><div class="ip-title">Digital Civic Engagement</div><p class="ip-desc">Mendorong partisipasi demokratis digital yang bertanggung jawab berbasis keadaban dan nilai-nilai kewargaan.</p></div></div>
+              <div class="insight-pt reveal"><div class="ip-icon">🔒</div><div><div class="ip-title">Keamanan & Privasi Digital</div><p class="ip-desc">Pemahaman dan pengajaran tentang keamanan data, privasi digital, dan perlindungan identitas dalam ekosistem digital.</p></div></div>
+              <div class="insight-pt reveal rd1"><div class="ip-icon">🌍</div><div><div class="ip-title">Kewargaan Global-Digital</div><p class="ip-desc">Pemahaman dimensi global kewarganegaraan di era digital — dari hak digital universal hingga tanggung jawab dalam komunitas digital internasional.</p></div></div>
+            </div>
+          </div>
+
+          <div class="tab-panel" id="tab-gap">
+            <div class="insight-points">
+              <div class="insight-pt reveal"><div class="ip-icon">📋</div><div><div class="ip-title">Gap Instrumen Pemetaan</div><p class="ip-desc">Belum tersedia instrumen tervalidasi yang mengukur identitas profesional guru PPKn secara multidimensional. RIPP-PPKn mengisi kekosongan kritis ini.</p></div></div>
+              <div class="insight-pt reveal rd1"><div class="ip-icon">🔬</div><div><div class="ip-title">Gap Integrasi Digital-Civic</div><p class="ip-desc">Minimnya kerangka konseptual yang mengintegrasikan kompetensi digital pedagogy dengan civic education secara koheren dalam konteks Indonesia.</p></div></div>
+              <div class="insight-pt reveal rd2"><div class="ip-icon">📊</div><div><div class="ip-title">Gap Data Kompetensi Nasional</div><p class="ip-desc">Ketiadaan data agregat yang memetakan distribusi kompetensi guru PPKn secara nasional berbasis bukti empiris.</p></div></div>
+              <div class="insight-pt reveal"><div class="ip-icon">🎓</div><div><div class="ip-title">Gap Evaluasi Pelatihan Sistemik</div><p class="ip-desc">Pelatihan guru PPKn yang ada jarang menerapkan model evaluasi bertingkat seperti Kirkpatrick secara konsisten dan terukur.</p></div></div>
+              <div class="insight-pt reveal rd1"><div class="ip-icon">🌱</div><div><div class="ip-title">Gap Pancasila-Digital Integration</div><p class="ip-desc">Kurangnya riset yang mengeksplorasi bagaimana nilai-nilai Pancasila dapat menjadi landasan etis pengembangan kompetensi digital citizenship guru PPKn.</p></div></div>
+            </div>
+          </div>
+
+          <div class="tab-panel" id="tab-pancasila">
+            <div class="insight-points">
+              <div class="insight-pt reveal"><div class="ip-icon">⭐</div><div><div class="ip-title">Sila 1: Etika Digital Berketuhanan</div><p class="ip-desc">Mengintegrasikan nilai spiritualitas dan moralitas dalam penggunaan teknologi digital — menolak konten yang melanggar norma agama dan merusak martabat manusia.</p></div></div>
+              <div class="insight-pt reveal rd1"><div class="ip-icon">🤝</div><div><div class="ip-title">Sila 2: Humanisasi Ruang Digital</div><p class="ip-desc">Memastikan ruang digital tetap menjunjung kemanusiaan, menolak perundungan siber, dan mendorong interaksi digital yang bermartabat.</p></div></div>
+              <div class="insight-pt reveal rd2"><div class="ip-icon">🇮🇩</div><div><div class="ip-title">Sila 3: Persatuan di Ruang Maya</div><p class="ip-desc">Menggunakan platform digital untuk memperkuat persatuan nasional, melawan hoaks pemecah bangsa, dan membangun narasi kebinekaan konstruktif.</p></div></div>
+              <div class="insight-pt reveal"><div class="ip-icon">🗳️</div><div><div class="ip-title">Sila 4: Demokrasi Digital</div><p class="ip-desc">Menerapkan prinsip musyawarah dan mufakat dalam ruang diskusi digital, mengembangkan budaya berargumentasi yang sehat dan menghormati perbedaan.</p></div></div>
+              <div class="insight-pt reveal rd1"><div class="ip-icon">⚖️</div><div><div class="ip-title">Sila 5: Keadilan Akses Digital</div><p class="ip-desc">Memperjuangkan pemerataan akses teknologi digital, mengatasi kesenjangan digital, dan memastikan tidak ada siswa yang tertinggal dalam era digital.</p></div></div>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <div class="fw-card">
+            <div class="fw-label">10 Dimensi RIPP-PPKn</div>
+            <div class="fw-dim"><div class="fw-dot" style="background:#C41B46"></div><div class="fw-name">Civic Competence</div><div class="fw-score">D-01</div></div>
+            <div class="fw-dim"><div class="fw-dot" style="background:#D2A53C"></div><div class="fw-name">Identitas Pedagogik</div><div class="fw-score">D-02</div></div>
+            <div class="fw-dim"><div class="fw-dot" style="background:#00D4B4"></div><div class="fw-name">Civic Disposition</div><div class="fw-score">D-03</div></div>
+            <div class="fw-dim"><div class="fw-dot" style="background:#7C6EF5"></div><div class="fw-name">Civic Skills</div><div class="fw-score">D-04</div></div>
+            <div class="fw-dim"><div class="fw-dot" style="background:#EC4899"></div><div class="fw-name">Komitmen Demokratis</div><div class="fw-score">D-05</div></div>
+            <div class="fw-dim"><div class="fw-dot" style="background:#F59E0B"></div><div class="fw-name">Profesionalisme Reflektif</div><div class="fw-score">D-06</div></div>
+            <div class="fw-dim"><div class="fw-dot" style="background:#10B981"></div><div class="fw-name">Professional Agency</div><div class="fw-score">D-07</div></div>
+            <div class="fw-dim"><div class="fw-dot" style="background:#3B82F6"></div><div class="fw-name">Digital Citizenship</div><div class="fw-score">D-08</div></div>
+            <div class="fw-dim"><div class="fw-dot" style="background:#8B5CF6"></div><div class="fw-name">Communities of Practice</div><div class="fw-score">D-09</div></div>
+            <div class="fw-dim"><div class="fw-dot" style="background:#EF4444"></div><div class="fw-name">Penguasaan Materi</div><div class="fw-score">D-10</div></div>
+
+            <div style="margin-top:20px;padding-top:20px;border-top:1px solid var(--border)">
+              <div class="fw-label" style="margin-bottom:12px">5 Level Profesional</div>
+              <div style="display:flex;flex-direction:column;gap:6px">
+                <div style="display:flex;align-items:center;gap:8px;padding:8px 10px;background:var(--surface);border-radius:var(--r-md);border:1px solid var(--border)"><div style="width:6px;height:6px;border-radius:50%;background:var(--t2)"></div><span style="font-size:11.5px;color:var(--t1)">Novice</span><span style="font-family:'Space Mono',monospace;font-size:9px;color:var(--t2);margin-left:auto">20–39%</span></div>
+                <div style="display:flex;align-items:center;gap:8px;padding:8px 10px;background:var(--surface);border-radius:var(--r-md);border:1px solid var(--border)"><div style="width:6px;height:6px;border-radius:50%;background:var(--cyan)"></div><span style="font-size:11.5px;color:var(--t1)">Developing</span><span style="font-family:'Space Mono',monospace;font-size:9px;color:var(--t2);margin-left:auto">40–59%</span></div>
+                <div style="display:flex;align-items:center;gap:8px;padding:8px 10px;border-radius:var(--r-md);border:1px solid rgba(210,165,60,0.2);background:var(--gold-dim)"><div style="width:6px;height:6px;border-radius:50%;background:var(--gold)"></div><span style="font-size:11.5px;color:var(--t0);font-weight:500">Proficient ✦</span><span style="font-family:'Space Mono',monospace;font-size:9px;color:var(--gold);margin-left:auto">60–79%</span></div>
+                <div style="display:flex;align-items:center;gap:8px;padding:8px 10px;background:var(--surface);border-radius:var(--r-md);border:1px solid var(--border)"><div style="width:6px;height:6px;border-radius:50%;background:var(--crimson)"></div><span style="font-size:11.5px;color:var(--t1)">Advanced</span><span style="font-family:'Space Mono',monospace;font-size:9px;color:var(--t2);margin-left:auto">80–89%</span></div>
+                <div style="display:flex;align-items:center;gap:8px;padding:8px 10px;background:var(--surface);border-radius:var(--r-md);border:1px solid var(--border)"><div style="width:6px;height:6px;border-radius:50%;background:var(--violet)"></div><span style="font-size:11.5px;color:var(--t1)">Expert Civic Leader</span><span style="font-family:'Space Mono',monospace;font-size:9px;color:var(--t2);margin-left:auto">90%+</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ══════════════════════════════════════════════════════
+     PAGE: LEVEL TEST
+══════════════════════════════════════════════════════ -->
+<div class="page" id="page-level-test" role="main">
+  <div class="pt-nav"></div>
+  <section class="test-section" aria-labelledby="test-heading">
+    <div class="container">
+      <div class="sec-eyebrow">Civix Level Test</div>
+      <h1 class="sec-title" id="test-heading">Pemetaan Kompetensi<br><em>Personal Anda</em></h1>
+      <p class="sec-body">Instrumen pemetaan berbasis 10 dimensi RIPP-PPKn. 7 pertanyaan representatif · Hasil instan · Radar chart interaktif · Rekomendasi Learning Journey personal.</p>
+
+      <div class="test-layout">
+        <aside class="test-sidebar">
+          <div class="sidebar-label">Radar Kompetensi</div>
+          <div class="radar-wrap"><canvas id="test-radar"></canvas></div>
+          <div class="chips-label">Dimensi Terjawab</div>
+          <div class="chips" id="test-chips"></div>
+        </aside>
+        <div class="test-main" id="test-main"></div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ══════════════════════════════════════════════════════
+     PAGE: GROWTH
+══════════════════════════════════════════════════════ -->
+<div class="page" id="page-growth" role="main">
+  <div class="pt-nav"></div>
+  <section class="growth-section" aria-labelledby="growth-heading">
+    <div class="container">
+      <div class="sec-eyebrow">Civix Growth Path</div>
+      <h1 class="sec-title" id="growth-heading">Evaluasi Berbasis<br><em>Kirkpatrick Model</em></h1>
+      <p class="sec-body">Empat level evaluasi yang memastikan pelatihan PPKn Anda menghasilkan dampak nyata — dari reaksi awal hingga transformasi pembelajaran di kelas.</p>
+
+      <div class="growth-layout">
+        <div class="kirk-cards">
+          <div class="kirk-card k1 reveal"><div class="kirk-num">1</div><div><div class="kirk-level">Kirkpatrick Level 1</div><div class="kirk-title">Reaction <span class="mvp-badge">MVP</span></div><p class="kirk-desc">Mengukur kepuasan, keterlibatan, dan relevansi pelatihan yang dirasakan peserta. Data reaksi digunakan untuk mengoptimalkan desain pembelajaran selanjutnya secara real-time.</p><div class="kirk-tags"><span class="kirk-tag">Survei Post-Training</span><span class="kirk-tag">Net Promoter Score</span><span class="kirk-tag">Feedback Loop</span></div></div></div>
+          <div class="kirk-card k2 reveal rd1"><div class="kirk-num">2</div><div><div class="kirk-level">Kirkpatrick Level 2</div><div class="kirk-title">Learning</div><p class="kirk-desc">Mengukur peningkatan pengetahuan, keterampilan, dan sikap peserta sebelum dan sesudah pelatihan. Menggunakan pre-post assessment berbasis dimensi RIPP-PPKn yang terdampak.</p><div class="kirk-tags"><span class="kirk-tag">Pre-Post Assessment</span><span class="kirk-tag">Knowledge Check</span><span class="kirk-tag">Skill Demonstration</span></div></div></div>
+          <div class="kirk-card k3 reveal rd2"><div class="kirk-num">3</div><div><div class="kirk-level">Kirkpatrick Level 3</div><div class="kirk-title">Behaviour</div><p class="kirk-desc">Memantau penerapan pembelajaran di konteks kelas nyata dalam 30–90 hari pasca-pelatihan. Menggunakan observasi peer, jurnal refleksi, dan portofolio praktik mengajar.</p><div class="kirk-tags"><span class="kirk-tag">Classroom Observation</span><span class="kirk-tag">Reflective Journal</span><span class="kirk-tag">Teaching Portfolio</span></div></div></div>
+          <div class="kirk-card k4 reveal"><div class="kirk-num">4</div><div><div class="kirk-level">Kirkpatrick Level 4</div><div class="kirk-title">Results</div><p class="kirk-desc">Mengukur dampak akhir pada kualitas pembelajaran peserta didik dan ekosistem sekolah. Indikator: nilai PPKn siswa, partisipasi aktif, budaya demokratis sekolah.</p><div class="kirk-tags"><span class="kirk-tag">Student Learning Outcomes</span><span class="kirk-tag">Civic Participation Index</span><span class="kirk-tag">School Culture Impact</span></div></div></div>
+        </div>
+
+        <div class="growth-sidebar">
+          <div class="sidebar-card reveal">
+            <div class="sc-label">Roadmap Pengembangan</div>
+            <div class="roadmap">
+              <div class="rm-item active"><div class="rm-dot">F1</div><div><div class="rm-phase">Fase 1 · Aktif</div><div class="rm-name">Platform & Assessment</div><div class="rm-body">Level Test, profil kompetensi, radar chart, Civix AI chatbot, Learning Journey.</div></div></div>
+              <div class="rm-item"><div class="rm-dot">F2</div><div><div class="rm-phase">Fase 2 · Q3 2025</div><div class="rm-name">Learning Management</div><div class="rm-body">Modul pelatihan adaptif, e-learning PPKn, sertifikasi digital.</div></div></div>
+              <div class="rm-item"><div class="rm-dot">F3</div><div><div class="rm-phase">Fase 3 · Q1 2026</div><div class="rm-name">Network & Analytics</div><div class="rm-body">MGMP digital, peer mentoring, analytics dashboard nasional.</div></div></div>
+              <div class="rm-item"><div class="rm-dot">F4</div><div><div class="rm-phase">Fase 4 · Q3 2026</div><div class="rm-name">Institutional Integration</div><div class="rm-body">Integrasi dengan Kemendikbud, LPTK, dan ekosistem PD nasional.</div></div></div>
+            </div>
+          </div>
+
+          <div class="sidebar-card reveal rd1" id="growth-level-card">
+            <div class="sc-label">Level Anda Saat Ini</div>
+            <div style="text-align:center;padding:16px 0" id="growth-level-inner">
+              <div style="font-size:40px;margin-bottom:8px">🎓</div>
+              <div style="font-family:'Playfair Display',serif;font-size:20px;font-weight:700;color:var(--t0);margin-bottom:4px">Belum Ditentukan</div>
+              <div style="font-size:12px;color:var(--t2);margin-bottom:16px">Ikuti Level Test untuk hasil akurat</div>
+              <button class="btn-primary" onclick="navigate('level-test')" style="font-size:13px;padding:11px 24px;width:100%;justify-content:center">Ambil Level Test →</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ══════════════════════════════════════════════════════
+     PAGE: LEARNING JOURNEY (train)
+══════════════════════════════════════════════════════ -->
+<div class="page" id="page-train" role="main">
+  <div class="pt-nav"></div>
+  <section class="train-section" aria-labelledby="journey-heading">
+    <div class="container">
+      <div class="sec-eyebrow">Learning Journey</div>
+      <h1 class="sec-title" id="journey-heading">Jalur Pembelajaran <em>Personal</em></h1>
+      <p class="sec-body">Rekomendasi pelatihan yang dikurasi khusus untuk Anda berdasarkan hasil Level Test — menargetkan dimensi RIPP-PPKn terlemah Anda. Selesaikan modul, kumpulkan XP, dan raih lencana kompetensi.</p>
+
+      <!-- Profile banner (diisi JS bila profil tersedia) -->
+      <div id="journey-banner"></div>
+
+      <!-- Dashboard gamifikasi (diisi JS) -->
+      <div class="journey-dash" id="journey-dash"></div>
+
+      <!-- Learning path -->
+      <h2 class="journey-section-title">🧭 Jalur yang Direkomendasikan</h2>
+      <p class="journey-section-sub">Urutan pelatihan prioritas — disusun dari yang paling berdampak untuk menutup celah kompetensi pada profil Anda.</p>
+      <div id="path-container"></div>
+
+      <!-- Badges -->
+      <h2 class="journey-section-title" style="margin-top:46px">🏅 Lencana Kompetensi</h2>
+      <p class="journey-section-sub">Raih lencana dengan menyelesaikan pelatihan di tiap tingkatan dan tonggak pembelajaran.</p>
+      <div class="badge-strip" id="badge-strip"></div>
+
+      <!-- Browse all -->
+      <h2 class="journey-section-title" style="margin-top:46px">📚 Jelajahi Semua Pelatihan</h2>
+      <p class="journey-section-sub">Katalog lengkap modul pengembangan profesional Civix.ID — saring sesuai kebutuhan Anda.</p>
+      <div class="train-filter" id="train-filter">
+        <button class="train-filter-btn active" onclick="filterTrain('all',this)">Semua</button>
+        <button class="train-filter-btn" onclick="filterTrain('novice',this)">Novice</button>
+        <button class="train-filter-btn" onclick="filterTrain('developing',this)">Developing</button>
+        <button class="train-filter-btn" onclick="filterTrain('advanced',this)">Advanced</button>
+        <button class="train-filter-btn" onclick="filterTrain('free',this)">Gratis</button>
+        <button class="train-filter-btn" onclick="filterTrain('cert',this)">Bersertifikat</button>
+      </div>
+      <div class="train-browse-grid" id="train-browse-grid"></div>
+    </div>
+  </section>
+</div>
+
+<!-- ══════════════════════════════════════════════════════
+     PAGE: NETWORK
+══════════════════════════════════════════════════════ -->
+<div class="page" id="page-network" role="main">
+  <div class="pt-nav"></div>
+  <section class="network-section" aria-labelledby="network-heading">
+    <div class="container">
+      <div class="sec-eyebrow">Civix Network</div>
+      <h1 class="sec-title" id="network-heading">Ekosistem <em>Communities of Practice</em></h1>
+      <p class="sec-body">Civix.ID dirancang menjadi simpul kolaborasi guru PPKn se-Indonesia — ruang berbagi praktik baik, mentoring sejawat, dan pengembangan profesional berkelanjutan yang saling menguatkan.</p>
+
+      <div class="feat-grid" style="margin-top:52px">
+        <div class="nf-card reveal">
+          <div class="nf-icon">🤝</div>
+          <div class="nf-title">MGMP Digital</div>
+          <p class="nf-desc">Ruang Musyawarah Guru Mata Pelajaran berbasis digital — diskusi terstruktur, berbagi modul ajar, dan koordinasi lintas wilayah secara real-time.</p>
+          <span class="nf-active">● BETA TERBATAS</span>
+        </div>
+        <div class="nf-card reveal rd1">
+          <div class="nf-icon">🧭</div>
+          <div class="nf-title">Peer Mentoring</div>
+          <p class="nf-desc">Sistem pencocokan mentor–mentee berbasis profil RIPP-PPKn. Guru Expert mendampingi rekan Novice dengan jalur pendampingan terukur.</p>
+          <span class="nf-soon">SEGERA HADIR · Q1 2026</span>
+        </div>
+        <div class="nf-card reveal rd2">
+          <div class="nf-icon">📊</div>
+          <div class="nf-title">Analytics Nasional</div>
+          <p class="nf-desc">Dashboard agregat sebaran kompetensi guru PPKn per provinsi — basis kebijakan pengembangan profesional yang berbasis data.</p>
+          <span class="nf-soon">SEGERA HADIR · Q1 2026</span>
+        </div>
+        <div class="nf-card reveal">
+          <div class="nf-icon">🎓</div>
+          <div class="nf-title">Sertifikasi Mikro</div>
+          <p class="nf-desc">Micro-credential digital yang diakui untuk setiap dimensi RIPP-PPKn yang dikuasai — portofolio profesional yang dapat diverifikasi.</p>
+          <span class="nf-soon">SEGERA HADIR · Q3 2026</span>
+        </div>
+        <div class="nf-card reveal rd1">
+          <div class="nf-icon">📚</div>
+          <div class="nf-title">Bank Praktik Baik</div>
+          <p class="nf-desc">Repositori terbuka RPP, media ajar, dan studi kasus pembelajaran PPKn inovatif — dikurasi komunitas, dapat diadaptasi bebas.</p>
+          <span class="nf-soon">SEGERA HADIR · Q3 2026</span>
+        </div>
+        <div class="nf-card reveal rd2">
+          <div class="nf-icon">🏛️</div>
+          <div class="nf-title">Integrasi Institusional</div>
+          <p class="nf-desc">Jembatan kolaborasi dengan LPTK, Kemendikbud, dan ekosistem pengembangan profesional guru tingkat nasional.</p>
+          <span class="nf-soon">SEGERA HADIR · 2026+</span>
+        </div>
+      </div>
+
+      <div style="text-align:center;margin-top:48px">
+        <button class="btn-primary" data-magnetic onclick="openAIWith('Bagaimana cara saya bergabung dengan Civix Network dan komunitas MGMP digital?')">💬 Tanya Civix AI soal Network</button>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ══════════════════════════════════════════════════════
+     PAGE: FAQ
+══════════════════════════════════════════════════════ -->
+<div class="page" id="page-faq" role="main">
+  <div class="pt-nav"></div>
+  <section class="faq-section" aria-labelledby="faq-heading">
+    <div class="container">
+      <div class="sec-eyebrow" style="text-align:center">FAQ</div>
+      <h1 class="sec-title" id="faq-heading" style="text-align:center">Pertanyaan <em>yang Sering Diajukan</em></h1>
+      <p class="sec-body" style="text-align:center;margin-left:auto;margin-right:auto">Hal-hal yang paling sering ditanyakan tentang Civix.ID, kerangka RIPP-PPKn, dan cara kerja platform.</p>
+      <div class="faq-list" id="faq-list"></div>
+
+      <div style="text-align:center;margin-top:36px">
+        <p style="font-size:13px;color:var(--t2);margin-bottom:14px">Tidak menemukan jawaban Anda?</p>
+        <button class="btn-outline" onclick="toggleAI()">💬 Tanya langsung ke Civix AI</button>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ══════════════════════════════════════════════════════
+     PAGE: CONTACT
+══════════════════════════════════════════════════════ -->
+<div class="page" id="page-contact" role="main">
+  <div class="pt-nav"></div>
+  <section class="contact-section" aria-labelledby="contact-heading">
+    <div class="container">
+      <div class="sec-eyebrow">Kontak</div>
+      <h1 class="sec-title" id="contact-heading">Mari <em>Berkolaborasi</em></h1>
+      <p class="sec-body">Punya pertanyaan, masukan, atau ingin menjajaki kerja sama riset dan pengembangan? Tim Civix.ID senang mendengar dari Anda.</p>
+
+      <div class="contact-layout">
+        <div class="contact-form">
+          <div class="form-group">
+            <label class="form-label" for="cf-name">Nama Lengkap</label>
+            <input class="form-input" id="cf-name" type="text" placeholder="Nama Anda" autocomplete="name">
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="cf-email">Email</label>
+            <input class="form-input" id="cf-email" type="email" placeholder="nama@email.com" autocomplete="email">
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="cf-subject">Subjek</label>
+            <input class="form-input" id="cf-subject" type="text" placeholder="Topik pesan Anda">
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="cf-message">Pesan</label>
+            <textarea class="form-textarea" id="cf-message" placeholder="Tuliskan pesan Anda di sini..."></textarea>
+          </div>
+          <button class="form-submit" onclick="submitContact()">Kirim Pesan →</button>
+        </div>
+
+        <div class="contact-info">
+          <div class="contact-info-card reveal">
+            <div class="ci-icon">📧</div>
+            <div><div class="ci-title">Email</div><div class="ci-body">halo@civix.id<br>riset@civix.id</div></div>
+          </div>
+          <div class="contact-info-card reveal rd1">
+            <div class="ci-icon">🏛️</div>
+            <div><div class="ci-title">Basis Riset</div><div class="ci-body">Kerangka RIPP-PPKn dikembangkan untuk konteks pendidikan kewarganegaraan Indonesia.</div></div>
+          </div>
+          <div class="contact-info-card reveal rd2">
+            <div class="ci-icon">🤖</div>
+            <div><div class="ci-title">Civix AI Assistant</div><div class="ci-body">Butuh jawaban cepat? Asisten AI kami siap 24/7 — klik tombol di pojok kanan bawah.</div></div>
+          </div>
+          <div class="contact-info-card reveal rd3">
+            <div class="ci-icon">🔗</div>
+            <div><div class="ci-title">Status Platform</div><div class="ci-body">Fase 1 (Assessment & Learning Journey) aktif. Fitur Network bertahap dirilis sepanjang 2025–2026.</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ══════════════════════════════════════════════════════
+     FOOTER
+══════════════════════════════════════════════════════ -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-about-col">
+      <div class="footer-logo" onclick="navigate('home')">Civ<span class="ix">ix</span>.ID</div>
+      <p class="footer-about">Platform pemetaan identitas profesional guru PPKn Indonesia berbasis kerangka RIPP-PPKn — mengintegrasikan asesmen kompetensi, jalur pembelajaran personal, dan komunitas praktik dalam satu ekosistem.</p>
+      <div class="footer-socials">
+        <div class="footer-social" title="Email">✉</div>
+        <div class="footer-social" title="Komunitas">👥</div>
+        <div class="footer-social" title="Riset">📄</div>
+        <div class="footer-social" title="Civix AI" onclick="toggleAI()">🤖</div>
+      </div>
+    </div>
+    <div class="footer-col">
+      <div class="footer-col-title">Platform</div>
+      <div class="footer-links">
+        <span class="footer-link" onclick="navigate('level-test')">Level Test</span>
+        <span class="footer-link" onclick="navigate('train')">Learning Journey</span>
+        <span class="footer-link" onclick="navigate('growth')">Growth Path</span>
+        <span class="footer-link" onclick="navigate('insight')">Civix Insight</span>
+      </div>
+    </div>
+    <div class="footer-col">
+      <div class="footer-col-title">Tentang</div>
+      <div class="footer-links">
+        <span class="footer-link" onclick="navigate('insight')">Kerangka RIPP-PPKn</span>
+        <span class="footer-link" onclick="navigate('growth')">Model Kirkpatrick</span>
+        <span class="footer-link" onclick="navigate('faq')">FAQ</span>
+        <span class="footer-link" onclick="navigate('contact')">Kontak</span>
+      </div>
+    </div>
+    <div class="footer-col">
+      <div class="footer-col-title">Komunitas</div>
+      <div class="footer-links">
+        <span class="footer-link" onclick="navigate('network')">Civix Network</span>
+        <span class="footer-link" onclick="navigate('network')">MGMP Digital</span>
+        <span class="footer-link" onclick="navigate('network')">Peer Mentoring</span>
+        <span class="footer-link" onclick="toggleAI()">Civix AI</span>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2025 Civix.ID — Reconceptualized Identity of Professional PPKn</span>
+    <span>Dibuat untuk guru PPKn Indonesia 🇮🇩 · Prototipe v4.0</span>
+  </div>
+</footer>
+
+<!-- ══════════════════════════════════════════════════════
+     CIVIX AI ASSISTANT (Claude API)
+══════════════════════════════════════════════════════ -->
+<button class="ai-fab" id="ai-fab" onclick="toggleAI()" aria-label="Buka Civix AI Assistant">
+  <span class="ai-fab-icon">✨</span>
+  <span class="ai-fab-text">Civix AI</span>
+  <span class="ai-fab-badge"></span>
+</button>
+
+<div class="ai-overlay" id="ai-overlay" onclick="if(event.target===this)toggleAI()">
+  <div class="ai-drawer" id="ai-drawer" role="dialog" aria-label="Civix AI Assistant">
+    <div class="ai-drawer-header">
+      <div class="ai-drawer-title">
+        <div class="ai-drawer-avatar">✨</div>
+        <div>
+          <div class="ai-drawer-name">Civix AI</div>
+          <div class="ai-drawer-sub"><span class="ai-drawer-sub-dot"></span>Asisten Pengembangan Profesional</div>
+        </div>
+      </div>
+      <button class="ai-close" onclick="toggleAI()" aria-label="Tutup">✕</button>
+    </div>
+
+    <div class="ai-messages" id="ai-messages"></div>
+
+    <div class="ai-followups" id="ai-followups"></div>
+
+    <div class="ai-quick-btns" id="ai-quick-btns">
+      <button class="ai-quick" onclick="quickAsk('Apa itu kerangka RIPP-PPKn?')">Apa itu RIPP-PPKn?</button>
+      <button class="ai-quick" onclick="quickAsk('Bagaimana cara meningkatkan kompetensi PPKn saya?')">Tips meningkatkan kompetensi</button>
+      <button class="ai-quick" onclick="quickAsk('Rekomendasikan pelatihan untuk saya')">Rekomendasi pelatihan</button>
+    </div>
+
+    <div class="ai-input-row">
+      <input class="ai-input" id="ai-input" type="text" placeholder="Tanyakan apa saja tentang PPKn..." onkeydown="onAIKey(event)" autocomplete="off">
+      <button class="ai-send" id="ai-send" onclick="askAI()" aria-label="Kirim">➤</button>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════════════
+     TRAINING DETAIL MODAL
+══════════════════════════════════════════════════════ -->
+<div class="modal-overlay" id="modal-overlay" onclick="if(event.target===this)closeModal()">
+  <div class="modal-box" id="modal-box" role="dialog" aria-label="Detail pelatihan"></div>
+</div>
+
+<!-- Toast + confetti -->
+<div class="toast" id="toast"></div>
+<canvas id="confetti-canvas"></canvas>
+
+<script>
+/* ══════════════════════════════════════════════════════
+   DATA
+══════════════════════════════════════════════════════ */
+const DIMENSIONS = [
+  {name:'Civic Competence',icon:'🏛️',color:'#C41B46'},
+  {name:'Identitas Pedagogik',icon:'🎓',color:'#D2A53C'},
+  {name:'Civic Disposition',icon:'⚖️',color:'#00D4B4'},
+  {name:'Civic Skills',icon:'🛠️',color:'#7C6EF5'},
+  {name:'Komitmen Demokratis',icon:'🗳️',color:'#EC4899'},
+  {name:'Profesionalisme Reflektif',icon:'🔍',color:'#F59E0B'},
+  {name:'Professional Agency',icon:'💪',color:'#10B981'},
+  {name:'Digital Citizenship',icon:'📱',color:'#3B82F6'},
+  {name:'Communities of Practice',icon:'🤝',color:'#8B5CF6'},
+  {name:'Penguasaan Materi',icon:'📚',color:'#EF4444'}
+];
+
+const QUESTIONS = [
+  {dim:0,text:'Seberapa mendalam Anda memahami sistem demokrasi Pancasila, hak asasi manusia, dan mekanisme constitutional review dalam konteks pembelajaran PPKn?',opts:['Sangat mendalam dan mampu mengajarkan dengan analisis kritis','Cukup memadai untuk materi kurikulum standar','Memerlukan penguatan di beberapa topik konstitusional','Masih dalam proses belajar memahami konsep dasar'],vals:[4,3,2,1]},
+  {dim:7,text:'Seberapa sering Anda mengintegrasikan literasi media kritis, verifikasi hoaks, dan etika digital berbasis Pancasila dalam pembelajaran PPKn Anda?',opts:['Selalu — menjadi bagian inti setiap unit pembelajaran','Sering — dalam topik-topik yang relevan secara langsung','Kadang-kadang — jika ada isu digital yang muncul','Belum — masih fokus pada materi konvensional'],vals:[4,3,2,1]},
+  {dim:5,text:'Bagaimana praktik refleksi pedagogis Anda untuk meningkatkan kualitas pembelajaran PPKn secara berkelanjutan?',opts:['Sistematis — jurnal refleksi mingguan, lesson study, riset tindakan kelas','Reguler — evaluasi setelah setiap unit pembelajaran','Sesekali — setelah mendapat feedback dari siswa atau supervisor','Jarang — lebih reaktif terhadap masalah yang muncul'],vals:[4,3,2,1]},
+  {dim:6,text:'Seberapa proaktif Anda mengambil inisiatif dan memimpin perubahan dalam pengembangan kurikulum atau ekosistem PPKn di sekolah Anda?',opts:['Sangat proaktif — menginisiasi inovasi dan mempengaruhi kebijakan','Cukup aktif — berpartisipasi dalam pengembangan kurikulum','Beberapa inisiatif — mengimplementasikan ide dari pelatihan','Masih berfokus pada pelaksanaan yang ditetapkan'],vals:[4,3,2,1]},
+  {dim:8,text:'Seberapa aktif Anda terlibat dalam komunitas profesional guru PPKn (MGMP, lesson study, konferensi, atau kolaborasi riset)?',opts:['Sangat aktif — rutin menghadiri, berkontribusi, dan memimpin komunitas','Aktif — menghadiri secara reguler dan berkontribusi','Cukup aktif — sesekali menghadiri atau berpartisipasi online','Belum aktif — terkendala waktu atau akses'],vals:[4,3,2,1]},
+  {dim:2,text:'Bagaimana Anda mencontohkan nilai-nilai civic disposition (integritas, toleransi, komitmen demokratis) dalam kehidupan profesional sehari-hari?',opts:['Selalu — menjadi prinsip utama dalam setiap keputusan dan tindakan','Sering — terutama dalam interaksi dengan siswa dan rekan kerja','Berupaya — kadang masih perlu pengingat untuk konsistensi','Sedang membangun — masih dalam proses internalisasi nilai-nilai'],vals:[4,3,2,1]},
+  {dim:9,text:'Seberapa komprehensif penguasaan Anda atas substansi PPKn kontemporer — dari konstitusi dan demokrasi hingga isu-isu kewarganegaraan global terkini?',opts:['Sangat komprehensif — aktif mengikuti perkembangan terkini dan isu global','Memadai — menguasai materi kurikulum dengan baik','Cukup — masih perlu pendalaman di beberapa area','Dasar — perlu penguatan substansi secara signifikan'],vals:[4,3,2,1]}
+];
+
+const LEVELS = [
+  {min:0,max:39,name:'Novice',emoji:'🌱',desc:'Anda baru memulai perjalanan profesional sebagai guru PPKn. Fondasi yang kuat akan dibangun melalui pelatihan dasar dan mentoring.',color:'#00D4B4'},
+  {min:40,max:59,name:'Developing',emoji:'📈',desc:'Anda sedang mengembangkan kompetensi profesional dengan baik. Fokus pada dimensi yang masih perlu penguatan untuk percepatan growth.',color:'#D2A53C'},
+  {min:60,max:79,name:'Proficient',emoji:'⭐',desc:'Anda telah mencapai level kompetensi yang solid sebagai guru PPKn. Saatnya memperdalam dimensi spesialisasi dan mengembangkan leadership.',color:'#7C6EF5'},
+  {min:80,max:89,name:'Advanced',emoji:'🚀',desc:'Kompetensi Anda di level tinggi. Anda berpotensi menjadi mentor dan agen perubahan dalam komunitas guru PPKn nasional.',color:'#C41B46'},
+  {min:90,max:100,name:'Expert Civic Leader',emoji:'🏆',desc:'Anda adalah pemimpin civic education. Kontribusi Anda dalam pengembangan profesi guru PPKn Indonesia sangat dibutuhkan.',color:'#D2A53C'}
+];
+
+/* level → band number (1=novice,2=developing,3=advanced) untuk styling & scoring */
+function bandNum(level){ return level==='novice'?1 : level==='developing'?2 : 3; }
+
+const TRAINING_DATA = [
+  {id:1,level:'novice',tags:['civic'],icon:'🏛️',title:'Fondasi Civic Education & Demokrasi Pancasila',badge:'b-novice',badgeText:'Novice',free:true,cert:false,duration:'6 jam',desc:'Kuasai dasar-dasar civic education, sistem demokrasi Pancasila, dan konstitusi Indonesia sebagai fondasi guru PPKn.',dims:['Civic Competence','Civic Disposition'],
+    modules:[{t:'Konsep Dasar Civic Education',m:'45 mnt'},{t:'Sistem Demokrasi Pancasila',m:'60 mnt'},{t:'Konstitusi & Constitutional Review',m:'60 mnt'},{t:'Praktik: Merancang Pembelajaran Demokrasi',m:'75 mnt'}]},
+  {id:2,level:'novice',tags:['digital'],icon:'📱',title:'Literasi Digital & Anti-Hoaks untuk Guru PPKn',badge:'b-novice',badgeText:'Novice',free:true,cert:false,duration:'4 jam',desc:'Pelajari cara mengajarkan literasi media kritis, verifikasi informasi, dan etika digital berbasis nilai Pancasila.',dims:['Digital Citizenship','Civic Skills'],
+    modules:[{t:'Anatomi Hoaks & Disinformasi',m:'40 mnt'},{t:'Teknik Verifikasi & Fact-Checking',m:'50 mnt'},{t:'Etika Digital Berbasis Pancasila',m:'45 mnt'},{t:'Praktik: Modul Anti-Hoaks untuk Kelas',m:'60 mnt'}]},
+  {id:3,level:'developing',tags:['civic','digital'],icon:'🔍',title:'Refleksi Pedagogis & Action Research PPKn',badge:'b-dev',badgeText:'Developing',free:false,cert:true,duration:'12 jam',desc:'Kembangkan praktik refleksi sistematis dan kemampuan riset tindakan kelas untuk meningkatkan kualitas pembelajaran PPKn.',dims:['Profesionalisme Reflektif','Professional Agency'],
+    modules:[{t:'Dasar Refleksi Pedagogis',m:'50 mnt'},{t:'Metodologi Penelitian Tindakan Kelas',m:'90 mnt'},{t:'Menyusun Jurnal Refleksi Sistematis',m:'60 mnt'},{t:'Analisis Data & Siklus Perbaikan',m:'80 mnt'},{t:'Praktik: Proposal PTK PPKn',m:'90 mnt'}]},
+  {id:4,level:'developing',tags:['civic'],icon:'🤝',title:'MGMP Digital & Communities of Practice',badge:'b-dev',badgeText:'Developing',free:true,cert:false,duration:'8 jam',desc:'Bangun jaringan profesional aktif dengan guru PPKn lain melalui komunitas belajar digital yang terstruktur.',dims:['Communities of Practice','Professional Agency'],
+    modules:[{t:'Filosofi Communities of Practice',m:'45 mnt'},{t:'Membangun Jejaring MGMP Digital',m:'60 mnt'},{t:'Kolaborasi & Berbagi Praktik Baik',m:'55 mnt'},{t:'Praktik: Sesi Lesson Study Daring',m:'70 mnt'}]},
+  {id:5,level:'developing',tags:['digital'],icon:'💻',title:'Integrasi Teknologi dalam Pembelajaran PPKn',badge:'b-dev',badgeText:'Developing',free:false,cert:true,duration:'10 jam',desc:'Kuasai tools digital terkini untuk menciptakan pengalaman belajar PPKn yang interaktif, engaging, dan berbasis bukti.',dims:['Digital Citizenship','Identitas Pedagogik'],
+    modules:[{t:'Lanskap EdTech untuk PPKn',m:'45 mnt'},{t:'Tools Interaktif & Gamifikasi',m:'70 mnt'},{t:'Desain Pembelajaran Berbasis Bukti',m:'65 mnt'},{t:'Praktik: Membuat Media Ajar Digital',m:'80 mnt'}]},
+  {id:6,level:'advanced',tags:['civic'],icon:'🚀',title:'Leadership & Professional Agency untuk Civic Educator',badge:'b-adv',badgeText:'Advanced',free:false,cert:true,duration:'16 jam',desc:'Kembangkan kapasitas kepemimpinan, inisiasi perubahan kurikulum, dan jadilah agen transformasi civic education di sekolah Anda.',dims:['Professional Agency','Komitmen Demokratis'],
+    modules:[{t:'Konsep Professional Agency',m:'50 mnt'},{t:'Memimpin Perubahan Kurikulum',m:'80 mnt'},{t:'Advokasi & Pengaruh Kebijakan',m:'70 mnt'},{t:'Mentoring Sejawat',m:'60 mnt'},{t:'Praktik: Rencana Inisiatif Sekolah',m:'90 mnt'}]},
+  {id:7,level:'advanced',tags:['digital','civic'],icon:'🌐',title:'Digital Citizenship Pedagogy: Masterclass',badge:'b-adv',badgeText:'Advanced',free:false,cert:true,duration:'20 jam',desc:'Program komprehensif untuk menguasai pengajaran kewargaan digital tingkat lanjut, dari keamanan siber hingga partisipasi demokratis digital.',dims:['Digital Citizenship','Civic Skills','Civic Competence'],
+    modules:[{t:'Kerangka Digital Citizenship',m:'60 mnt'},{t:'Keamanan Siber & Privasi Data',m:'75 mnt'},{t:'Partisipasi Demokratis Digital',m:'70 mnt'},{t:'Literasi Algoritma & AI',m:'80 mnt'},{t:'Praktik: Kurikulum Kewargaan Digital',m:'100 mnt'}]},
+  {id:8,level:'developing',tags:['civic'],icon:'📊',title:'Asesmen Autentik dalam Pembelajaran PPKn',badge:'b-dev',badgeText:'Developing',free:true,cert:false,duration:'6 jam',desc:'Rancang dan implementasikan asesmen autentik yang mengukur capaian civic competence siswa secara holistik dan berbasis bukti.',dims:['Civic Competence','Identitas Pedagogik'],
+    modules:[{t:'Prinsip Asesmen Autentik',m:'45 mnt'},{t:'Merancang Rubrik Holistik',m:'60 mnt'},{t:'Portofolio & Penilaian Kinerja',m:'55 mnt'},{t:'Praktik: Instrumen Asesmen PPKn',m:'70 mnt'}]}
+];
+
+const FAQS = [
+  {q:'Apa itu Civix.ID?',a:'Civix.ID adalah platform digital untuk pemetaan kompetensi dan identitas profesional guru PPKn (Pendidikan Pancasila dan Kewarganegaraan) berbasis kerangka RIPP-PPKn. Platform ini menyediakan Level Test, Growth Path, Learning Journey personal, rekomendasi pelatihan AI, dan jejaring komunitas profesional.'},
+  {q:'Apa itu RIPP-PPKn?',a:'RIPP-PPKn (Reconceptualized Identity of Professional PPKn) adalah kerangka identitas profesional guru PPKn yang mengintegrasikan 10 dimensi: Civic Competence, Identitas Pedagogik, Civic Disposition, Civic Skills, Komitmen Demokratis, Profesionalisme Reflektif, Professional Agency, Digital Citizenship Pedagogy, Communities of Practice, dan Penguasaan Materi.'},
+  {q:'Apakah Civix Level Test gratis?',a:'Ya, Civix Level Test versi demo tersedia sepenuhnya gratis. Tes terdiri dari 7 pertanyaan representatif yang menghasilkan profil profesional, radar chart kompetensi, dan Learning Journey personal. Versi penuh (50 item + laporan PDF + AI recommendations) tersedia di Fase 2.'},
+  {q:'Apa itu Learning Journey?',a:'Learning Journey adalah jalur pembelajaran personal yang disusun otomatis berdasarkan hasil Level Test Anda. Sistem menganalisis dimensi terlemah Anda lalu merekomendasikan urutan pelatihan prioritas. Anda dapat mendaftar, menyelesaikan modul, mengumpulkan XP, dan meraih lencana kompetensi.'},
+  {q:'Siapa saja yang dapat menggunakan Civix.ID?',a:'Civix.ID dirancang untuk: Guru PPKn SMA/SMK/SMP, Dosen Pendidikan Kewarganegaraan/PKn, Mahasiswa pendidikan PPKn, Peneliti civic education, Pengembang kurikulum, dan institusi yang peduli dengan kualitas civic education Indonesia.'},
+  {q:'Bagaimana Civix AI bekerja?',a:'Civix AI adalah asisten berbasis Claude (Anthropic) yang dioptimalkan untuk konteks PPKn Indonesia. Ia memahami framework RIPP-PPKn, mengetahui hasil Level Test Anda, dapat memberikan rekomendasi pelatihan personal, menjawab pertanyaan tentang civic education, dan membantu refleksi profesional guru.'},
+  {q:'Apakah data saya aman?',a:'Privasi dan keamanan data pengguna adalah prioritas utama Civix.ID. Pada prototipe ini, seluruh data (hasil Level Test & progres belajar) hanya disimpan sementara di peramban Anda dan tidak dikirim ke server mana pun. Data agregat anonim digunakan untuk meningkatkan kualitas platform dan penelitian civic education.'},
+  {q:'Bagaimana cara mendapatkan sertifikat?',a:'Sertifikat digital Civix akan tersedia di Fase 2 platform. Sertifikat diberikan untuk penyelesaian modul pelatihan dengan nilai minimum, Level Test penuh, dan partisipasi aktif dalam Civix Network.'}
+];
+
+const DIM_DATA = [
+  {name:'Civic Competence',val:78,color:'#C41B46'},
+  {name:'Identitas Pedagogik',val:70,color:'#D2A53C'},
+  {name:'Civic Disposition',val:85,color:'#00D4B4'},
+  {name:'Civic Skills',val:72,color:'#7C6EF5'},
+  {name:'Komitmen Demokratis',val:68,color:'#EC4899'},
+  {name:'Profesionalisme Reflektif',val:65,color:'#F59E0B'},
+  {name:'Professional Agency',val:70,color:'#10B981'},
+  {name:'Digital Citizenship',val:62,color:'#3B82F6'},
+  {name:'Communities of Practice',val:55,color:'#8B5CF6'},
+  {name:'Penguasaan Materi',val:80,color:'#EF4444'}
+];
+
+/* Aktivitas langsung (ticker beranda) */
+const ACTIVITY = [
+  {e:'🎯',h:'<b>Bu Sari</b> dari Jawa Tengah baru menyelesaikan Level Test'},
+  {e:'🏆',h:'<b>Pak Budi</b> meraih lencana <b>Civic Leader</b>'},
+  {e:'📈',h:'<b>347 guru</b> sedang mengikuti Learning Journey'},
+  {e:'📱',h:'<b>Bu Rina</b> menyelesaikan modul Literasi Digital'},
+  {e:'🤝',h:'Komunitas <b>MGMP Digital</b> bertambah 12 anggota hari ini'},
+  {e:'🔍',h:'<b>Pak Ahmad</b> menyelesaikan Action Research PPKn'},
+  {e:'🌱',h:'<b>89 guru baru</b> bergabung pekan ini'},
+  {e:'⭐',h:'Rerata kompetensi nasional naik <b>+2.3 poin</b>'}
+];
+
+/* Definisi lencana kompetensi */
+const BADGES = [
+  {id:'first-step',icon:'🌱',name:'Langkah Pertama',check:a=>a.completed.length>=1},
+  {id:'explorer',icon:'🧭',name:'Penjelajah',check:a=>a.completed.length>=3},
+  {id:'digital',icon:'📱',name:'Warga Digital',check:a=>a.completed.some(id=>{const t=TRAINING_DATA.find(x=>x.id===id);return t&&t.tags.includes('digital');})},
+  {id:'reflective',icon:'🔍',name:'Praktisi Reflektif',check:a=>a.completed.includes(3)},
+  {id:'leader',icon:'🚀',name:'Civic Leader',check:a=>a.completed.some(id=>{const t=TRAINING_DATA.find(x=>x.id===id);return t&&t.level==='advanced';})},
+  {id:'master',icon:'🏆',name:'Civix Master',check:a=>a.completed.length===TRAINING_DATA.length}
+];
+
+/* ══════════════════════════════════════════════════════
+   STATE (in-memory)
+══════════════════════════════════════════════════════ */
+const APP = {
+  profile:null,        // {score, levelIdx, level, dims:[10], weak:[idx,idx,idx], date}
+  enrolled:[],         // [trainingId]
+  progress:{},         // {trainingId: [bool,bool,...]}
+  completed:[],        // [trainingId]
+  xp:0,
+  streak:1,
+  badges:[],           // [badgeId]
+  trainFilter:'all'
+};
+let testState = { cur:0, answers:new Array(7).fill(null), radarData:new Array(10).fill(1), testRadar:null };
+let aiOpen = false;
+let aiHistory = [];
+let aiLoading = false;
+let charts = {};
+
+/* ══════════════════════════════════════════════════════
+   MOTION PREFERENCE
+══════════════════════════════════════════════════════ */
+const REDUCED = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+const HOVERABLE = window.matchMedia('(hover:hover) and (pointer:fine)').matches;
+
+/* ══════════════════════════════════════════════════════
+   NAVIGATION
+══════════════════════════════════════════════════════ */
+function navigate(page) {
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
+  const pg = document.getElementById('page-' + page);
+  if (pg) { pg.classList.add('active'); window.scrollTo({top:0,behavior:'smooth'}); }
+  document.querySelectorAll('.nav-link').forEach(l => {
+    const oc = l.getAttribute('onclick') || '';
+    if (oc.includes("'" + page + "'")) l.classList.add('active');
+  });
+  initReveal();
+  bindMagnetic();
+  bindSpotlight();
+  if (page === 'home') { initHeroCharts(); initDimBars(); initCounters(); initNWCounters(); initTrendChart(); }
+  if (page === 'level-test') { initTestPage(); }
+  if (page === 'growth') { updateGrowthLevelCard(); }
+  if (page === 'train') { renderJourney(); }
+  if (page === 'faq') { renderFAQ(); }
+  closeMob();
+}
+
+/* ══════════════════════════════════════════════════════
+   MOBILE NAV
+══════════════════════════════════════════════════════ */
+function toggleMob() {
+  const mob = document.getElementById('nav-mob');
+  const btn = document.getElementById('nav-burger');
+  mob.classList.toggle('open');
+  btn.classList.toggle('open');
+  btn.setAttribute('aria-expanded', mob.classList.contains('open'));
+}
+function closeMob() {
+  document.getElementById('nav-mob').classList.remove('open');
+  document.getElementById('nav-burger').classList.remove('open');
+}
+
+/* ══════════════════════════════════════════════════════
+   SCROLL: nav state + progress bar
+══════════════════════════════════════════════════════ */
+window.addEventListener('scroll', () => {
+  const nav = document.getElementById('main-nav');
+  if (nav) nav.classList.toggle('scrolled', window.scrollY > 20);
+  const sp = document.getElementById('scroll-progress');
+  if (sp) {
+    const h = document.documentElement.scrollHeight - window.innerHeight;
+    sp.style.width = (h > 0 ? (window.scrollY / h) * 100 : 0) + '%';
+  }
+}, {passive:true});
+
+/* ══════════════════════════════════════════════════════
+   CUSTOM CURSOR + AURORA
+══════════════════════════════════════════════════════ */
+const curDot = document.getElementById('cur-dot');
+const curRing = document.getElementById('cur-ring');
+const aurora = document.getElementById('aurora');
+if (HOVERABLE) {
+  let mx=0,my=0,rx=0,ry=0;
+  document.addEventListener('mousemove', e => {
+    mx=e.clientX; my=e.clientY;
+    if (curDot){ curDot.style.left=mx+'px'; curDot.style.top=my+'px'; }
+    if (aurora){ aurora.style.opacity='1'; aurora.style.left=mx+'px'; aurora.style.top=my+'px'; }
+  });
+  function animRing(){
+    rx+=(mx-rx)*0.15; ry+=(my-ry)*0.15;
+    if (curRing){ curRing.style.left=rx+'px'; curRing.style.top=ry+'px'; }
+    requestAnimationFrame(animRing);
+  }
+  animRing();
+  document.addEventListener('mouseover', e => {
+    if (!curRing) return;
+    if (e.target.closest('button,a,[onclick],input,select,textarea,.feat-card,.tb-card,.path-body,.testi-card,.module-item,.faq-q,.nf-card'))
+      curRing.classList.add('hov');
+    else curRing.classList.remove('hov');
+  });
+  document.addEventListener('mousedown', ()=>curRing&&curRing.classList.add('click'));
+  document.addEventListener('mouseup', ()=>curRing&&curRing.classList.remove('click'));
+}
+
+/* ══════════════════════════════════════════════════════
+   MAGNETIC BUTTONS
+══════════════════════════════════════════════════════ */
+function bindMagnetic() {
+  if (!HOVERABLE || REDUCED) return;
+  document.querySelectorAll('[data-magnetic]').forEach(el => {
+    if (el.dataset.magBound) return;
+    el.dataset.magBound = '1';
+    el.addEventListener('mousemove', e => {
+      const r = el.getBoundingClientRect();
+      const x = e.clientX - r.left - r.width/2;
+      const y = e.clientY - r.top - r.height/2;
+      el.style.transform = `translate(${x*0.25}px, ${y*0.35}px)`;
+    });
+    el.addEventListener('mouseleave', () => { el.style.transform = 'translate(0,0)'; });
+  });
+}
+
+/* ══════════════════════════════════════════════════════
+   SPOTLIGHT / TILT CARDS
+══════════════════════════════════════════════════════ */
+function bindSpotlight() {
+  if (!HOVERABLE) return;
+  document.querySelectorAll('[data-spotlight]').forEach(el => {
+    if (el.dataset.spotBound) return;
+    el.dataset.spotBound = '1';
+    el.addEventListener('mousemove', e => {
+      const r = el.getBoundingClientRect();
+      const px = (e.clientX - r.left) / r.width;
+      const py = (e.clientY - r.top) / r.height;
+      el.style.setProperty('--mx', (px*100) + '%');
+      el.style.setProperty('--my', (py*100) + '%');
+      if (!REDUCED) el.style.transform = `perspective(800px) rotateX(${(0.5-py)*5}deg) rotateY(${(px-0.5)*5}deg) translateY(-3px)`;
+    });
+    el.addEventListener('mouseleave', () => { el.style.transform = ''; });
+  });
+}
+
+/* ══════════════════════════════════════════════════════
+   REVEAL ON SCROLL
+══════════════════════════════════════════════════════ */
+function initReveal() {
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); obs.unobserve(e.target); } });
+  }, {threshold:0.1});
+  document.querySelectorAll('.reveal:not(.in)').forEach(el => obs.observe(el));
+}
+
+/* ══════════════════════════════════════════════════════
+   COUNTERS + LIVE TICK
+══════════════════════════════════════════════════════ */
+function animCount(el, target, dur=1600) {
+  if (!el) return;
+  const hasSuffix = el.children.length>0 && el.firstChild && el.firstChild.nodeType===3;
+  let start=0, step=target/(dur/16);
+  function tick(){
+    start = Math.min(start+step, target);
+    const v = Math.floor(start).toLocaleString('id-ID');
+    if (hasSuffix) el.firstChild.nodeValue = v; else el.textContent = v;
+    if (start < target) requestAnimationFrame(tick);
+  }
+  tick();
+}
+function initCounters() {
+  animCount(document.getElementById('counter-guru'), 2847);
+  animCount(document.getElementById('counter-prov'), 34);
+}
+let nwBase = [2847, 34, 74, 1247];
+function initNWCounters() {
+  setTimeout(() => {
+    animCount(document.getElementById('cnt-1'), nwBase[0]);
+    animCount(document.getElementById('cnt-2'), nwBase[1]);
+    animCount(document.getElementById('cnt-3'), nwBase[2]);
+    animCount(document.getElementById('cnt-4'), nwBase[3]);
+  }, 200);
+}
+/* Live ticking — simulate real-time growth on the national stat cards */
+let nwLiveTimer = null;
+function startNWLive() {
+  if (nwLiveTimer || REDUCED) return;
+  nwLiveTimer = setInterval(() => {
+    if (!document.getElementById('page-home').classList.contains('active')) return;
+    const i = Math.floor(Math.random()*4);
+    if (i===0) nwBase[0] += Math.floor(Math.random()*3)+1;
+    else if (i===3) nwBase[3] += Math.floor(Math.random()*2)+1;
+    else if (i===2) nwBase[2] = Math.min(99, nwBase[2] + (Math.random()>0.7?1:0));
+    const ids = ['cnt-1','cnt-2','cnt-3','cnt-4'];
+    const span = document.getElementById(ids[i]);
+    if (span) span.textContent = nwBase[i].toLocaleString('id-ID');
+    const card = document.getElementById('nw-'+(i+1));
+    if (card) { card.classList.add('ticked'); setTimeout(()=>card.classList.remove('ticked'), 700); }
+  }, 2600);
+}
+
+/* ══════════════════════════════════════════════════════
+   HERO TYPEWRITER
+══════════════════════════════════════════════════════ */
+const TYPE_PHRASES = [
+  'Petakan identitas profesional Anda.',
+  'Temukan dimensi kompetensi terkuat Anda.',
+  'Susun jalur pembelajaran personal.',
+  'Bertumbuh bersama komunitas guru PPKn.'
+];
+function startTypewriter() {
+  const el = document.getElementById('hero-type-text');
+  if (!el) return;
+  if (REDUCED) { el.textContent = TYPE_PHRASES[0]; return; }
+  let pi=0, ci=0, deleting=false;
+  function loop(){
+    const phrase = TYPE_PHRASES[pi];
+    if (!deleting) {
+      el.textContent = phrase.slice(0, ++ci);
+      if (ci === phrase.length) { deleting = true; setTimeout(loop, 1900); return; }
+    } else {
+      el.textContent = phrase.slice(0, --ci);
+      if (ci === 0) { deleting = false; pi = (pi+1) % TYPE_PHRASES.length; }
+    }
+    setTimeout(loop, deleting ? 32 : 58);
+  }
+  loop();
+}
+
+/* ══════════════════════════════════════════════════════
+   HERO CHARTS (radar + level donut)
+══════════════════════════════════════════════════════ */
+function initHeroCharts() {
+  const hrc = document.getElementById('hero-radar');
+  if (hrc) {
+    if (charts.heroRadar) charts.heroRadar.destroy();
+    charts.heroRadar = new Chart(hrc, {
+      type:'radar',
+      data:{
+        labels:['Civic','Pedagogik','Disposisi','Skills','Demokratis','Reflektif','Agency','Digital','CoP','Materi'],
+        datasets:[{
+          data:[78,70,85,72,68,65,70,62,55,80],
+          backgroundColor:'rgba(210,165,60,0.10)',
+          borderColor:'rgba(210,165,60,0.65)',
+          pointBackgroundColor:'rgba(210,165,60,0.9)',
+          pointRadius:2.5, borderWidth:1.5
+        }]
+      },
+      options:{
+        responsive:true, maintainAspectRatio:true,
+        scales:{r:{min:0,max:100,ticks:{display:false},grid:{color:'rgba(255,255,255,0.05)'},angleLines:{color:'rgba(255,255,255,0.05)'},pointLabels:{font:{size:7.5,family:'DM Sans'},color:'rgba(255,255,255,0.4)'}}},
+        plugins:{legend:{display:false}},
+        animation:{duration:REDUCED?0:1500,easing:'easeOutQuart'}
+      }
+    });
+  }
+  const ldc = document.getElementById('level-donut');
+  if (ldc) {
+    if (charts.levelDonut) charts.levelDonut.destroy();
+    const levData=[12,28,35,18,7];
+    const levLabels=['Novice','Developing','Proficient','Advanced','Expert'];
+    const levColors=['rgba(0,212,180,0.85)','rgba(210,165,60,0.85)','rgba(124,110,245,0.85)','rgba(196,27,70,0.85)','rgba(245,180,60,0.95)'];
+    charts.levelDonut = new Chart(ldc, {
+      type:'doughnut',
+      data:{labels:levLabels,datasets:[{data:levData,backgroundColor:levColors,borderWidth:2,borderColor:'rgba(0,0,0,0.35)',hoverOffset:8}]},
+      options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false},tooltip:{callbacks:{label:c=>`${c.label}: ${c.parsed}%`}}},cutout:'62%',animation:{animateRotate:true,duration:REDUCED?0:1200}}
+    });
+    const legend = document.getElementById('donut-legend');
+    if (legend) legend.innerHTML = levLabels.map((l,i)=>`<div style="display:flex;align-items:center;gap:5px;font-size:10.5px;color:var(--t1)"><span style="width:8px;height:8px;border-radius:50%;background:${levColors[i]}"></span>${l}: ${levData[i]}%</div>`).join('');
+  }
+}
+
+/* ══════════════════════════════════════════════════════
+   DIMENSION BARS
+══════════════════════════════════════════════════════ */
+function initDimBars() {
+  const el = document.getElementById('dim-bars');
+  if (!el) return;
+  el.innerHTML = DIM_DATA.map((d,i)=>`
+    <div class="dim-bar-row" style="animation:fadeUp 0.5s ${i*0.06}s var(--quart) both">
+      <div class="dim-name">${d.name}</div>
+      <div class="dim-track" title="${d.name}: ${d.val}%">
+        <div class="dim-fill" style="width:${d.val}%;background:${d.color}"></div>
+      </div>
+      <div class="dim-pct">${d.val}%</div>
+    </div>`).join('');
+}
+
+/* ══════════════════════════════════════════════════════
+   NATIONAL TREND LINE (real-time)
+══════════════════════════════════════════════════════ */
+let trendData = [66.4,66.9,67.3,67.8,68.2,68.9,69.4,70.1,70.6,71.3,72.0,72.6];
+function initTrendChart() {
+  const el = document.getElementById('trend-chart');
+  if (!el) return;
+  if (charts.trend) charts.trend.destroy();
+  const ctx = el.getContext('2d');
+  const grad = ctx.createLinearGradient(0,0,0,240);
+  grad.addColorStop(0,'rgba(210,165,60,0.28)');
+  grad.addColorStop(1,'rgba(210,165,60,0)');
+  charts.trend = new Chart(el, {
+    type:'line',
+    data:{
+      labels:trendData.map((_,i)=>'M'+(i+1)),
+      datasets:[{
+        label:'Skor Rerata Nasional',
+        data:trendData.slice(),
+        borderColor:'rgba(210,165,60,0.9)',
+        backgroundColor:grad,
+        fill:true, tension:0.4,
+        pointRadius:0, pointHoverRadius:5,
+        pointHoverBackgroundColor:'#D2A53C', borderWidth:2
+      }]
+    },
+    options:{
+      responsive:true, maintainAspectRatio:false,
+      scales:{
+        y:{min:62,max:76,grid:{color:'rgba(255,255,255,0.04)'},ticks:{color:'rgba(255,255,255,0.35)',font:{size:9}}},
+        x:{grid:{display:false},ticks:{color:'rgba(255,255,255,0.3)',font:{size:8.5}}}
+      },
+      plugins:{legend:{display:false},tooltip:{callbacks:{label:c=>`${c.parsed.y.toFixed(1)} poin`}}},
+      animation:{duration:REDUCED?0:1400,easing:'easeOutQuart'}
+    }
+  });
+  startTrendLive();
+}
+let trendTimer = null;
+function startTrendLive() {
+  if (trendTimer || REDUCED) return;
+  trendTimer = setInterval(() => {
+    if (!document.getElementById('page-home').classList.contains('active')) return;
+    if (!charts.trend) return;
+    const last = trendData[trendData.length-1];
+    const next = Math.max(62, Math.min(76, last + (Math.random()-0.42)*0.4));
+    trendData.push(parseFloat(next.toFixed(1)));
+    trendData.shift();
+    charts.trend.data.datasets[0].data = trendData.slice();
+    charts.trend.update('none');
+  }, 3500);
+}
+
+/* ══════════════════════════════════════════════════════
+   ACTIVITY TICKER
+══════════════════════════════════════════════════════ */
+function renderTicker() {
+  const el = document.getElementById('ticker-track');
+  if (!el) return;
+  const items = ACTIVITY.concat(ACTIVITY); // duplicate for seamless loop
+  el.innerHTML = items.map(a=>`<div class="ticker-item"><span class="ticker-emoji">${a.e}</span>${a.h}</div>`).join('');
+}
+
+/* ══════════════════════════════════════════════════════
+   TABS (Insight)
+══════════════════════════════════════════════════════ */
+function switchTab(btn, panelId) {
+  const tabs = btn.parentElement;
+  tabs.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  const wrap = tabs.parentElement;
+  wrap.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+  const panel = document.getElementById(panelId);
+  if (panel) panel.classList.add('active');
+}
+
+/* ══════════════════════════════════════════════════════
+   LEVEL TEST
+══════════════════════════════════════════════════════ */
+const TESTED_DIMS = [0,7,5,6,8,2,9];
+const UNTESTED_DIMS = [1,3,4];
+
+function initTestPage() {
+  testState.cur = 0;
+  testState.answers = new Array(7).fill(null);
+  testState.radarData = new Array(10).fill(1);
+  buildChips();
+  renderQ();
+  setTimeout(()=>{
+    const c = document.getElementById('test-radar');
+    if (!c) return;
+    if (testState.testRadar) testState.testRadar.destroy();
+    testState.testRadar = new Chart(c, {
+      type:'radar',
+      data:{labels:DIMENSIONS.map(d=>d.name.length>11?d.name.substring(0,10)+'…':d.name),
+        datasets:[{data:testState.radarData,backgroundColor:'rgba(196,27,70,0.08)',borderColor:'rgba(196,27,70,0.5)',pointBackgroundColor:'rgba(210,165,60,0.8)',pointRadius:2.5,borderWidth:1.5}]},
+      options:{responsive:true,maintainAspectRatio:true,scales:{r:{min:0,max:4,ticks:{display:false},grid:{color:'rgba(255,255,255,0.04)'},angleLines:{color:'rgba(255,255,255,0.04)'},pointLabels:{font:{size:7.5,family:'DM Sans'},color:'rgba(255,255,255,0.32)'}}},plugins:{legend:{display:false}},animation:{duration:REDUCED?0:600}}
+    });
+  },100);
+}
+function buildChips() {
+  const el = document.getElementById('test-chips');
+  if (!el) return;
+  el.innerHTML = QUESTIONS.map((q,i)=>`<div class="chip" id="chip-${i}" title="${DIMENSIONS[q.dim].name}">${DIMENSIONS[q.dim].icon}</div>`).join('');
+}
+function renderQ() {
+  const main = document.getElementById('test-main');
+  if (!main) return;
+  const q = QUESTIONS[testState.cur];
+  const pct = Math.round((testState.cur / QUESTIONS.length) * 100);
+  main.innerHTML = `
+    <div class="test-header">
+      <div class="progress-wrap"><div class="progress-fill" style="width:${pct}%"></div></div>
+      <div class="progress-text">Pertanyaan ${testState.cur+1} dari ${QUESTIONS.length} · ${pct}% Selesai</div>
+    </div>
+    <div class="q-dim">${DIMENSIONS[q.dim].icon} ${DIMENSIONS[q.dim].name}</div>
+    <div class="q-text">${q.text}</div>
+    <div class="q-opts" id="q-opts">
+      ${q.opts.map((o,i)=>`<div class="q-opt ${testState.answers[testState.cur]===i?'sel':''}" onclick="selectOpt(${i})"><div class="q-radio"><div class="q-radio-dot"></div></div><div class="q-opt-label">${o}</div><div class="q-opt-val">${['A','B','C','D'][i]}</div></div>`).join('')}
+    </div>
+    <div class="q-warn" id="q-warn">⚠️ Pilih salah satu jawaban untuk melanjutkan.</div>
+    <div class="test-footer">
+      <div class="step-dots">${QUESTIONS.map((_,i)=>`<div class="step-dot ${i<testState.cur?'done':i===testState.cur?'cur':''}"></div>`).join('')}</div>
+      <div style="display:flex;gap:9px">
+        <button class="btn-prev" onclick="prevQ()" ${testState.cur===0?'disabled':''}>← Kembali</button>
+        <button class="btn-next" onclick="nextQ()">${testState.cur===QUESTIONS.length-1?'Lihat Hasil 🎯':'Lanjut →'}</button>
+      </div>
+    </div>`;
+}
+function selectOpt(i) {
+  testState.answers[testState.cur] = i;
+  document.querySelectorAll('.q-opt').forEach((el,idx)=>el.classList.toggle('sel', idx===i));
+  document.getElementById('q-warn')?.classList.remove('show');
+  const q = QUESTIONS[testState.cur];
+  testState.radarData[q.dim] = q.vals[i];
+  if (testState.testRadar){ testState.testRadar.data.datasets[0].data=[...testState.radarData]; testState.testRadar.update(); }
+  document.getElementById('chip-'+testState.cur)?.classList.add('answered');
+}
+function nextQ() {
+  if (testState.answers[testState.cur] === null){ document.getElementById('q-warn')?.classList.add('show'); return; }
+  if (testState.cur < QUESTIONS.length-1){ testState.cur++; renderQ(); }
+  else showResult();
+}
+function prevQ(){ if (testState.cur>0){ testState.cur--; renderQ(); } }
+
+function showResult() {
+  const total = testState.answers.reduce((s,a,i)=>s+(a!==null?QUESTIONS[i].vals[a]:0),0);
+  const score = Math.round((total/(QUESTIONS.length*4))*100);
+  const levelIdx = LEVELS.findIndex(l=>score>=l.min && score<=l.max);
+  const level = LEVELS[levelIdx] || LEVELS[0];
+
+  // Build full 10-dimension profile (0-100)
+  const dims = new Array(10).fill(0);
+  TESTED_DIMS.forEach((dimIdx,qi)=>{ const a=testState.answers[qi]; dims[dimIdx]=Math.round((QUESTIONS[qi].vals[a]/4)*100); });
+  const testedAvg = Math.round(TESTED_DIMS.reduce((s,d)=>s+dims[d],0)/TESTED_DIMS.length);
+  UNTESTED_DIMS.forEach(d=>{ dims[d]=Math.max(20, Math.min(95, testedAvg + [3,-4,-2][UNTESTED_DIMS.indexOf(d)])); });
+
+  // Weakest 3 dimensions
+  const weak = dims.map((v,i)=>({i,v})).sort((a,b)=>a.v-b.v).slice(0,3).map(o=>o.i);
+
+  APP.profile = { score, levelIdx, level, dims, weak, date:new Date() };
+
+  const path = buildLearningPath().slice(0,3);
+  const recHTML = path.map(t=>`
+    <div class="result-train-item">
+      <div class="result-train-icon">${t.icon}</div>
+      <div>
+        <div class="result-train-name">${t.title}</div>
+        <div class="result-train-meta">${t._why} · ${t.duration}</div>
+      </div>
+    </div>`).join('');
+  const weakNames = weak.map(i=>DIMENSIONS[i].name).join(', ');
+
+  document.getElementById('test-main').innerHTML = `
+    <div class="result-panel">
+      <div class="result-emoji">${level.emoji}</div>
+      <div class="result-title">Profil Kompetensi Anda</div>
+      <div class="result-level-card">
+        <div class="rl-label">Level Profesional RIPP-PPKn</div>
+        <div class="rl-level">${level.name}</div>
+        <div class="rl-sub">Civix Professional Level · 2025</div>
+      </div>
+      <div class="result-score-ring" style="--pct:${score}%"><div class="result-score-inner">${score}%</div></div>
+      <p class="result-desc">${level.desc}</p>
+      <div class="result-train-section">
+        <div class="result-train-title">🎯 Fokus Penguatan Anda</div>
+        <p style="font-size:12px;color:var(--t2);line-height:1.6;margin-bottom:14px">Dimensi yang paling membutuhkan penguatan: <strong style="color:var(--gold-l)">${weakNames}</strong>. Learning Journey berikut disusun khusus untuk menutup celah ini.</p>
+        <div class="result-train-list">${recHTML}</div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:9px;margin-top:18px">
+        <button class="btn-primary" onclick="navigate('train')" style="width:100%;justify-content:center">🧭 Buka Learning Journey Personal Saya</button>
+        <button class="btn-outline" onclick="openAIWith('Berdasarkan hasil Level Test saya, apa langkah pertama yang sebaiknya saya lakukan?')" style="width:100%;justify-content:center">💬 Diskusikan dengan Civix AI</button>
+        <button class="btn-outline" onclick="initTestPage()" style="width:100%;justify-content:center;font-size:12.5px">↺ Ulangi Tes</button>
+      </div>
+    </div>`;
+
+  recomputeXP(); awardBadges(true);
+  showToast(`${level.emoji} Level Anda: ${level.name} · Skor ${score}% — Learning Journey siap!`);
+}
+
+/* ══════════════════════════════════════════════════════
+   RECOMMENDATION ENGINE
+══════════════════════════════════════════════════════ */
+function userBand() {
+  if (!APP.profile) return 2;
+  const li = APP.profile.levelIdx;
+  return li<=0 ? 1 : li<=2 ? 2 : 3;
+}
+function scoreTraining(t) {
+  if (!APP.profile) return 0;
+  let s = 0;
+  const weak = APP.profile.weak;
+  const dims = APP.profile.dims;
+  t.dims.forEach(dn=>{
+    const di = DIMENSIONS.findIndex(d=>d.name===dn);
+    if (di<0) return;
+    if (weak.includes(di)) s += 3;          // targets a top-3 weakness
+    if (dims[di] < 65) s += 1.5;            // targets any below-par dimension
+  });
+  const tb = bandNum(t.level), ub = userBand();
+  if (tb === ub) s += 2;                     // level-appropriate
+  else if (Math.abs(tb-ub) === 1) s += 1;    // adjacent level
+  if (t.free) s += 1;                        // accessibility
+  return s;
+}
+function buildLearningPath() {
+  // ordered list of trainings, most impactful first, each annotated with _why
+  const list = TRAINING_DATA.map(t=>{
+    const sc = scoreTraining(t);
+    let why = 'Direkomendasikan';
+    if (APP.profile){
+      const wd = t.dims.map(dn=>DIMENSIONS.findIndex(d=>d.name===dn)).filter(i=>APP.profile.weak.includes(i));
+      if (wd.length) why = 'Menguatkan ' + DIMENSIONS[wd[0]].name;
+      else {
+        const bn = {1:'Novice',2:'Developing',3:'Advanced'}[bandNum(t.level)];
+        why = 'Cocok untuk level ' + bn;
+      }
+    }
+    return Object.assign({}, t, {_score:sc, _why:why});
+  });
+  list.sort((a,b)=> b._score - a._score || a.id - b.id);
+  return list;
+}
+
+/* ══════════════════════════════════════════════════════
+   XP / PROGRESS HELPERS
+══════════════════════════════════════════════════════ */
+function trainingPct(id) {
+  const p = APP.progress[id];
+  const t = TRAINING_DATA.find(x=>x.id===id);
+  if (!p || !t) return 0;
+  return Math.round((p.filter(Boolean).length / t.modules.length) * 100);
+}
+function recomputeXP() {
+  let modules = 0;
+  Object.keys(APP.progress).forEach(id=>{ modules += APP.progress[id].filter(Boolean).length; });
+  APP.xp = modules*20 + APP.completed.length*40;
+}
+const XP_TIER = 200;
+
+/* ══════════════════════════════════════════════════════
+   LEARNING JOURNEY RENDER
+══════════════════════════════════════════════════════ */
+function renderJourney() {
+  renderBanner();
+  renderDash();
+  renderPath();
+  renderBadges();
+  renderBrowse(APP.trainFilter);
+  updateGrowthLevelCard();
+}
+
+function renderBanner() {
+  const el = document.getElementById('journey-banner');
+  if (!el) return;
+  if (!APP.profile) { el.innerHTML=''; return; }
+  const p = APP.profile;
+  const weakNames = p.weak.map(i=>DIMENSIONS[i].name).join(' · ');
+  el.innerHTML = `
+    <div class="profile-banner">
+      <div class="pb-emoji">${p.level.emoji}</div>
+      <div class="pb-text">
+        <div class="pb-level">Level Anda: ${p.level.name}</div>
+        <div class="pb-sub">Fokus penguatan: ${weakNames}</div>
+      </div>
+      <div class="pb-score">${p.score}%</div>
+    </div>`;
+}
+
+function renderDash() {
+  const el = document.getElementById('journey-dash');
+  if (!el) return;
+  const done = APP.completed.length, totalT = TRAINING_DATA.length;
+  const lvlName = APP.profile ? APP.profile.level.name : 'Belum diukur';
+  const xpInTier = APP.xp % XP_TIER;
+  const xpPct = Math.round((xpInTier/XP_TIER)*100);
+  const tier = Math.floor(APP.xp/XP_TIER)+1;
+  el.innerHTML = `
+    <div class="jd-card c-xp">
+      <div class="jd-icon">⚡</div>
+      <div class="jd-val">${APP.xp}<small> XP</small></div>
+      <div class="jd-label">Tier ${tier} · ${xpInTier}/${XP_TIER} ke tier berikutnya</div>
+      <div class="jd-xpbar"><div class="jd-xpfill" style="width:${xpPct}%"></div></div>
+    </div>
+    <div class="jd-card c-done">
+      <div class="jd-icon">✅</div>
+      <div class="jd-val">${done}<small> / ${totalT}</small></div>
+      <div class="jd-label">Pelatihan diselesaikan</div>
+    </div>
+    <div class="jd-card c-level">
+      <div class="jd-icon">${APP.profile?APP.profile.level.emoji:'🎯'}</div>
+      <div class="jd-val" style="font-size:19px">${lvlName}</div>
+      <div class="jd-label">Level RIPP-PPKn Anda</div>
+    </div>
+    <div class="jd-card c-streak">
+      <div class="jd-icon">🔥</div>
+      <div class="jd-val">${APP.streak}<small> hari</small></div>
+      <div class="jd-label">Streak belajar aktif</div>
+    </div>`;
+}
+
+function renderPath() {
+  const el = document.getElementById('path-container');
+  if (!el) return;
+  if (!APP.profile) {
+    el.innerHTML = `
+      <div class="path-empty">
+        <div class="path-empty-emoji">🧭</div>
+        <div class="path-empty-title">Jalur Anda menanti</div>
+        <div class="path-empty-sub">Ikuti Civix Level Test (7 pertanyaan, ±3 menit) untuk membuka jalur pembelajaran personal yang menargetkan dimensi kompetensi terlemah Anda.</div>
+        <button class="btn-primary" data-magnetic onclick="navigate('level-test')">🎯 Ambil Level Test Sekarang</button>
+      </div>`;
+    bindMagnetic();
+    return;
+  }
+  const path = buildLearningPath();
+  let activeMarked = false;
+  el.innerHTML = `<div class="path-list">` + path.map((t,idx)=>{
+    const pct = trainingPct(t.id);
+    const isDone = APP.completed.includes(t.id);
+    const isEnrolled = APP.enrolled.includes(t.id);
+    let cls = '', cta = '';
+    if (isDone) { cls='done'; cta=`<span class="btn-done-state">✓ Selesai</span><button class="btn-continue" onclick="openTraining(${t.id})">Tinjau Modul</button>`; }
+    else if (isEnrolled) { cls=!activeMarked?'active':''; if(!activeMarked)activeMarked=true; cta=`<button class="btn-continue" onclick="openTraining(${t.id})">Lanjutkan (${pct}%)</button>`; }
+    else { cls=!activeMarked?'active':''; if(!activeMarked)activeMarked=true; cta=`<button class="btn-enroll" onclick="enrollAndOpen(${t.id})">Mulai Pelatihan →</button>`; }
+    const progBar = (isEnrolled && !isDone) ? `<div class="path-prog-wrap"><div class="path-prog-track"><div class="path-prog-fill" style="width:${pct}%"></div></div><div class="path-prog-pct">${pct}%</div></div>` : '';
+    const nodeInner = isDone ? '✓' : (idx+1);
+    return `
+      <div class="path-item ${cls}">
+        <div class="path-node">${nodeInner}</div>
+        <div class="path-body" onclick="openTraining(${t.id})">
+          <div class="path-top">
+            <div class="path-title"><span class="pt-emoji">${t.icon}</span>${t.title}</div>
+            <div class="path-why">${t._why}</div>
+          </div>
+          <div class="path-desc">${t.desc}</div>
+          ${progBar}
+          <div class="path-cta" onclick="event.stopPropagation()">${cta}</div>
+        </div>
+      </div>`;
+  }).join('') + `</div>`;
+}
+
+function renderBadges() {
+  const el = document.getElementById('badge-strip');
+  if (!el) return;
+  el.innerHTML = BADGES.map(b=>{
+    const earned = APP.badges.includes(b.id);
+    return `<div class="badge-chip ${earned?'earned':''}" title="${b.name}"><div class="badge-ring">${b.icon}</div><div class="badge-name">${b.name}</div></div>`;
+  }).join('');
+}
+
+function renderBrowse(filter) {
+  const el = document.getElementById('train-browse-grid');
+  if (!el) return;
+  let data = TRAINING_DATA.slice();
+  if (filter==='novice'||filter==='developing'||filter==='advanced') data = data.filter(t=>t.level===filter);
+  else if (filter==='free') data = data.filter(t=>t.free);
+  else if (filter==='cert') data = data.filter(t=>t.cert);
+  const recIds = APP.profile ? buildLearningPath().slice(0,3).map(t=>t.id) : [];
+  el.innerHTML = data.map(t=>{
+    const pct = trainingPct(t.id);
+    const isDone = APP.completed.includes(t.id);
+    const isEnrolled = APP.enrolled.includes(t.id);
+    const rec = recIds.includes(t.id);
+    let status = `<span class="tb-duration">⏱ ${t.duration}</span>`;
+    let mini = '';
+    if (isDone) mini = `<span class="tb-status-mini s-done">✓ Selesai</span>`;
+    else if (isEnrolled) mini = `<span class="tb-status-mini s-enrolled">▸ ${pct}%</span>`;
+    return `
+      <div class="tb-card level-${bandNum(t.level)}" onclick="openTraining(${t.id})">
+        <div class="tb-head">
+          <div class="tb-icon">${t.icon}</div>
+          <div>
+            <div class="tb-badges">
+              <span class="tb-badge b-${t.level==='novice'?'novice':t.level==='developing'?'dev':'adv'}">${t.badgeText}</span>
+              ${rec?'<span class="tb-badge b-rec">★ REKOMENDASI</span>':''}
+              ${t.free?'<span class="tb-badge b-free">GRATIS</span>':''}
+              ${t.cert?'<span class="tb-badge b-cert">SERTIFIKAT</span>':''}
+            </div>
+            <div class="tb-title">${t.title}</div>
+          </div>
+        </div>
+        <div class="tb-desc">${t.desc}</div>
+        <div class="tb-dims">${t.dims.map(d=>`<span class="tb-dim">${d}</span>`).join('')}</div>
+        <div class="tb-foot">${status}${mini}</div>
+      </div>`;
+  }).join('');
+}
+function filterTrain(cat, btn) {
+  APP.trainFilter = cat;
+  document.querySelectorAll('#train-filter .train-filter-btn').forEach(b=>b.classList.remove('active'));
+  if (btn) btn.classList.add('active');
+  renderBrowse(cat);
+}
+
+/* ══════════════════════════════════════════════════════
+   TRAINING MODAL + MODULE TRACKING
+══════════════════════════════════════════════════════ */
+function enroll(id) {
+  if (!APP.enrolled.includes(id)) {
+    APP.enrolled.push(id);
+    if (!APP.progress[id]) APP.progress[id] = new Array(TRAINING_DATA.find(t=>t.id===id).modules.length).fill(false);
+  }
+}
+function enrollAndOpen(id) { enroll(id); renderJourney(); openTraining(id); showToast('📘 Pelatihan ditambahkan ke jalur Anda!'); }
+
+function openTraining(id) {
+  const t = TRAINING_DATA.find(x=>x.id===id);
+  if (!t) return;
+  enroll(id);
+  const box = document.getElementById('modal-box');
+  const prog = APP.progress[id];
+  const pct = trainingPct(id);
+  box.innerHTML = `
+    <div class="modal-hero">
+      <button class="modal-close" onclick="closeModal()">✕</button>
+      <div class="modal-icon">${t.icon}</div>
+      <div class="modal-badges">
+        <span class="tb-badge b-${t.level==='novice'?'novice':t.level==='developing'?'dev':'adv'}">${t.badgeText}</span>
+        ${t.free?'<span class="tb-badge b-free">GRATIS</span>':''}
+        ${t.cert?'<span class="tb-badge b-cert">SERTIFIKAT</span>':''}
+      </div>
+      <div class="modal-title">${t.title}</div>
+      <div class="modal-desc">${t.desc}</div>
+    </div>
+    <div class="modal-body">
+      <div class="modal-meta-row">
+        <div class="modal-meta"><div class="modal-meta-label">Durasi</div><div class="modal-meta-val">${t.duration}</div></div>
+        <div class="modal-meta"><div class="modal-meta-label">Modul</div><div class="modal-meta-val">${t.modules.length} sesi</div></div>
+        <div class="modal-meta"><div class="modal-meta-label">Sertifikat</div><div class="modal-meta-val">${t.cert?'Ya':'Tidak'}</div></div>
+      </div>
+      <div class="modal-prog-card">
+        <div class="modal-prog-top"><div class="modal-prog-label">Progres Anda</div><div class="modal-prog-pct" id="modal-pct">${pct}%</div></div>
+        <div class="modal-prog-track"><div class="modal-prog-fill" id="modal-fill" style="width:${pct}%"></div></div>
+      </div>
+      <div class="modules-label">Modul Pembelajaran — klik untuk menandai selesai</div>
+      <div id="modal-modules">
+        ${t.modules.map((m,i)=>`
+          <div class="module-item ${prog[i]?'done':''}" onclick="toggleModule(${id},${i})">
+            <div class="module-check">✓</div>
+            <div class="module-text">${m.t}</div>
+            <div class="module-time">${m.m}</div>
+          </div>`).join('')}
+      </div>
+      <div class="modal-actions">
+        <button class="btn-outline" onclick="closeModal()" style="flex:1;justify-content:center">Tutup</button>
+        <button class="btn-primary" onclick="markAllModules(${id})" style="flex:1;justify-content:center">Tandai Semua Selesai</button>
+      </div>
+    </div>`;
+  document.getElementById('modal-overlay').classList.add('open');
+}
+function closeModal() {
+  document.getElementById('modal-overlay').classList.remove('open');
+  renderJourney();
+}
+function refreshModal(id) {
+  const t = TRAINING_DATA.find(x=>x.id===id);
+  const prog = APP.progress[id];
+  const pct = trainingPct(id);
+  const pctEl = document.getElementById('modal-pct'); if (pctEl) pctEl.textContent = pct+'%';
+  const fillEl = document.getElementById('modal-fill'); if (fillEl) fillEl.style.width = pct+'%';
+  const wrap = document.getElementById('modal-modules');
+  if (wrap) wrap.querySelectorAll('.module-item').forEach((mi,i)=>mi.classList.toggle('done', prog[i]));
+}
+function toggleModule(id, i) {
+  if (!APP.progress[id]) enroll(id);
+  APP.progress[id][i] = !APP.progress[id][i];
+  recomputeXP();
+  refreshModal(id);
+  const wasDone = APP.completed.includes(id);
+  if (trainingPct(id)===100 && !wasDone) completeTraining(id);
+}
+function markAllModules(id) {
+  enroll(id);
+  APP.progress[id] = APP.progress[id].map(()=>true);
+  recomputeXP();
+  refreshModal(id);
+  if (!APP.completed.includes(id)) completeTraining(id);
+}
+function completeTraining(id) {
+  if (!APP.completed.includes(id)) APP.completed.push(id);
+  recomputeXP();
+  const t = TRAINING_DATA.find(x=>x.id===id);
+  launchConfetti();
+  showToast(`🎉 Selesai: ${t.title} · +${t.modules.length*20+40} XP!`);
+  awardBadges(true);
+}
+
+/* ══════════════════════════════════════════════════════
+   BADGES
+══════════════════════════════════════════════════════ */
+function awardBadges(notify) {
+  BADGES.forEach(b=>{
+    if (!APP.badges.includes(b.id) && b.check(APP)) {
+      APP.badges.push(b.id);
+      if (notify) setTimeout(()=>showToast(`🏅 Lencana baru: ${b.name}!`), 900);
+    }
+  });
+  renderBadges();
+}
+
+/* ══════════════════════════════════════════════════════
+   CONFETTI
+══════════════════════════════════════════════════════ */
+function launchConfetti() {
+  const cv = document.getElementById('confetti-canvas');
+  if (!cv || REDUCED) return;
+  cv.classList.add('active');
+  cv.width = window.innerWidth; cv.height = window.innerHeight;
+  const ctx = cv.getContext('2d');
+  const colors = ['#D2A53C','#C41B46','#00D4B4','#7C6EF5','#EC4899','#F5B43C'];
+  const N = 130;
+  const parts = Array.from({length:N}, ()=>({
+    x: Math.random()*cv.width, y: -20 - Math.random()*cv.height*0.3,
+    r: 4+Math.random()*5, c: colors[(Math.random()*colors.length)|0],
+    vx:(Math.random()-0.5)*3, vy:2+Math.random()*3.5,
+    rot:Math.random()*6.28, vr:(Math.random()-0.5)*0.3, shape:Math.random()>0.5
+  }));
+  const t0 = performance.now();
+  function frame(now){
+    const t = now - t0;
+    ctx.clearRect(0,0,cv.width,cv.height);
+    parts.forEach(p=>{
+      p.x+=p.vx; p.y+=p.vy; p.vy+=0.04; p.rot+=p.vr;
+      ctx.save(); ctx.translate(p.x,p.y); ctx.rotate(p.rot); ctx.fillStyle=p.c;
+      ctx.globalAlpha = Math.max(0, 1 - t/2200);
+      if (p.shape) ctx.fillRect(-p.r/2,-p.r/2,p.r,p.r*1.6);
+      else { ctx.beginPath(); ctx.arc(0,0,p.r/2,0,6.28); ctx.fill(); }
+      ctx.restore();
+    });
+    if (t < 2200) requestAnimationFrame(frame);
+    else { ctx.clearRect(0,0,cv.width,cv.height); cv.classList.remove('active'); }
+  }
+  requestAnimationFrame(frame);
+}
+
+/* ══════════════════════════════════════════════════════
+   GROWTH PAGE — personalised level card
+══════════════════════════════════════════════════════ */
+function updateGrowthLevelCard() {
+  const el = document.getElementById('growth-level-inner');
+  if (!el) return;
+  if (!APP.profile) return; // keep default prompt
+  const p = APP.profile;
+  el.innerHTML = `
+    <div style="font-size:40px;margin-bottom:8px">${p.level.emoji}</div>
+    <div style="font-family:'Playfair Display',serif;font-size:22px;font-weight:800;color:var(--t0);margin-bottom:2px">${p.level.name}</div>
+    <div style="font-family:'Space Mono',monospace;font-size:24px;color:var(--gold);margin-bottom:10px">${p.score}%</div>
+    <div style="font-size:12px;color:var(--t2);line-height:1.6;margin-bottom:16px">${p.level.desc}</div>
+    <button class="btn-primary" onclick="navigate('train')" style="font-size:13px;padding:11px 24px;width:100%;justify-content:center">🧭 Buka Learning Journey</button>`;
+}
+
+/* ══════════════════════════════════════════════════════
+   FAQ
+══════════════════════════════════════════════════════ */
+function renderFAQ() {
+  const el = document.getElementById('faq-list');
+  if (!el) return;
+  el.innerHTML = FAQS.map((f,i)=>`
+    <div class="faq-item" id="faq-${i}">
+      <div class="faq-q" onclick="toggleFAQ(${i})">${f.q}<span class="faq-arrow">▾</span></div>
+      <div class="faq-a"><div class="faq-a-inner">${f.a}</div></div>
+    </div>`).join('');
+}
+function toggleFAQ(i) {
+  const item = document.getElementById('faq-'+i);
+  const wasOpen = item.classList.contains('open');
+  document.querySelectorAll('.faq-item').forEach(f=>f.classList.remove('open'));
+  if (!wasOpen) item.classList.add('open');
+}
+
+/* ══════════════════════════════════════════════════════
+   TOAST
+══════════════════════════════════════════════════════ */
+let toastTimer = null;
+function showToast(msg) {
+  const t = document.getElementById('toast');
+  if (!t) return;
+  t.textContent = msg;
+  t.classList.add('show');
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(()=>t.classList.remove('show'), 3400);
+}
+
+/* ══════════════════════════════════════════════════════
+   CONTACT
+══════════════════════════════════════════════════════ */
+function submitContact() {
+  const name = document.getElementById('cf-name').value.trim();
+  const email = document.getElementById('cf-email').value.trim();
+  const msg = document.getElementById('cf-message').value.trim();
+  if (!name || !email || !msg) { showToast('⚠️ Mohon lengkapi nama, email, dan pesan.'); return; }
+  if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)) { showToast('⚠️ Format email belum valid.'); return; }
+  showToast('✅ Terima kasih! Pesan Anda telah terkirim (demo).');
+  ['cf-name','cf-email','cf-subject','cf-message'].forEach(id=>{ const e=document.getElementById(id); if(e) e.value=''; });
+}
+
+/* ══════════════════════════════════════════════════════
+   CIVIX AI ASSISTANT  ·  Claude API
+══════════════════════════════════════════════════════ */
+let aiSeeded = false;
+
+function toggleAI() {
+  const ov = document.getElementById('ai-overlay');
+  if (!ov) return;
+  aiOpen = !aiOpen;
+  ov.classList.toggle('open', aiOpen);
+  if (aiOpen) {
+    if (!aiSeeded) seedAI();
+    setTimeout(()=>{ const i=document.getElementById('ai-input'); if(i) i.focus(); }, 460);
+  }
+}
+
+function seedAI() {
+  aiSeeded = true;
+  const greeting = APP.profile
+    ? `Halo! 👋 Saya **Civix AI**, asisten pengembangan profesional PPKn Anda.\n\nSaya sudah melihat hasil Level Test Anda — level **${APP.profile.level.name}** dengan skor **${APP.profile.score}%**. Saya siap membantu menyusun strategi penguatan, menjelaskan kerangka *RIPP-PPKn*, atau membahas Learning Journey Anda. Ada yang ingin didiskusikan?`
+    : `Halo! 👋 Saya **Civix AI**, asisten pengembangan profesional untuk guru PPKn.\n\nSaya bisa menjelaskan kerangka *RIPP-PPKn*, memberi tips mengajar Pancasila & Kewarganegaraan, atau merekomendasikan pelatihan. Untuk rekomendasi yang dipersonalisasi, coba ikuti **Level Test** dulu ya. Ada yang bisa saya bantu?`;
+  pushMsg('bot', greeting);
+  renderFollowups(APP.profile
+    ? ['Jelaskan dimensi terlemah saya', 'Susun rencana 30 hari', 'Apa itu RIPP-PPKn?']
+    : ['Apa itu RIPP-PPKn?', 'Tips mengajar PPKn yang menarik', 'Kenapa harus ikut Level Test?']);
+}
+
+function openAIWith(question) {
+  const ov = document.getElementById('ai-overlay');
+  if (ov && !aiOpen) { aiOpen = true; ov.classList.add('open'); }
+  if (!aiSeeded) seedAI();
+  setTimeout(()=>sendAI(question), 220);
+}
+
+function quickAsk(text) { sendAI(text); }
+function askAI() { const i=document.getElementById('ai-input'); if(!i) return; const v=i.value.trim(); if(v) sendAI(v); }
+function onAIKey(e) { if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); askAI(); } }
+
+function pushMsg(role, text) {
+  const box = document.getElementById('ai-messages');
+  if (!box) return null;
+  const div = document.createElement('div');
+  div.className = 'ai-msg ' + role;
+  div.innerHTML = role === 'bot' ? mdToHtml(text) : escapeHTML(text);
+  box.appendChild(div);
+  scrollAIDown();
+  return div;
+}
+
+function scrollAIDown() {
+  const box = document.getElementById('ai-messages');
+  if (box) requestAnimationFrame(()=>{ box.scrollTop = box.scrollHeight; });
+}
+
+function renderFollowups(arr) {
+  const el = document.getElementById('ai-followups');
+  if (!el) return;
+  el.innerHTML = (arr||[]).slice(0,3).map(q=>
+    `<button class="ai-followup" onclick="quickAsk('${escapeAttr(q)}')">${escapeHTML(q)}</button>`
+  ).join('');
+}
+
+async function sendAI(text) {
+  if (aiLoading) return;
+  const input = document.getElementById('ai-input');
+  if (input) input.value = '';
+  renderFollowups([]);
+  pushMsg('user', text);
+  aiHistory.push({ role:'user', content:text });
+
+  aiLoading = true;
+  const sendBtn = document.getElementById('ai-send');
+  if (sendBtn) sendBtn.disabled = true;
+
+  const loadEl = document.createElement('div');
+  loadEl.className = 'ai-msg loading';
+  loadEl.innerHTML = '<div class="dot-typing"><span></span><span></span><span></span></div>';
+  const box = document.getElementById('ai-messages');
+  if (box) { box.appendChild(loadEl); scrollAIDown(); }
+
+  try {
+    const res = await fetch('https://api.anthropic.com/v1/messages', {
+      method: 'POST',
+      headers: { 'Content-Type':'application/json' },
+      body: JSON.stringify({
+        model: 'claude-sonnet-4-20250514',
+        max_tokens: 1000,
+        system: buildSystemPrompt(),
+        messages: aiHistory.slice(-10)
+      })
+    });
+    if (!res.ok) throw new Error('HTTP ' + res.status);
+    const data = await res.json();
+    const reply = (data.content || []).map(b => b.type === 'text' ? b.text : '').filter(Boolean).join('\n').trim()
+      || 'Maaf, saya belum bisa merumuskan jawaban. Coba tanyakan dengan cara lain ya.';
+    loadEl.remove();
+    pushMsg('bot', reply);
+    aiHistory.push({ role:'assistant', content:reply });
+    if (APP.profile) addCtxPill();
+    renderFollowups(suggestFollowups(text));
+  } catch (err) {
+    loadEl.remove();
+    pushMsg('bot', '⚠️ Maaf, koneksi ke Civix AI sedang terganggu. Periksa jaringan Anda lalu coba lagi. Sementara itu, Anda tetap bisa menjelajah **Insight**, **Level Test**, dan **Learning Journey**.');
+    renderFollowups(['Coba lagi', 'Apa itu RIPP-PPKn?']);
+  } finally {
+    aiLoading = false;
+    if (sendBtn) sendBtn.disabled = false;
+    if (input) input.focus();
+  }
+}
+
+function addCtxPill() {
+  const box = document.getElementById('ai-messages');
+  if (!box || box.querySelector('.ai-ctx-pill')) return;
+  const p = document.createElement('div');
+  p.className = 'ai-ctx-pill';
+  p.innerHTML = '🎯 Konteks profil Anda aktif';
+  box.insertBefore(p, box.firstChild);
+}
+
+function buildSystemPrompt() {
+  let s = `Kamu adalah "Civix AI", asisten pengembangan profesional untuk guru PPKn (Pendidikan Pancasila dan Kewarganegaraan) di Indonesia, yang dibuat untuk platform Civix.ID.
+
+KEPRIBADIAN: Hangat, suportif, profesional, dan inspiratif — seperti mentor senior yang dihormati. Gunakan Bahasa Indonesia yang baik namun akrab.
+
+KEAHLIAN INTI — Kerangka RIPP-PPKn (Reconceptualized Identity of Professional PPKn), yang memetakan identitas profesional guru PPKn ke dalam 10 dimensi:
+1. Civic Competence — kompetensi kewarganegaraan & wawasan kebangsaan
+2. Identitas Pedagogik — jati diri sebagai pendidik PPKn
+3. Civic Disposition — watak & nilai kewarganegaraan
+4. Civic Skills — keterampilan kewarganegaraan (partisipasi, advokasi)
+5. Komitmen Demokratis — komitmen pada nilai demokrasi
+6. Profesionalisme Reflektif — praktik refleksi & riset tindakan
+7. Professional Agency — kemandirian & daya juang profesional
+8. Digital Citizenship — kewargaan digital & literasi media
+9. Communities of Practice — keterlibatan dalam komunitas belajar (MGMP)
+10. Penguasaan Materi — penguasaan konten Pancasila, UUD 1945, kebangsaan
+
+ATURAN JAWABAN:
+- Ringkas, padat, langsung berguna. Idealnya 2-4 paragraf pendek.
+- Gunakan format markdown: **tebal** untuk penekanan, *miring* untuk istilah, "- " untuk poin, "### " untuk sub-judul bila perlu.
+- Kaitkan saran dengan dimensi RIPP-PPKn yang relevan.
+- Bila relevan, arahkan ke fitur Civix.ID: Level Test, Insight, Learning Journey, atau Civix Network.
+- Jangan mengarang fakta. Bila tak yakin, akui dengan jujur.
+- Fokus pada konteks pendidikan Indonesia (Kurikulum Merdeka, P5, Pancasila, UUD 1945).`;
+
+  if (APP.profile) {
+    const p = APP.profile;
+    const weakNames = p.weak.map(i=>DIMENSIONS[i].name).join(', ');
+    const enrolledNames = APP.enrolled.map(id=>{ const t=TRAINING_DATA.find(x=>x.id===id); return t?t.title:''; }).filter(Boolean).join(', ') || 'belum ada';
+    const doneNames = APP.completed.map(id=>{ const t=TRAINING_DATA.find(x=>x.id===id); return t?t.title:''; }).filter(Boolean).join(', ') || 'belum ada';
+    s += `
+
+PROFIL PENGGUNA SAAT INI (gunakan untuk personalisasi, sebut secara alami bila relevan):
+- Level Profesional: ${p.level.name} (skor ${p.score}%)
+- 3 dimensi terlemah yang perlu diperkuat: ${weakNames}
+- Pelatihan yang sedang diikuti: ${enrolledNames}
+- Pelatihan yang sudah diselesaikan: ${doneNames}
+- Total XP: ${APP.xp}
+Sesuaikan saran agar membantu pengguna menutup celah pada dimensi terlemahnya dan naik ke level berikutnya.`;
+  } else {
+    s += `
+
+CATATAN: Pengguna belum mengikuti Level Test, jadi kamu belum punya data profil. Bila pengguna meminta rekomendasi yang dipersonalisasi, dorong dengan ramah agar mereka mengikuti Level Test terlebih dulu (sekitar 2 menit) untuk hasil yang akurat.`;
+  }
+  return s;
+}
+
+function suggestFollowups(lastQ) {
+  const q = (lastQ||'').toLowerCase();
+  if (q.includes('ripp') || q.includes('kerangka') || q.includes('dimensi'))
+    return ['Dimensi mana yang paling penting?', 'Bagaimana cara mengukurnya?', 'Mulai Level Test'];
+  if (q.includes('pelatihan') || q.includes('rekomendasi') || q.includes('belajar'))
+    return APP.profile ? ['Kenapa urutan ini?', 'Berapa lama totalnya?', 'Buka Learning Journey'] : ['Ikuti Level Test dulu', 'Pelatihan apa yang gratis?'];
+  if (q.includes('level') || q.includes('hasil') || q.includes('skor'))
+    return ['Susun rencana 30 hari', 'Pelatihan prioritas saya', 'Cara naik level'];
+  if (q.includes('mengajar') || q.includes('kelas') || q.includes('siswa') || q.includes('p5'))
+    return ['Contoh aktivitas P5', 'Cara menilai sikap siswa', 'Atasi kelas pasif'];
+  return APP.profile
+    ? ['Fokus penguatan saya', 'Rekomendasi pelatihan', 'Tips mengajar PPKn']
+    : ['Apa itu RIPP-PPKn?', 'Mulai Level Test', 'Tips mengajar PPKn'];
+}
+
+/* ── Minimal Markdown → HTML (no external deps) ── */
+function escapeHTML(s){ return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
+function escapeAttr(s){ return String(s).replace(/'/g,"\\'").replace(/"/g,'&quot;'); }
+
+function mdToHtml(md) {
+  let t = escapeHTML(md);
+  // inline code, bold, italic
+  t = t.replace(/`([^`]+)`/g, '<code>$1</code>');
+  t = t.replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>');
+  t = t.replace(/\*([^*\n]+)\*/g, '<em>$1</em>');
+
+  const lines = t.split('\n');
+  let html = '', listType = null, para = [];
+  const flushPara = () => { if (para.length){ html += '<p>' + para.join(' ') + '</p>'; para = []; } };
+  const closeList = () => { if (listType){ html += '</' + listType + '>'; listType = null; } };
+
+  lines.forEach(raw => {
+    const line = raw.trim();
+    if (!line) { flushPara(); closeList(); return; }
+    let m;
+    if ((m = line.match(/^#{2,4}\s+(.*)$/))) { flushPara(); closeList(); html += '<h4>' + m[1] + '</h4>'; return; }
+    if ((m = line.match(/^[-•]\s+(.*)$/))) { flushPara(); if (listType !== 'ul'){ closeList(); html += '<ul>'; listType='ul'; } html += '<li>' + m[1] + '</li>'; return; }
+    if ((m = line.match(/^\d+[.)]\s+(.*)$/))) { flushPara(); if (listType !== 'ol'){ closeList(); html += '<ol>'; listType='ol'; } html += '<li>' + m[1] + '</li>'; return; }
+    closeList();
+    para.push(line);
+  });
+  flushPara(); closeList();
+  return html || '<p></p>';
+}
+
+/* ══════════════════════════════════════════════════════
+   GLOBAL KEYBOARD SHORTCUTS
+══════════════════════════════════════════════════════ */
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape') {
+    const mo = document.getElementById('modal-overlay');
+    if (mo && mo.classList.contains('open')) { closeModal(); return; }
+    if (aiOpen) { toggleAI(); return; }
+    closeMob();
+  }
+  if (e.altKey && (e.key === 'a' || e.key === 'A')) { e.preventDefault(); toggleAI(); }
+});
+
+/* ══════════════════════════════════════════════════════
+   BOOT
+══════════════════════════════════════════════════════ */
+document.addEventListener('DOMContentLoaded', () => {
+  navigate('home');
+  renderTicker();
+  startTypewriter();
+  startNWLive();
+  renderJourney();
+  renderFAQ();
+  bindMagnetic();
+  bindSpotlight();
+  initReveal();
+});
+</script>
+</body>
+</html>
